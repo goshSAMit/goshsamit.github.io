@@ -1,2 +1,1 @@
-# goshsamit.github.io
-my website
+read me
