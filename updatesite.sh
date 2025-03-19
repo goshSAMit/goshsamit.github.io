@@ -76,7 +76,9 @@ else
 fi
 
 # Step 6: Commit changes with a dynamic message
-commit_message="New Blog Post on $(date +'%Y-%m-%d %H:%M:%S')"
+# commit_message="New Blog Post on $(date +'%Y-%m-%d %H:%M:%S')"
+echo "Please enter a commit message: "
+read commit_message
 if git diff --cached --quiet; then
     echo "No changes to commit."
 else
