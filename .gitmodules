@@ -1,0 +1,16 @@
+[submodule "goshsamitsite/themes/themes/hugo-coder"]
+	path = goshsamitsite/themes/themes/hugo-coder
+	url = https://github.com/luizdepra/hugo-coder.git
+[submodule "goshsamitsite/themes/hugo-coder"]
+	path = goshsamitsite/themes/hugo-coder
+	url = https://github.com/luizdepra/hugo-coder.git
+[submodule "goshsamitsite/themes/congo"]
+	path = goshsamitsite/themes/congo
+	url = https://github.com/jpanther/congo.git
+	branch = stable
+[submodule "goshsamitsite/themes/terminal"]
+	path = goshsamitsite/themes/terminal
+	url = https://github.com/panr/hugo-theme-terminal.git
+[submodule "goshsamitsite/themes/gokarna"]
+	path = goshsamitsite/themes/gokarna
+	url = https://github.com/gokarna-theme/gokarna-hugo.git
