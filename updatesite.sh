@@ -8,7 +8,7 @@ cd "$SCRIPT_DIR"
 # Set variables for Obsidian to Hugo copy
 obsidianPostsPath="/home/sam/Documents/Obsidian Vault/posts"
 hugoPostsPath="/home/sam/website/goshsamit.github.io/content/posts"
-obsidianPagesPath="/home/sam/Documents/Obsidian Vault/posts"
+obsidianPagesPath="/home/sam/Documents/Obsidian Vault/pages"
 hugoContentPath="/home/sam/website/goshsamit.github.io/content"
 
 # Set GitHub Repo
