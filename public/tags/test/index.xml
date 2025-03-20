@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>test on goshSAMit</title>
-    <link>https:goshsamit.com/tags/test/</link>
+    <link>https://goshsamit.com/tags/test/</link>
     <description>Recent content in test on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Mar 2025 14:21:43 -0400</lastBuildDate><atom:link href="https:goshsamit.com/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Mar 2025 14:21:43 -0400</lastBuildDate><atom:link href="https://goshsamit.com/tags/test/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test Python Script Post Update</title>
-      <link>https:goshsamit.com/posts/posts/test-python-script-post/</link>
+      <link>https://goshsamit.com/posts/posts/test-python-script-post/</link>
       <pubDate>Wed, 19 Mar 2025 14:21:43 -0400</pubDate>
       
-      <guid>https:goshsamit.com/posts/posts/test-python-script-post/</guid>
+      <guid>https://goshsamit.com/posts/posts/test-python-script-post/</guid>
       <description>#yeahh
 ![[image.png]]
 updating again</description>
