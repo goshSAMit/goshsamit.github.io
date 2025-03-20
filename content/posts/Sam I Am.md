@@ -4,6 +4,8 @@ lastmod: 2025-03-19
 showTableOfContents: false
 title: Sam I Am
 type: post
+tags:
+  - blog
 ---
 The amount of times I've been asked "do you like green eggs and ham" is uncountable. To the point where I won't even allow the book in my house.
 

@@ -8,34 +8,13 @@
     <language>en</language>
     <lastBuildDate>Wed, 19 Mar 2025 14:21:43 -0400</lastBuildDate><atom:link href="https://goshsamit.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Aboutme</title>
-      <link>https://goshsamit.com/aboutme/</link>
-      <pubDate>Wed, 19 Mar 2025 20:57:33 -0400</pubDate>
-      
-      <guid>https://goshsamit.com/aboutme/</guid>
-      <description>#About Me
- </description>
-    </item>
-    
-    <item>
       <title>Sam I Am</title>
-      <link>https://goshsamit.com/posts/posts/sam-i-am/</link>
+      <link>https://goshsamit.com/posts/sam-i-am/</link>
       <pubDate>Wed, 19 Mar 2025 14:21:43 -0400</pubDate>
       
-      <guid>https://goshsamit.com/posts/posts/sam-i-am/</guid>
+      <guid>https://goshsamit.com/posts/sam-i-am/</guid>
       <description>The amount of times I&amp;rsquo;ve been asked &amp;ldquo;do you like green eggs and ham&amp;rdquo; is uncountable. To the point where I won&amp;rsquo;t even allow the book in my house.
 My name is Sam Arnold. I&amp;rsquo;m a 30-something-year-old father, husband, pet owner, tech-lover, video/board/table-top-role-playing gamer, space and science enthusiast, reader, and so many other things. I have been working in/as Quality Assurance/Engineering since 2017. My time in QA has taught me a lot about professionalism, workplace communication, punctuality, and other general professional career skills.</description>
-    </item>
-    
-    <item>
-      <title>Test Python Script Post Update</title>
-      <link>https://goshsamit.com/posts/posts/test-python-script-post/</link>
-      <pubDate>Wed, 19 Mar 2025 14:21:43 -0400</pubDate>
-      
-      <guid>https://goshsamit.com/posts/posts/test-python-script-post/</guid>
-      <description>#yeahh
-![[image.png]]
-updating again</description>
     </item>
     
   </channel>
