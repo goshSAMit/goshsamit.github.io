@@ -6,10 +6,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 # Set variables for Obsidian to Hugo copy
-obsidianPostsPath="/home/sam/Documents/Obsidian Vault/posts"
-hugoPostsPath="/home/sam/website/goshsamit.github.io/content/posts"
-obsidianPagesPath="/home/sam/Documents/Obsidian Vault/pages"
-hugoContentPath="/home/sam/website/goshsamit.github.io/content"
+obsidianContentPath="/home/sam/Documents/Obsidian Vault/content"
+hugoContentPath="/home/sam/website/goshsamit.github.io"
 
 # Set GitHub Repo
 myrepo="goshsamit.github.io"
@@ -35,23 +33,11 @@ else
     fi
 fi
 
-# Step 2: Sync posts from Obsidian to Hugo content folder using rsync
-echo "Syncing posts from Obsidian..."
+# Step 2: Sync files from Obsidian to Hugo content folder using rsync
+echo "Syncing files from Obsidian..."
 
-if [ ! -d "$obsidianPostsPath" ]; then
-    echo "Source path does not exist: $obsidianPostsPath"
-    exit 1
-fi
-
-if [ ! -d "$hugoPostsPath" ]; then
-    echo "Destination path does not exist: $hugoPostsPath"
-    exit 1
-fi
-
-rsync -av --delete "$obsidianPostsPath" "$hugoPostsPath"
-
-if [ ! -d "$obsidianPagesPath" ]; then
-    echo "Source path does not exist: $obsidianPagesPath"
+if [ ! -d "$obsidianContentPath" ]; then
+    echo "Source path does not exist: $obsidianContentPath"
     exit 1
 fi
 
@@ -60,7 +46,7 @@ if [ ! -d "$hugoContentPath" ]; then
     exit 1
 fi
 
-rsync -av --delete "$obsidianPagesPath" "$hugoContentPath"
+rsync -av --delete "$obsidianContentPath" "$hugoContentPath"
 
 # Step 3: Process Markdown files with Python script to handle image links
 echo "Processing image links in Markdown files..."

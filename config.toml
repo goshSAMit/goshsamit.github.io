@@ -9,8 +9,9 @@ title = "goshSAMit"
 [menu]
   [[menu.main]]
     name = "About Me"
-    url = "/aboutme/"
+    url = "/about-me/"
     weight = 1
+
   [[menu.main]]
     # Display name
     name = "Posts"
@@ -33,7 +34,7 @@ title = "goshSAMit"
     identifier = "github"
 
     # Absolute URL to external resource
-    url = "https://github.com"
+    url = "https://github.com/goshsamit"
     weight = 4
     
     # Surround the menu entry (or name) with HTML content, such as Feather
