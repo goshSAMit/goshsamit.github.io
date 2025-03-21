@@ -18,39 +18,39 @@ title = "goshSAMit"
 
 [menu]
   [[menu.main]]
-    name = "About Me"
-    url = "/about-me/"
-    weight = 1
-    pre = "<span data-feather='user'></span>"
+    name = "About Me" # Display name
+    url = "/about-me/" # Relative URL slug (appended to baseURL)
+    weight = 1 # Lower weights are listed first in the menu (leftmost); higher weights are listed last in the menu (rightmost)
+    pre = "<span data-feather='user'></span>" #Feather icons: https://feathericons.com
 
   [[menu.main]]
-    # Display name
-    name = "Posts"
-    # Relative URL slug (appended to baseURL)
-    url = "/posts/"
-    # Lower weights are listed first in the menu (leftmost); higher weights are
-    # listed last in the menu (rightmost)
+    name = "Projects"
+    url = "/projects/"
     weight = 2
+    pre = "<span data-feather='terminal'></span>"
+
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 3
     pre = "<span data-feather='list'></span>"
 
   [[menu.main]]
     name = "Tags"
     url = "/tags/"
-    weight = 3
+    weight = 4
     pre = "<span data-feather='tag'></span>"
     
   [[menu.main]]
     identifier = "github"
     url = "https://github.com/goshsamit"
-    weight = 4
-    # Surround the menu entry (or name) with HTML content, such as Feather
-    # icons: https://feathericons.com
+    weight = 5
     pre = "<span data-feather='github'></span>"
     post = ""
 
     [[menu.main]]
     identifier = "linkedin"
-    url = "https://github.com/goshsamit"
-    weight = 5
+    url = "https://www.linkedin.com/in/goshsamit/"
+    weight = 6
     pre = "<span data-feather='linkedin'></span>"
     post = ""

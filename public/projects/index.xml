@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on goshSAMit</title>
+    <link>https://goshsamit.com/projects/</link>
+    <description>Recent content in Projects on goshSAMit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="https://goshsamit.com/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home Lab Hardware</title>
+      <link>https://goshsamit.com/projects/home-lab-hardware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/projects/home-lab-hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Home Lab Network</title>
+      <link>https://goshsamit.com/projects/home-lab-network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/projects/home-lab-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>This Website</title>
+      <link>https://goshsamit.com/projects/this-website/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/projects/this-website/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
