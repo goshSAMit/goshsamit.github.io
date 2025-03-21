@@ -15,7 +15,7 @@ The primary purpose of this website/blog is to document my journey of becoming a
 
 "In QA, failure is always an option." If I had to boil down a career in QA/QE into two words, those words would be "break things." However, I've found myself less and less satisfied with breaking. I want to also build and fix things and in QA, that just isn't possible. So I've found it's time to learn how to plan, build, release, and maintain devices and software. 
 
-My first steps in my learning process were studying and ultimately passing the Comptia A+ certification. I've also built myself a homelab of an old Dell desktop and a mini hp computer. This lab is where I plan to learn and practice a number of different technology projects and challenges.
+My first step in my learning process was studying for and ultimately passing the Comptia A+ certification. I've also built myself a homelab that consists of an old Dell desktop and a mini hp computer, a couple Raspberry Pis, a couple TP-Link managed switches, and even an upcycled Cisco Catalyst switch. This lab is learn and practice a number of different technology projects and challenges.
 
 I will go into detail about my homelab in my next post!
 
