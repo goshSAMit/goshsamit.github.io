@@ -11,8 +11,8 @@ title = "goshSAMit"
   # avatarSize = "size-m"
   # avatarURL = "/images/avatar.webp"
 
-  description = "description"
-  showPostsOnHomePage = "recent"
+  description = "Sam | Columbus | Senior Quality Engineer"
+  showPostsOnHomePage = ""
   numberPostsOnHomePage = 4
   togglePreviousAndNextButtons = false
 
@@ -29,17 +29,17 @@ title = "goshSAMit"
     weight = 2
     pre = "<span data-feather='terminal'></span>"
 
-  [[menu.main]]
-    name = "Posts"
-    url = "/posts/"
-    weight = 3
-    pre = "<span data-feather='list'></span>"
+  # [[menu.main]]
+  #   name = "Posts"
+  #   url = "/posts/"
+  #   weight = 3
+  #   pre = "<span data-feather='list'></span>"
 
-  [[menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 4
-    pre = "<span data-feather='tag'></span>"
+  # [[menu.main]]
+  #   name = "Tags"
+  #   url = "/tags/"
+  #   weight = 4
+  #   pre = "<span data-feather='tag'></span>"
     
   [[menu.main]]
     identifier = "github"

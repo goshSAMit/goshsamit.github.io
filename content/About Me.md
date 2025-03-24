@@ -12,7 +12,7 @@ showTableOfContents: true
 ## Present
 I am currently a Senior Quality Engineer in Restaurant Technology at Wendy's. I am responsible for quality of software and hardware, test lab maintenance, and test automation.
 ## Future
-Regardless of where I end up, I hope to have never slow down in learning as much as I can about technology.
+Regardless of where I end up, I hope I am learning as much as I can.
 ***
 ## Professional Skills
 | Quality Engineering |         IT/Lab Support          |          Programming           |                         Tools                         |
