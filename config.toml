@@ -15,6 +15,7 @@ title = "goshSAMit"
   showPostsOnHomePage = ""
   numberPostsOnHomePage = 4
   togglePreviousAndNextButtons = false
+  dateFormat = "2 January, 2006"
 
 [menu]
   [[menu.main]]
