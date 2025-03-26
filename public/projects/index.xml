@@ -12,7 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://goshsamit.com/projects/home-lab-hardware/</guid>
-      <description></description>
+      <description>My home lab came about from asking the question &amp;ldquo;how am I supposed to get an IT job that requires experience, without experience?&amp;rdquo; On top of new responsibilities at my current role, my home lab is a great place to practice, learn, try new things, and fail, all without worry about taking down production.
+I figure my hardware is a good place to start. I&amp;rsquo;ll make a list of all the hardware and what I am doing with it or what I plan to do with it.</description>
     </item>
     
     <item>
@@ -21,6 +22,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://goshsamit.com/projects/home-lab-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PFSense Router and Firewall</title>
+      <link>https://goshsamit.com/projects/pfsense-router-and-firewall/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/projects/pfsense-router-and-firewall/</guid>
       <description></description>
     </item>
     
