@@ -81,6 +81,14 @@ My network at home is set into 3 Virtual …">
             </div>
             
             <div class="nav-link">
+                <a href="https://goshsamit.com/topics/" aria-label="" ><span data-feather='list'></span> Topics </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/tags/" aria-label="tags" ><span data-feather='tag'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
                 <a href="https://github.com/goshsamit" aria-label="github" ><span data-feather='github'></span>  </a>
             </div>
             
@@ -113,6 +121,14 @@ My network at home is set into 3 Virtual …">
                 
                 <li class="nav-item">
                     <a href="https://goshsamit.com/projects/" ><span data-feather='terminal'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/topics/" ><span data-feather='list'></span> Topics </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/tags/" ><span data-feather='tag'></span>  </a>
                 </li>
                 
                 <li class="nav-item">
@@ -199,16 +215,19 @@ My network at home is set into 3 Virtual …">
 <ol>
 <li>Log into your PFSense Router/Firewall</li>
 <li>Navigate to Interfaces -&gt; Assignments</li>
-<li>Select VLANs -&gt; Add</li>
+<li>Select VLANs -&gt; Add
+!<img src="/images/step%203%20&amp;%204.png" alt="Image Description"></li>
 <li>Make the following configurations:
 <ol>
 <li>Choose the interface the VLAN will be connected to (lan most likely)</li>
-<li>Add a unique VLAN ID number (any number between 1 and 4096)</li>
+<li>Add a unique VLAN ID number (any number between 1 and 4096)
+!<img src="/images/step%206%207.png" alt="Image Description"></li>
 </ol>
 </li>
 <li>Navigate to Interface -&gt; Assignments</li>
 <li>Select the VLAN from the drop-down</li>
-<li>Click Add</li>
+<li>Click Add
+!<img src="/images/step%208%209.png" alt="Image Description"></li>
 </ol>
 <h2 id="pfsense---interface-configuration">PFSense - Interface Configuration</h2>
 <ol>
@@ -216,7 +235,8 @@ My network at home is set into 3 Virtual …">
 <li>Make the following configurations:
 <ol>
 <li>Enable the Interface</li>
-<li>Under static IPv4, set the IP address that you want the gateway/router to be</li>
+<li>Under static IPv4, set the IP address that you want the gateway/router to be
+!<img src="/images/Step%201%202%203.png" alt="Image Description"></li>
 </ol>
 </li>
 </ol>
@@ -243,20 +263,23 @@ My network at home is set into 3 Virtual …">
 <p>This firewall setup will be to prevent traffic from one VLAN from having any access to traffic on a separate VLAN.</p>
 <ol>
 <li>Navigate to Firewall -&gt; Rules</li>
-<li>Set VLAN interface firewall rules to the following:</li>
+<li>Set VLAN interface firewall rules to the following:
+!<img src="/images/fstep%201%202%203.png" alt="Image Description"></li>
 </ol>
 <h2 id="set-up-vlan-on-tp-link-omada-switch">Set Up VLAN on TP-Link Omada Switch</h2>
 <p>This setup is for a specific device but should be relatively similar to most consumer manage switches.</p>
 <ol>
 <li>Log in to switch</li>
 <li>Navigate to L2 Features -&gt; VLAN -&gt; 802.1Q</li>
-<li>Click Add</li>
+<li>Click Add
+!<img src="/images/steps%203%204.png" alt="Image Description"></li>
 <li>Make the following configurations:
 <ol>
 <li>Give the VLAN an ID number to match the ID you gave during the creation of the VLAN on PFSense</li>
 <li>Name the VLAN</li>
 <li>Select ports for untagged traffic</li>
-<li>Select ports for tagged traffic</li>
+<li>Select ports for tagged traffic
+!<img src="/images/steps%205%206%207.png" alt="Image Description"></li>
 </ol>
 </li>
 </ol>
@@ -264,7 +287,8 @@ My network at home is set into 3 Virtual …">
 <p>If you plan to have wireless devices connecting to one of your new VLANs, use the following steps. As mentioned above, these steps are for a specific TP-Link Wireless Access Point (WAP) but should be similar to other consumer WAPs.</p>
 <ol>
 <li>Log in to WAP</li>
-<li>Navigate to Wireless</li>
+<li>Navigate to Wireless
+!<img src="/images/step%201.png" alt="Image Description"></li>
 <li>Check whether you want to add a 2.4Hz or a 5Hz SSID</li>
 <li>Click Add and make the following configurations:
 <ol>
@@ -272,13 +296,15 @@ My network at home is set into 3 Virtual …">
 <li>Security type</li>
 <li>Encryption type</li>
 <li>Password</li>
-<li>Make the SSID and Password the same for both a 2.4Hz and 5Hz network so there is no need to log into both separately</li>
+<li>Make the SSID and Password the same for both a 2.4Hz and 5Hz network so there is no need to log into both separately
+!<img src="/images/step%203.png" alt="Image Description"></li>
 </ol>
 </li>
 <li>Navigate to VLAN</li>
 <li>Enable the VLAN for the SSID</li>
 <li>Add the VLAN ID that matches what was set up in PFSense</li>
-<li>The port the WAP is plugged into the on the other switch will need to be tagged with the VLAN ID (see previous section)</li>
+<li>The port the WAP is plugged into the on the other switch will need to be tagged with the VLAN ID (see previous section)
+!<img src="/images/step%204%205%206.png" alt="Image Description"></li>
 </ol>
 <h2 id="what-did-i-learn">What Did I Learn?</h2>
 <ul>

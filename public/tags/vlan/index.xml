@@ -17,5 +17,14 @@
 My network at home is set into 3 Virtual Local Area Networks (VLAN). The first is VLAN 1, and it is the default network that my family&amp;rsquo;s everyday devices connect to. The second is VLAN 20. It is for smart devices that have questionable security vulnerabilities. I buy devices that I generally trust, but you can&amp;rsquo;t be too careful.</description>
     </item>
     
+    <item>
+      <title>Tagged vs Untagged VLANs</title>
+      <link>https://goshsamit.com/topics/tagged-and-untagged-vlans/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/topics/tagged-and-untagged-vlans/</guid>
+      <description>This will be a post about tagged and untagged VLAN traffic</description>
+    </item>
+    
   </channel>
 </rss>

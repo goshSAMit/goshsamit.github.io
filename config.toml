@@ -30,17 +30,17 @@ title = "goshSAMit"
     weight = 2
     pre = "<span data-feather='terminal'></span>"
 
-  # [[menu.main]]
-  #   name = "Posts"
-  #   url = "/posts/"
-  #   weight = 3
-  #   pre = "<span data-feather='list'></span>"
+  [[menu.main]]
+    name = "Topics"
+    url = "/Topics/"
+    weight = 3
+    pre = "<span data-feather='list'></span>"
 
-  # [[menu.main]]
-  #   name = "Tags"
-  #   url = "/tags/"
-  #   weight = 4
-  #   pre = "<span data-feather='tag'></span>"
+  [[menu.main]]
+    identifier = "tags"
+    url = "/tags/"
+    weight = 4
+    pre = "<span data-feather='tag'></span>"
     
   [[menu.main]]
     identifier = "github"

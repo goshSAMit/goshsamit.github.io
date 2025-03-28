@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>topic on goshSAMit</title>
+    <link>https://goshsamit.com/tags/topic/</link>
+    <description>Recent content in topic on goshSAMit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/topic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tagged vs Untagged VLANs</title>
+      <link>https://goshsamit.com/topics/tagged-and-untagged-vlans/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/topics/tagged-and-untagged-vlans/</guid>
+      <description>This will be a post about tagged and untagged VLAN traffic</description>
+    </item>
+    
+  </channel>
+</rss>

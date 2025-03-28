@@ -18,6 +18,15 @@ My network at home is set into 3 Virtual Local Area Networks (VLAN). The first i
     </item>
     
     <item>
+      <title>Tagged vs Untagged VLANs</title>
+      <link>https://goshsamit.com/topics/tagged-and-untagged-vlans/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/topics/tagged-and-untagged-vlans/</guid>
+      <description>This will be a post about tagged and untagged VLAN traffic</description>
+    </item>
+    
+    <item>
       <title>About Me</title>
       <link>https://goshsamit.com/about-me/</link>
       <pubDate>Wed, 19 Mar 2025 20:57:33 -0400</pubDate>
@@ -25,16 +34,6 @@ My network at home is set into 3 Virtual Local Area Networks (VLAN). The first i
       <guid>https://goshsamit.com/about-me/</guid>
       <description>Download Resume (To Be Added)  Past I was a Quality Assurance Consultant responsible for the manual and automated test of web apps, mobile apps, and POS apps. I consulted for Huntington Bank, BMW Financial Services, and Bath &amp;amp; Body Works. I graduated from Ohio University with a Bachelor&amp;rsquo;s Degree in Information and Telecommunication Systems.
 Present I am currently a Senior Quality Engineer in Restaurant Technology at Wendy&amp;rsquo;s. I am responsible for quality of software and hardware, test lab maintenance, and test automation.</description>
-    </item>
-    
-    <item>
-      <title>Sam I Am</title>
-      <link>https://goshsamit.com/posts/sam-i-am/</link>
-      <pubDate>Wed, 19 Mar 2025 14:21:43 -0400</pubDate>
-      
-      <guid>https://goshsamit.com/posts/sam-i-am/</guid>
-      <description>The amount of times I&amp;rsquo;ve been asked &amp;ldquo;do you like green eggs and ham&amp;rdquo; is uncountable. To the point where I won&amp;rsquo;t even allow the book in my house.
-My name is Sam Arnold. I&amp;rsquo;m a 30-something-year-old father, husband, pet owner, tech-lover, video/board/table-top-role-playing gamer, space and science enthusiast, reader, and so many other things. I have been working in/as Quality Assurance/Engineering since 2017. My time in QA has taught me a lot about professionalism, workplace communication, punctuality, and other general professional career skills.</description>
     </item>
     
     <item>

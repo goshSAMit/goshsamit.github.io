@@ -15,4 +15,15 @@ fi
 
 rsync -av --delete "$obsidianContentPath" "$hugoContentPath"
 
+echo "Processing image links in Markdown files..."
+if [ ! -f "images.py" ]; then
+    echo "Python script images.py not found."
+    exit 1
+fi
+
+if ! python3 images.py; then
+    echo "Failed to process image links."
+    exit 1
+fi
+
 hugo server
