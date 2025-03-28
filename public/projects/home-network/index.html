@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Home Network</title>
+    <meta name="description" content="Intro This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.
+My network at home is set into 3 Virtual …">
+    <meta name="keywords" content='homelab, vlan, dhcp, firewall, ssid'>
+
+    <meta property="og:url" content="https://goshsamit.com/projects/home-network/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Home Network">
+    <meta property="og:description" content="Intro This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.
+My network at home is set into 3 Virtual …">
+    <meta property="og:image" content="https://goshsamit.com">
+    <meta property="og:image:secure_url" content="https://goshsamit.com">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Home Network">
+    <meta name="twitter:description" content="Intro This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.
+My network at home is set into 3 Virtual …">
+    <meta property="twitter:domain" content="https://goshsamit.com/projects/home-network/">
+    <meta property="twitter:url" content="https://goshsamit.com/projects/home-network/">
+    <meta name="twitter:image" content="https://goshsamit.com">
+
+    
+    <link rel="canonical" href="https://goshsamit.com/projects/home-network/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.4ebcf867d90c30eb0ddad45ea3a07c1aa7fa4a1049453f29452bab3829c86c8b.js" integrity="sha256-Trz4Z9kMMOsN2tReo6B8Gqf6ShBJRT8pRSurOCnIbIs="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://goshsamit.com">goshSAMit</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/about-me/" aria-label="" ><span data-feather='user'></span> About Me </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/projects/" aria-label="" ><span data-feather='terminal'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/goshsamit" aria-label="github" ><span data-feather='github'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://www.linkedin.com/in/goshsamit/" aria-label="linkedin" ><span data-feather='linkedin'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/about-me/" ><span data-feather='user'></span> About Me </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/projects/" ><span data-feather='terminal'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/goshsamit" ><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/goshsamit/" ><span data-feather='linkedin'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Home Network</h1>
+
+        
+
+        
+	
+	
+	
+	
+        
+
+	
+
+	
+
+	
+          <small role="doc-subtitle"></small>
+	
+
+	
+          <p class="post-date">
+              
+
+              28 March, 2025
+
+              
+          </p>
+	
+
+        <ul class="post-tags">
+          
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/homelab">homelab</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/vlan">vlan</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/dhcp">dhcp</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/firewall">firewall</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/ssid">ssid</a></li>
+           
+         
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <h2 id="intro">Intro</h2>
+<p>This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.</p>
+<p>My network at home is set into 3 Virtual Local Area Networks (VLAN). The first is VLAN 1, and it is the default network that my family&rsquo;s everyday devices connect to. The second is VLAN 20. It is for smart devices that have questionable security vulnerabilities. I buy devices that I generally trust, but you can&rsquo;t be too careful. Plus, this was a good way to help me understand VLANs a bit more. The third one is VLAN 30, and it is for my home lab devices. This way, I can make router, firewall, DNS, and other changes without interrupting anyone&rsquo;s network connectivity.</p>
+<h2 id="pfsense---create-vlan">PFSense - Create VLAN</h2>
+<ol>
+<li>Log into your PFSense Router/Firewall</li>
+<li>Navigate to Interfaces -&gt; Assignments</li>
+<li>Select VLANs -&gt; Add</li>
+<li>Make the following configurations:
+<ol>
+<li>Choose the interface the VLAN will be connected to (lan most likely)</li>
+<li>Add a unique VLAN ID number (any number between 1 and 4096)</li>
+</ol>
+</li>
+<li>Navigate to Interface -&gt; Assignments</li>
+<li>Select the VLAN from the drop-down</li>
+<li>Click Add</li>
+</ol>
+<h2 id="pfsense---interface-configuration">PFSense - Interface Configuration</h2>
+<ol>
+<li>Navigate to Interfaces -&gt; VLAN Interface to edit</li>
+<li>Make the following configurations:
+<ol>
+<li>Enable the Interface</li>
+<li>Under static IPv4, set the IP address that you want the gateway/router to be</li>
+</ol>
+</li>
+</ol>
+<h2 id="pfsense-dhcp-server">PFSense DHCP Server</h2>
+<ol>
+<li>Navigate to Services -&gt; DHCP Server</li>
+<li>Select the interface you want to configure</li>
+<li>Make the following configurations:
+<ol>
+<li>Enable the DHCP Service</li>
+<li>Select the IP address range that the DHCP Server should hand out to new clients/devices</li>
+<li>Add DNS server(s) the DHCP should hand out to new devices/clients</li>
+<li>Add Static Mapping for any device you do not want the IP address to change (should be outside of range in step 3.2)
+<ol>
+<li>Enter MAC Address of the device</li>
+<li>Enter the IP Address the device should have</li>
+<li>Give it a hostname and description</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="pfsense---firewall-setup-for-vlans">PFSense - Firewall Setup for VLANs</h2>
+<p>This firewall setup will be to prevent traffic from one VLAN from having any access to traffic on a separate VLAN.</p>
+<ol>
+<li>Navigate to Firewall -&gt; Rules</li>
+<li>Set VLAN interface firewall rules to the following:</li>
+</ol>
+<h2 id="set-up-vlan-on-tp-link-omada-switch">Set Up VLAN on TP-Link Omada Switch</h2>
+<p>This setup is for a specific device but should be relatively similar to most consumer manage switches.</p>
+<ol>
+<li>Log in to switch</li>
+<li>Navigate to L2 Features -&gt; VLAN -&gt; 802.1Q</li>
+<li>Click Add</li>
+<li>Make the following configurations:
+<ol>
+<li>Give the VLAN an ID number to match the ID you gave during the creation of the VLAN on PFSense</li>
+<li>Name the VLAN</li>
+<li>Select ports for untagged traffic</li>
+<li>Select ports for tagged traffic</li>
+</ol>
+</li>
+</ol>
+<h2 id="extra---add-a-wireless-network-to-a-vlan">Extra - Add a Wireless Network to a VLAN</h2>
+<p>If you plan to have wireless devices connecting to one of your new VLANs, use the following steps. As mentioned above, these steps are for a specific TP-Link Wireless Access Point (WAP) but should be similar to other consumer WAPs.</p>
+<ol>
+<li>Log in to WAP</li>
+<li>Navigate to Wireless</li>
+<li>Check whether you want to add a 2.4Hz or a 5Hz SSID</li>
+<li>Click Add and make the following configurations:
+<ol>
+<li>Name (will be displayed on devices when searching for a wireless network)</li>
+<li>Security type</li>
+<li>Encryption type</li>
+<li>Password</li>
+<li>Make the SSID and Password the same for both a 2.4Hz and 5Hz network so there is no need to log into both separately</li>
+</ol>
+</li>
+<li>Navigate to VLAN</li>
+<li>Enable the VLAN for the SSID</li>
+<li>Add the VLAN ID that matches what was set up in PFSense</li>
+<li>The port the WAP is plugged into the on the other switch will need to be tagged with the VLAN ID (see previous section)</li>
+</ol>
+<h2 id="what-did-i-learn">What Did I Learn?</h2>
+<ul>
+<li>VLAN Creation</li>
+<li>Tagged vs. Untagged VLAN Traffic</li>
+<li>Basic Firewall Rules</li>
+<li>DHCP Server Setup</li>
+</ul>
+
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+
+    
+    
+    
+</div>
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#pfsense---create-vlan">PFSense - Create VLAN</a></li>
+    <li><a href="#pfsense---interface-configuration">PFSense - Interface Configuration</a></li>
+    <li><a href="#pfsense-dhcp-server">PFSense DHCP Server</a></li>
+    <li><a href="#pfsense---firewall-setup-for-vlans">PFSense - Firewall Setup for VLANs</a></li>
+    <li><a href="#set-up-vlan-on-tp-link-omada-switch">Set Up VLAN on TP-Link Omada Switch</a></li>
+    <li><a href="#extra---add-a-wireless-network-to-a-vlan">Extra - Add a Wireless Network to a VLAN</a></li>
+    <li><a href="#what-did-i-learn">What Did I Learn?</a></li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
+
+
+    
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>

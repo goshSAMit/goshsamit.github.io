@@ -6,7 +6,17 @@
     <description>Recent content on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Mar 2025 14:21:43 -0400</lastBuildDate><atom:link href="https://goshsamit.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home Network</title>
+      <link>https://goshsamit.com/projects/home-network/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/projects/home-network/</guid>
+      <description>Intro This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.
+My network at home is set into 3 Virtual Local Area Networks (VLAN). The first is VLAN 1, and it is the default network that my family&amp;rsquo;s everyday devices connect to. The second is VLAN 20. It is for smart devices that have questionable security vulnerabilities. I buy devices that I generally trust, but you can&amp;rsquo;t be too careful.</description>
+    </item>
+    
     <item>
       <title>About Me</title>
       <link>https://goshsamit.com/about-me/</link>
@@ -30,38 +40,11 @@ My name is Sam Arnold. I&amp;rsquo;m a 30-something-year-old father, husband, pe
     <item>
       <title>Home Lab Hardware</title>
       <link>https://goshsamit.com/projects/home-lab-hardware/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
       
       <guid>https://goshsamit.com/projects/home-lab-hardware/</guid>
       <description>My home lab came about from asking the question &amp;ldquo;how am I supposed to get an IT job that requires experience, without experience?&amp;rdquo; On top of new responsibilities at my current role, my home lab is a great place to practice, learn, try new things, and fail, all without worry about taking down production.
 I figure my hardware is a good place to start. I&amp;rsquo;ll make a list of all the hardware and what I am doing with it or what I plan to do with it.</description>
-    </item>
-    
-    <item>
-      <title>Home Lab Network</title>
-      <link>https://goshsamit.com/projects/home-lab-network/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://goshsamit.com/projects/home-lab-network/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PFSense Router and Firewall</title>
-      <link>https://goshsamit.com/projects/pfsense-router-and-firewall/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://goshsamit.com/projects/pfsense-router-and-firewall/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>This Website</title>
-      <link>https://goshsamit.com/projects/this-website/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://goshsamit.com/projects/this-website/</guid>
-      <description></description>
     </item>
     
   </channel>

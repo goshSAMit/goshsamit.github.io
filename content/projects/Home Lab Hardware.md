@@ -1,8 +1,10 @@
 ---
 title: Home Lab Hardware
-type: page
+type: post
 tags:
   - homelab
+  - hardware
+date: 2025-03-19
 ---
 My home lab came about from asking the question "how am I supposed to get an IT job that requires experience, without experience?" On top of new responsibilities at my current role, my home lab is a great place to practice, learn, try new things, and fail, all without worry about taking down production.
 

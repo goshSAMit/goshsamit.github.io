@@ -1,13 +1,12 @@
 ---
 title: Projects
 type: page
+date:
 ---
-## Hello, my projects are:
+## Project Pages that are Complete:
 
-1. [Home Lab Hardware](/projects/home-lab-hardware/)
+[Home Lab Hardware](/projects/home-lab-hardware/) | 19 March, 2025
 
-2. [Home Lab Software](/projects/home-lab-software/)
-
-3. [This Website](/projects/this-website/)
-
-4. [PFSense Router and Firewall](projects/pfSense-router-and-firewall)
+## Project Pages that are Works-In-Progress
+[Home Network](/projects/home-network) | 28 March, 2025
+- Plan to add screenshots

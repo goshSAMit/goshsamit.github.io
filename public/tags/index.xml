@@ -6,7 +6,52 @@
     <description>Recent content in Tags on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Mar 2025 14:21:43 -0400</lastBuildDate><atom:link href="https://goshsamit.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dhcp</title>
+      <link>https://goshsamit.com/tags/dhcp/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/dhcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>firewall</title>
+      <link>https://goshsamit.com/tags/firewall/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/firewall/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homelab</title>
+      <link>https://goshsamit.com/tags/homelab/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssid</title>
+      <link>https://goshsamit.com/tags/ssid/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/ssid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vlan</title>
+      <link>https://goshsamit.com/tags/vlan/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/vlan/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>blog</title>
       <link>https://goshsamit.com/tags/blog/</link>
@@ -17,20 +62,11 @@
     </item>
     
     <item>
-      <title>homelab</title>
-      <link>https://goshsamit.com/tags/homelab/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>hardware</title>
+      <link>https://goshsamit.com/tags/hardware/</link>
+      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://goshsamit.com/tags/homelab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>wip</title>
-      <link>https://goshsamit.com/tags/wip/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://goshsamit.com/tags/wip/</guid>
+      <guid>https://goshsamit.com/tags/hardware/</guid>
       <description></description>
     </item>
     

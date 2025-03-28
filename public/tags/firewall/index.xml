@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>firewall on goshSAMit</title>
+    <link>https://goshsamit.com/tags/firewall/</link>
+    <description>Recent content in firewall on goshSAMit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/firewall/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home Network</title>
+      <link>https://goshsamit.com/projects/home-network/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/projects/home-network/</guid>
+      <description>Intro This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.
+My network at home is set into 3 Virtual Local Area Networks (VLAN). The first is VLAN 1, and it is the default network that my family&amp;rsquo;s everyday devices connect to. The second is VLAN 20. It is for smart devices that have questionable security vulnerabilities. I buy devices that I generally trust, but you can&amp;rsquo;t be too careful.</description>
+    </item>
+    
+  </channel>
+</rss>
