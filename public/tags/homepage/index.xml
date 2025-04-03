@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>homepage on goshSAMit</title>
+    <link>https://goshsamit.com/tags/homepage/</link>
+    <description>Recent content in homepage on goshSAMit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/homepage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homepage Dashboard</title>
+      <link>https://goshsamit.com/projects/homepage-dashboard/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/projects/homepage-dashboard/</guid>
+      <description>Intro Homepage is a simple dashboard allowing users to set up a single page to get a quick view of services running on their network, resource utilization, and important links. It&amp;rsquo;s also a good project to start working with docker containers, as you can create a docker container to run your homepage instance, which is what this guide will show.
+Steps  Install docker and docker compose with this guide On your docker machine (mine is a VM running Ubuntu server), create a folder where you want to keep your homepage files  mkdir homepage &amp;ldquo;CD&amp;rdquo; into that directory  cd homepage Create two new files inside that directory called &amp;ldquo;docker-compose.</description>
+    </item>
+    
+  </channel>
+</rss>

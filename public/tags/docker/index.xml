@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Topics on goshSAMit</title>
-    <link>https://goshsamit.com/topics/</link>
-    <description>Recent content in Topics on goshSAMit</description>
+    <title>docker on goshSAMit</title>
+    <link>https://goshsamit.com/tags/docker/</link>
+    <description>Recent content in docker on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/topics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to install Docker and Docker Compose on Ubuntu</title>
       <link>https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/</link>
@@ -14,15 +14,6 @@
       
       <guid>https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/</guid>
       <description>run the following commands to set up docker&amp;rsquo;s apt repository  # Add Docker&#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates curl sudo install -m 0755 -d /etc/apt/keyrings sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc sudo chmod a+r /etc/apt/keyrings/docker.asc # Add the repository to Apt sources: echo \ &amp;quot;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \ $(. /etc/os-release &amp;amp;&amp;amp; echo &amp;quot;${UBUNTU_CODENAME:-$VERSION_CODENAME}&amp;quot;) stable&amp;quot; | \ sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null sudo apt-get update run the following command to install the latest version of docker  sudo apt-get install docker-ce docker-ce-cli containerd.</description>
-    </item>
-    
-    <item>
-      <title>Tagged vs Untagged VLANs</title>
-      <link>https://goshsamit.com/topics/tagged-and-untagged-vlans/</link>
-      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://goshsamit.com/topics/tagged-and-untagged-vlans/</guid>
-      <description>This will be a post about tagged and untagged VLAN traffic</description>
     </item>
     
   </channel>

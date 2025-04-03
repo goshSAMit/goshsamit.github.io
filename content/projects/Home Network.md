@@ -84,6 +84,6 @@ If you plan to have wireless devices connecting to one of your new VLANs, use th
 !![Image Description](/images/step%204%205%206.png)
 ## What Did I Learn?
 - VLAN Creation
-- Tagged vs. Untagged VLAN Traffic
+- [Tagged vs. Untagged VLAN Traffic](https://goshsamit.com/topics/tagged-and-untagged-vlans/)
 - Basic Firewall Rules
 - DHCP Server Setup

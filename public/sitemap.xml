@@ -2,22 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://goshsamit.com/tags/docker/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/dockercompose/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/homelab/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/homepage/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/projects/homepage-dashboard/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/how-to/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/projects/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/topics/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/topics/</loc>
+    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://goshsamit.com/tags/dhcp/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/tags/firewall/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://goshsamit.com/projects/home-network/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/tags/homelab/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/projects/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/tags/ssid/</loc>
@@ -26,13 +53,7 @@
     <loc>https://goshsamit.com/topics/tagged-and-untagged-vlans/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://goshsamit.com/tags/topic/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/topics/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/tags/vlan/</loc>

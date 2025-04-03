@@ -6,7 +6,61 @@
     <description>Recent content in Tags on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>https://goshsamit.com/tags/docker/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dockercompose</title>
+      <link>https://goshsamit.com/tags/dockercompose/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/dockercompose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homelab</title>
+      <link>https://goshsamit.com/tags/homelab/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homepage</title>
+      <link>https://goshsamit.com/tags/homepage/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/homepage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>how-to</title>
+      <link>https://goshsamit.com/tags/how-to/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/how-to/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>topics</title>
+      <link>https://goshsamit.com/tags/topics/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/topics/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>dhcp</title>
       <link>https://goshsamit.com/tags/dhcp/</link>
@@ -22,15 +76,6 @@
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
       
       <guid>https://goshsamit.com/tags/firewall/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>homelab</title>
-      <link>https://goshsamit.com/tags/homelab/</link>
-      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://goshsamit.com/tags/homelab/</guid>
       <description></description>
     </item>
     
