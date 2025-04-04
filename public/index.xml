@@ -8,6 +8,15 @@
     <language>en</language>
     <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Git Commands</title>
+      <link>https://goshsamit.com/topics/git-commands/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/topics/git-commands/</guid>
+      <description>Steps to connect to a git repo  Create the repo on Github Create a folder on your local device that you want to old the repo git clone {repo_url_from_github} git remote set-url origin {repo_url_from_github} git config &amp;ndash;global user.name “name&amp;quot; git config &amp;ndash;global user.email “email” git branch newbranch git checkout newbranch make changes to code git add . git commit . -m &amp;ldquo;commit message&amp;rdquo; git push origin main Go to github and create a new pull request  Steps to start a repo on local and push to github  In Progress  Various git commands  git pull origin main ==&amp;gt; pulls from the main branch to local checked out branch git remote add {alias} {url} -&amp;gt; git remote add origin github.</description>
+    </item>
+    
+    <item>
       <title>Homepage Dashboard</title>
       <link>https://goshsamit.com/projects/homepage-dashboard/</link>
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
