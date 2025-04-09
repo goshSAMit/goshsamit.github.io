@@ -6,7 +6,25 @@
     <description>Recent content in Tags on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>topics</title>
+      <link>https://goshsamit.com/tags/topics/</link>
+      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/topics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vlan</title>
+      <link>https://goshsamit.com/tags/vlan/</link>
+      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/vlan/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>docker</title>
       <link>https://goshsamit.com/tags/docker/</link>
@@ -62,15 +80,6 @@
     </item>
     
     <item>
-      <title>topics</title>
-      <link>https://goshsamit.com/tags/topics/</link>
-      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://goshsamit.com/tags/topics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>dhcp</title>
       <link>https://goshsamit.com/tags/dhcp/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
@@ -98,29 +107,20 @@
     </item>
     
     <item>
-      <title>topic</title>
-      <link>https://goshsamit.com/tags/topic/</link>
-      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://goshsamit.com/tags/topic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vlan</title>
-      <link>https://goshsamit.com/tags/vlan/</link>
-      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://goshsamit.com/tags/vlan/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>hardware</title>
       <link>https://goshsamit.com/tags/hardware/</link>
       <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
       
       <guid>https://goshsamit.com/tags/hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>osi</title>
+      <link>https://goshsamit.com/tags/osi/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/tags/osi/</guid>
       <description></description>
     </item>
     

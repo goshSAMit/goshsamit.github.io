@@ -6,7 +6,16 @@
     <description>Recent content on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VLAN Basics</title>
+      <link>https://goshsamit.com/topics/virtual-local-area-network-vlan-basics/</link>
+      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/topics/virtual-local-area-network-vlan-basics/</guid>
+      <description>Virtual Local Area Network (VLAN) Basics In my home, I was looking for a way to keep my personal devices separate from any smart devices, as those devices can be less secure. One way I could handle this is to set up two Local Area Networks (LAN), one for my personal devices and one for the smart devices. Each would have their own switch and connection to the router and neither would be able to talk to the other.</description>
+    </item>
+    
     <item>
       <title>Git Commands</title>
       <link>https://goshsamit.com/topics/git-commands/</link>
@@ -23,7 +32,7 @@
       
       <guid>https://goshsamit.com/projects/homepage-dashboard/</guid>
       <description>Intro Homepage is a simple dashboard allowing users to set up a single page to get a quick view of services running on their network, resource utilization, and important links. It&amp;rsquo;s also a good project to start working with docker containers, as you can create a docker container to run your homepage instance, which is what this guide will show.
-Steps  Install docker and docker compose with this guide On your docker machine (mine is a VM running Ubuntu server), create a folder where you want to keep your homepage files  mkdir homepage &amp;ldquo;CD&amp;rdquo; into that directory  cd homepage Create two new files inside that directory called &amp;ldquo;docker-compose.</description>
+ If you would like to see the configuration files for my own homepage dashboard, please follow this link.</description>
     </item>
     
     <item>
@@ -46,15 +55,6 @@ My network at home is set into 3 Virtual Local Area Networks (VLAN). The first i
     </item>
     
     <item>
-      <title>Tagged vs Untagged VLANs</title>
-      <link>https://goshsamit.com/topics/tagged-and-untagged-vlans/</link>
-      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://goshsamit.com/topics/tagged-and-untagged-vlans/</guid>
-      <description>This will be a post about tagged and untagged VLAN traffic</description>
-    </item>
-    
-    <item>
       <title>About Me</title>
       <link>https://goshsamit.com/about-me/</link>
       <pubDate>Wed, 19 Mar 2025 20:57:33 -0400</pubDate>
@@ -72,6 +72,15 @@ Present I am currently a Senior Quality Engineer in Restaurant Technology at Wen
       <guid>https://goshsamit.com/projects/home-lab-hardware/</guid>
       <description>My home lab came about from asking the question &amp;ldquo;how am I supposed to get an IT job that requires experience, without experience?&amp;rdquo; On top of new responsibilities at my current role, my home lab is a great place to practice, learn, try new things, and fail, all without worry about taking down production.
 I figure my hardware is a good place to start. I&amp;rsquo;ll make a list of all the hardware and what I am doing with it or what I plan to do with it.</description>
+    </item>
+    
+    <item>
+      <title>The OSI Model</title>
+      <link>https://goshsamit.com/topics/the-osi-model/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/topics/the-osi-model/</guid>
+      <description>This will include a post about the OSI model.</description>
     </item>
     
   </channel>

@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://goshsamit.com/</loc>
+    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/</loc>
+    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/topics/</loc>
+    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/topics/</loc>
+    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/vlan/</loc>
+    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/topics/virtual-local-area-network-vlan-basics/</loc>
+    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://goshsamit.com/tags/docker/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -12,9 +30,6 @@
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/topics/git-commands/</loc>
-    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/tags/homelab/</loc>
@@ -35,15 +50,6 @@
     <loc>https://goshsamit.com/projects/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/</loc>
-    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/topics/</loc>
-    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/tags/topics/</loc>
-    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://goshsamit.com/tags/dhcp/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
   </url><url>
@@ -56,15 +62,6 @@
     <loc>https://goshsamit.com/tags/ssid/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/topics/tagged-and-untagged-vlans/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/tags/topic/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/tags/vlan/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://goshsamit.com/about-me/</loc>
     <lastmod>2025-03-19T20:57:33-04:00</lastmod>
   </url><url>
@@ -73,6 +70,12 @@
   </url><url>
     <loc>https://goshsamit.com/projects/home-lab-hardware/</loc>
     <lastmod>2025-03-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/osi/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/topics/the-osi-model/</loc>
+    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/categories/</loc>
   </url>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>osi on goshSAMit</title>
+    <link>https://goshsamit.com/tags/osi/</link>
+    <description>Recent content in osi on goshSAMit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/osi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The OSI Model</title>
+      <link>https://goshsamit.com/topics/the-osi-model/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/topics/the-osi-model/</guid>
+      <description>This will include a post about the OSI model.</description>
+    </item>
+    
+  </channel>
+</rss>

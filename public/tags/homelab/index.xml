@@ -14,7 +14,7 @@
       
       <guid>https://goshsamit.com/projects/homepage-dashboard/</guid>
       <description>Intro Homepage is a simple dashboard allowing users to set up a single page to get a quick view of services running on their network, resource utilization, and important links. It&amp;rsquo;s also a good project to start working with docker containers, as you can create a docker container to run your homepage instance, which is what this guide will show.
-Steps  Install docker and docker compose with this guide On your docker machine (mine is a VM running Ubuntu server), create a folder where you want to keep your homepage files  mkdir homepage &amp;ldquo;CD&amp;rdquo; into that directory  cd homepage Create two new files inside that directory called &amp;ldquo;docker-compose.</description>
+ If you would like to see the configuration files for my own homepage dashboard, please follow this link.</description>
     </item>
     
     <item>
