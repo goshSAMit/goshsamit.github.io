@@ -1,5 +1,5 @@
 ---
-title: Accessing a Windows SMB Share on Ubuntu
+title: Accessing an SMB Share on Ubuntu
 date: 2025-06-11
 type: post
 tags:
@@ -7,12 +7,22 @@ tags:
   - how-to
   - nas
 ---
+### Intro
+Server Message Block (SMB) is a protocol that enables a device to communicate with a remote server or other network device. It is mainly used for file sharing. It is mostly used for Windows-based devices but Apple devices are capable of using the protocol as well. You may hear Common Internet File System (CIFS) used when talking about SMB. It is basically an older version of SMB and is used less frequently in favor of SMB.
+
+Network File System provides similar functionality to that of SMB, but is used primarily with Linux-based devices.
+
+I had created an SMB-based Network Attached Storage (NAS) share but wanted an older laptop I have that is running Ubuntu to access this share as well. After some digging on the internet, I found a solution that is working for me.
+
 ### Install Packages
-1. Make sure your packages with sudo apt update
+1. Make sure your packages
+```console
+sudo apt update
+```
 2. Install the Samba Package, the SMB Client package, and the CIFS Utilities package
-	1. The Samba package allows Ubuntu machines to share Windows resources
-	2. SMB Client is a set of command line tools that allows Ubuntu to access Server Message Block (SMB)/Common Internet File System (CIFS) resources
-	3. CIFS-Utils allows mounting SMB and CIFS file systems to an Ubuntu system
+	- The Samba package allows Ubuntu machines to share Windows resources
+	- SMB Client is a set of command line tools that allows Ubuntu to access Server Message Block (SMB)/Common Internet File System (CIFS) resources
+	- CIFS-Utils allows mounting SMB and CIFS file systems to an Ubuntu system
 ```console
 sudo apt install samba smbclient cifs-utils
 ```
