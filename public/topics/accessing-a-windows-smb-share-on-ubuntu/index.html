@@ -18,26 +18,26 @@
     
 
     
-    <title>Topics</title>
-    <meta name="description" content="Sam | Columbus | Senior Quality Engineer">
-    <meta name="keywords" content=''>
+    <title>Accessing a Windows SMB Share on Ubuntu</title>
+    <meta name="description" content="Install Packages  Make sure your packages with sudo apt update Install the Samba Package, the SMB Client package, and the CIFS Utilities package  The Samba …">
+    <meta name="keywords" content='homelab, how-to, nas'>
 
-    <meta property="og:url" content="https://goshsamit.com/topics/">
+    <meta property="og:url" content="https://goshsamit.com/topics/accessing-a-windows-smb-share-on-ubuntu/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Topics">
-    <meta property="og:description" content="Sam | Columbus | Senior Quality Engineer">
+    <meta property="og:title" content="Accessing a Windows SMB Share on Ubuntu">
+    <meta property="og:description" content="Install Packages  Make sure your packages with sudo apt update Install the Samba Package, the SMB Client package, and the CIFS Utilities package  The Samba …">
     <meta property="og:image" content="https://goshsamit.com">
     <meta property="og:image:secure_url" content="https://goshsamit.com">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Topics">
-    <meta name="twitter:description" content="Sam | Columbus | Senior Quality Engineer">
-    <meta property="twitter:domain" content="https://goshsamit.com/topics/">
-    <meta property="twitter:url" content="https://goshsamit.com/topics/">
+    <meta name="twitter:title" content="Accessing a Windows SMB Share on Ubuntu">
+    <meta name="twitter:description" content="Install Packages  Make sure your packages with sudo apt update Install the Samba Package, the SMB Client package, and the CIFS Utilities package  The Samba …">
+    <meta property="twitter:domain" content="https://goshsamit.com/topics/accessing-a-windows-smb-share-on-ubuntu/">
+    <meta property="twitter:url" content="https://goshsamit.com/topics/accessing-a-windows-smb-share-on-ubuntu/">
     <meta name="twitter:image" content="https://goshsamit.com">
 
     
-    <link rel="canonical" href="https://goshsamit.com/topics/">
+    <link rel="canonical" href="https://goshsamit.com/topics/accessing-a-windows-smb-share-on-ubuntu/">
 
     
     <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
@@ -148,73 +148,109 @@
     </nav>
 </header>
 <main id="content">
-    <div class="container list-posts">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Accessing a Windows SMB Share on Ubuntu</h1>
 
-    <h1 class="list-title"></h1>
+        
+
+        
+	
+	
+	
+	
+        
+
+	
+
+	
+
+	
+          <small role="doc-subtitle"></small>
+	
+
+	
+          <p class="post-date">
+              
+
+              11 June, 2025
+
+              
+          </p>
+	
+
+        <ul class="post-tags">
+          
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/homelab">homelab</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/how-to">how-to</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/nas">nas</a></li>
+           
+         
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <h3 id="install-packages">Install Packages</h3>
+<ol>
+<li>Make sure your packages with sudo apt update</li>
+<li>Install the Samba Package, the SMB Client package, and the CIFS Utilities package
+<ol>
+<li>The Samba package allows Ubuntu machines to share Windows resources</li>
+<li>SMB Client is a set of command line tools that allows Ubuntu to access Server Message Block (SMB)/Common Internet File System (CIFS) resources</li>
+<li>CIFS-Utils allows mounting SMB and CIFS file systems to an Ubuntu system</li>
+</ol>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">sudo apt install samba smbclient cifs-utils
+</code></pre></div><h3 id="mount-directly-in-ubuntus-file-explorer">Mount Directly in Ubuntu&rsquo;s File Explorer</h3>
+<ol>
+<li>Open File Explorer</li>
+<li>Click &lsquo;Other Locations&rsquo;</li>
+<li>Enter the following in the Connect to Server text box:
+`smb://SHARE-IP-ADDRESS/NAME-OF-SHARE</li>
+</ol>
+<h3 id="mount-to-a-directory-using-terminal">Mount to a directory using Terminal</h3>
+<ol>
+<li>Open the terminal</li>
+<li>Create a directory in the /mnt folder to mount the drive to</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">mkdir /mnt/share
+</code></pre></div><ol start="3">
+<li>Then mount the drive to that newly created directory</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">sudo mount -t cifs //IP_ADDRESS_OF_SHARE/SHARE_NAME /mnt/share -o username=YOUR_USERNAME,password=YOUR_PASSWORD,uid=$(id -u),gid=$(id -g)
+</code></pre></div><ol start="3">
+<li>(Optional) In the terminal, open the fstab file</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">	sudo nano //etc/fstab
+</code></pre></div><ol start="4">
+<li>(Optional) Add the following line to the fstab file to make sure your share automatically mounts on restart</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">\pard\pardeftab720\partightenfactor0
+\cf2 //IP-address-of-share/share-name /mnt/share cifs username=your-username,password=your-password,uid=1000,gid=1000 0 0\
+</code></pre></div>
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
 
     
-
-    <h2 class="posts-year">2025</h2><div class="post-title">
-     <a href="https://goshsamit.com/topics/accessing-a-windows-smb-share-on-ubuntu/" class="post-link">Accessing a Windows SMB Share on Ubuntu</a>
-     
-     
-     
-     
-
-     
-
-     
-      <div class="flex-break"></div>
-      <span class="post-date">11 June, 2025</span>
-     
+    
+    
 </div>
-<div class="post-title">
-     <a href="https://goshsamit.com/topics/virtual-local-area-network-vlan-basics/" class="post-link">VLAN Basics</a>
-     
-     
-     
-     
 
-     
 
-     
-      <div class="flex-break"></div>
-      <span class="post-date">9 April, 2025</span>
-     
-</div>
-<div class="post-title">
-     <a href="https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/" class="post-link">How to install Docker and Docker Compose on Ubuntu</a>
-     
-     
-     
-     
-
-     
-
-     
-      <div class="flex-break"></div>
-      <span class="post-date">3 April, 2025</span>
-     
-</div>
-<div class="post-title">
-     <a href="https://goshsamit.com/topics/git-commands/" class="post-link">Git Commands</a>
-     
-     
-     
-     
-
-     
-
-     
-      <div class="flex-break"></div>
-      <span class="post-date">3 April, 2025</span>
-     
-</div>
 
     
-
-</div>
-
 
         </main><footer class="footer">
     

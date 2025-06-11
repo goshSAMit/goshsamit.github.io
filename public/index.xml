@@ -6,7 +6,16 @@
     <description>Recent content on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Accessing a Windows SMB Share on Ubuntu</title>
+      <link>https://goshsamit.com/topics/accessing-a-windows-smb-share-on-ubuntu/</link>
+      <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/topics/accessing-a-windows-smb-share-on-ubuntu/</guid>
+      <description>Install Packages  Make sure your packages with sudo apt update Install the Samba Package, the SMB Client package, and the CIFS Utilities package  The Samba package allows Ubuntu machines to share Windows resources SMB Client is a set of command line tools that allows Ubuntu to access Server Message Block (SMB)/Common Internet File System (CIFS) resources CIFS-Utils allows mounting SMB and CIFS file systems to an Ubuntu system    sudo apt install samba smbclient cifs-utils Mount Directly in Ubuntu&amp;rsquo;s File Explorer  Open File Explorer Click &amp;lsquo;Other Locations&amp;rsquo; Enter the following in the Connect to Server text box: `smb://SHARE-IP-ADDRESS/NAME-OF-SHARE  Mount to a directory using Terminal  Open the terminal Create a directory in the /mnt folder to mount the drive to  mkdir /mnt/share Then mount the drive to that newly created directory  sudo mount -t cifs //IP_ADDRESS_OF_SHARE/SHARE_NAME /mnt/share -o username=YOUR_USERNAME,password=YOUR_PASSWORD,uid=$(id -u),gid=$(id -g) (Optional) In the terminal, open the fstab file  sudo nano //etc/fstab (Optional) Add the following line to the fstab file to make sure your share automatically mounts on restart  \pard\pardeftab720\partightenfactor0 \cf2 //IP-address-of-share/share-name /mnt/share cifs username=your-username,password=your-password,uid=1000,gid=1000 0 0\ </description>
+    </item>
+    
     <item>
       <title>VLAN Basics</title>
       <link>https://goshsamit.com/topics/virtual-local-area-network-vlan-basics/</link>

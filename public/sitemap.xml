@@ -2,14 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://goshsamit.com/topics/accessing-a-windows-smb-share-on-ubuntu/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://goshsamit.com/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/homelab/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/how-to/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/nas/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/tags/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/topics/</loc>
-    <lastmod>2025-04-09T00:00:00+00:00</lastmod>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/tags/topics/</loc>
     <lastmod>2025-04-09T00:00:00+00:00</lastmod>
@@ -32,9 +44,6 @@
     <loc>https://goshsamit.com/topics/git-commands/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/homelab/</loc>
-    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://goshsamit.com/tags/homepage/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -42,9 +51,6 @@
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/</loc>
-    <lastmod>2025-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/tags/how-to/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/projects/</loc>
