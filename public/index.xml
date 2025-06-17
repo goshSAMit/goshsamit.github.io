@@ -83,5 +83,14 @@ Present I am currently a Senior Quality Engineer in Restaurant Technology at Wen
 I figure my hardware is a good place to start. I&amp;rsquo;ll make a list of all the hardware and what I am doing with it or what I plan to do with it.</description>
     </item>
     
+    <item>
+      <title>Network Attached Storage</title>
+      <link>https://goshsamit.com/projects/network-attached-storage/</link>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/projects/network-attached-storage/</guid>
+      <description>What is Network Attached Storage? Networked attached storage, or NAS, is a storage device that can be access through a network, rather than being directly connected to a device. Basically, it&amp;rsquo;s a portable hard-drive that anyone on the network can access (but is not actually portable). Users directly accessing the network as well as users outside the network but using a VPN to remotely connect to the network can access a NAS.</description>
+    </item>
+    
   </channel>
 </rss>
