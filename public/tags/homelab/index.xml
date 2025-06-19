@@ -6,7 +6,17 @@
     <description>Recent content in homelab on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Traefik and PiHole</title>
+      <link>https://goshsamit.com/projects/traefik-and-pihole/</link>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://goshsamit.com/projects/traefik-and-pihole/</guid>
+      <description>Project I was getting tired of entering IP addresses and having to click through the &amp;ldquo;connection not secure&amp;rdquo; messaging to get into my homelab services. I found a video by TechnoTim on YouTube where he walks through the &amp;ldquo;how-to&amp;rsquo;s&amp;rdquo; of setting up Traefik as a cert manager and local DNS records on PiHole. So instead of copying his tutorial, I will just link it here.
+ TechnoTim&amp;rsquo;s website with tutorial TechnoTim&amp;rsquo;s Youtube tutorial  Domain Name System Part of this project focuses on creating local Domain Name System (DNS) records, which allow you to access services in a browser using domain names instead of IP addresses.</description>
+    </item>
+    
     <item>
       <title>Accessing an SMB Share on Ubuntu</title>
       <link>https://goshsamit.com/topics/accessing-an-smb-share-on-ubuntu/</link>
