@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Git Commands</title>
+    <meta name="description" content="Steps to connect to a Github repository  Create the repository (repo) on Github Create a folder on your local device that you want to hold the repo Run the …">
+    <meta name="keywords" content='topics, git'>
+
+    <meta property="og:url" content="https://goshsamit.com/topics/git-commands-and-github/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Git Commands">
+    <meta property="og:description" content="Steps to connect to a Github repository  Create the repository (repo) on Github Create a folder on your local device that you want to hold the repo Run the …">
+    <meta property="og:image" content="https://goshsamit.com">
+    <meta property="og:image:secure_url" content="https://goshsamit.com">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Git Commands">
+    <meta name="twitter:description" content="Steps to connect to a Github repository  Create the repository (repo) on Github Create a folder on your local device that you want to hold the repo Run the …">
+    <meta property="twitter:domain" content="https://goshsamit.com/topics/git-commands-and-github/">
+    <meta property="twitter:url" content="https://goshsamit.com/topics/git-commands-and-github/">
+    <meta name="twitter:image" content="https://goshsamit.com">
+
+    
+    <link rel="canonical" href="https://goshsamit.com/topics/git-commands-and-github/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.4ebcf867d90c30eb0ddad45ea3a07c1aa7fa4a1049453f29452bab3829c86c8b.js" integrity="sha256-Trz4Z9kMMOsN2tReo6B8Gqf6ShBJRT8pRSurOCnIbIs="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://goshsamit.com">goshSAMit</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/about-me/" aria-label="" ><span data-feather='user'></span> About Me </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/projects/" aria-label="" ><span data-feather='terminal'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/topics/" aria-label="" ><span data-feather='list'></span> Topics </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/tags/" aria-label="tags" ><span data-feather='tag'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/goshsamit" aria-label="github" ><span data-feather='github'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://www.linkedin.com/in/goshsamit/" aria-label="linkedin" ><span data-feather='linkedin'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/about-me/" ><span data-feather='user'></span> About Me </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/projects/" ><span data-feather='terminal'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/topics/" ><span data-feather='list'></span> Topics </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/tags/" ><span data-feather='tag'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/goshsamit" ><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/goshsamit/" ><span data-feather='linkedin'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Git Commands</h1>
+
+        
+
+        
+	
+	
+	
+	
+        
+
+	
+
+	
+
+	
+          <small role="doc-subtitle"></small>
+	
+
+	
+          <p class="post-date">
+              
+
+              3 April, 2025
+
+              
+          </p>
+	
+
+        <ul class="post-tags">
+          
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/topics">topics</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/git">git</a></li>
+           
+         
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <h2 id="steps-to-connect-to-a-github-repository">Steps to connect to a Github repository</h2>
+<ol>
+<li>Create the repository (repo) on Github</li>
+<li>Create a folder on your local device that you want to hold the repo</li>
+<li>Run the following command to clone the Github repository</li>
+</ol>
+<pre tabindex="0"><code>git clone repo_url_from_github
+</code></pre><ol start="4">
+<li>Run the following command to link &ldquo;origin&rdquo; to github url</li>
+</ol>
+<pre tabindex="0"><code>git remote set-url origin repo_url_from_github
+</code></pre><ol start="5">
+<li>Run the following commands to link your commits to your name and email address</li>
+</ol>
+<pre tabindex="0"><code>git config --global user.name “name&quot;
+git config --global user.email “email”
+</code></pre><ol start="7">
+<li>Run the following command to create a new branch on local</li>
+</ol>
+<pre tabindex="0"><code>git branch newbranchname
+</code></pre><ol start="7">
+<li>Run the following branch to &ldquo;checkout&rdquo; and make changes to branch on local</li>
+</ol>
+<pre tabindex="0"><code>git checkout newbranch
+</code></pre><ol start="8">
+<li>Run the following command to add all the files in the directory to the initialized git repo</li>
+</ol>
+<pre tabindex="0"><code>git add .
+</code></pre><ol start="9">
+<li>Run the following command to commit all the changes and add a message detailing the changes</li>
+</ol>
+<pre tabindex="0"><code>git commit -m &quot;commit message&quot;
+</code></pre><ol start="10">
+<li>Run the following command to push the local branch to Github</li>
+</ol>
+<pre tabindex="0"><code>git push -u origin &lt;branch-name&gt;
+</code></pre><ol start="10">
+<li>Go to Github and create a new pull request to merge the new branch into the main branch</li>
+</ol>
+<h2 id="steps-to-start-a-repo-on-local-and-push-to-github">Steps to start a repo on local and push to github</h2>
+<ol>
+<li>In command prompt/terminal, navigate to home directory of local project</li>
+<li>Run the following command to initialize the directory as a git repository</li>
+</ol>
+<pre tabindex="0"><code>git init
+</code></pre><ol start="3">
+<li>Run the following command to add all the files in the directory to the initialized git repo</li>
+</ol>
+<pre tabindex="0"><code>git add .
+</code></pre><ol start="4">
+<li>Run the following command to commit all the changes and add a message detailing the changes</li>
+</ol>
+<pre tabindex="0"><code>git commit -m &quot;initial commit&quot;
+</code></pre><ol start="5">
+<li>Run the following command to push local main repo to a remote repo (you will need to create a new empty repo in github for this example)</li>
+</ol>
+<pre tabindex="0"><code>git remote add &lt;url-of-remote-repo-from-github&gt;
+</code></pre><ol start="6">
+<li>For your initial push to github, run the following command, otherwise, you can remove the &ldquo;-u&rdquo;</li>
+</ol>
+<pre tabindex="0"><code>git push -u origin &lt;branch-name&gt;
+</code></pre><h2 id="various-git-commands">Various git commands</h2>
+<ul>
+<li>pulls from the main branch to local checked out branch</li>
+</ul>
+<pre tabindex="0"><code>git pull -u origin &lt;branch-name&gt;
+</code></pre>
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+
+    
+    
+    
+</div>
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#steps-to-connect-to-a-github-repository">Steps to connect to a Github repository</a></li>
+    <li><a href="#steps-to-start-a-repo-on-local-and-push-to-github">Steps to start a repo on local and push to github</a></li>
+    <li><a href="#various-git-commands">Various git commands</a></li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
+
+
+    
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>
