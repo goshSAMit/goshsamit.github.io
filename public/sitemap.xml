@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://goshsamit.com/projects/tailscale/</loc>
+    <lastmod>2026-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/</loc>
+    <lastmod>2026-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/homelab/</loc>
+    <lastmod>2026-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/projects/</loc>
+    <lastmod>2026-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/</loc>
+    <lastmod>2026-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/tailscale/</loc>
+    <lastmod>2026-01-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/vpn/</loc>
+    <lastmod>2026-01-06T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://goshsamit.com/tags/certs/</loc>
     <lastmod>2025-06-19T00:00:00+00:00</lastmod>
   </url><url>
@@ -12,18 +33,6 @@
     <lastmod>2025-06-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/tags/dockercompose/</loc>
-    <lastmod>2025-06-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/</loc>
-    <lastmod>2025-06-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/tags/homelab/</loc>
-    <lastmod>2025-06-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/projects/</loc>
-    <lastmod>2025-06-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/tags/</loc>
     <lastmod>2025-06-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/projects/traefik-and-pihole/</loc>

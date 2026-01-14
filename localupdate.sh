@@ -1,4 +1,6 @@
-obsidianContentPath="/home/sam/Documents/Obsidian Vault/content"
+# obsidianContentPath="/home/sam/Documents/Obsidian Vault/content"
+obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content"
+
 hugoContentPath="/home/sam/website/goshsamit.github.io"
 
 echo "Syncing files from Obsidian..."

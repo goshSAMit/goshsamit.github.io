@@ -5,6 +5,7 @@
     <link>https://goshsamit.com/categories/</link>
     <description>Recent content in Categories on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://goshsamit.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="https://goshsamit.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

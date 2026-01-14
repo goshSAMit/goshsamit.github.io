@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Basic Tailscale Setup</title>
+    <meta name="description" content="My Problem I set up my home lab with three VLANs. My main VLAN, where all of our personal devices connect, a VLAN for smart devices to keep them separated from …">
+    <meta name="keywords" content='homelab, tailscale, vpn'>
+
+    <meta property="og:url" content="https://goshsamit.com/projects/tailscale/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Basic Tailscale Setup">
+    <meta property="og:description" content="My Problem I set up my home lab with three VLANs. My main VLAN, where all of our personal devices connect, a VLAN for smart devices to keep them separated from …">
+    <meta property="og:image" content="https://goshsamit.com/">
+    <meta property="og:image:secure_url" content="https://goshsamit.com/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Basic Tailscale Setup">
+    <meta name="twitter:description" content="My Problem I set up my home lab with three VLANs. My main VLAN, where all of our personal devices connect, a VLAN for smart devices to keep them separated from …">
+    <meta property="twitter:domain" content="https://goshsamit.com/projects/tailscale/">
+    <meta property="twitter:url" content="https://goshsamit.com/projects/tailscale/">
+    <meta name="twitter:image" content="https://goshsamit.com/">
+
+    
+    <link rel="canonical" href="https://goshsamit.com/projects/tailscale/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://goshsamit.com/">goshSAMit</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/about-me/" aria-label="" ><span data-feather='user'></span> About Me </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/projects/" aria-label="" ><span data-feather='terminal'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/topics/" aria-label="" ><span data-feather='list'></span> Topics </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/tags/" aria-label="tags" ><span data-feather='tag'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/goshsamit" aria-label="github" ><span data-feather='github'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://www.linkedin.com/in/goshsamit/" aria-label="linkedin" ><span data-feather='linkedin'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/about-me/" ><span data-feather='user'></span> About Me </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/projects/" ><span data-feather='terminal'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/topics/" ><span data-feather='list'></span> Topics </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/tags/" ><span data-feather='tag'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/goshsamit" ><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/goshsamit/" ><span data-feather='linkedin'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    
+
+    <div class="post container">
+
+    <div class="post-header-section">
+        <h1>Basic Tailscale Setup</h1>
+    </div>
+
+    <div class="post-content">
+        <h3 id="my-problem">My Problem</h3>
+<p>I set up my home lab with three VLANs. My main VLAN, where all of our personal devices connect, a VLAN for smart devices to keep them separated from our personal network, and a VLAN for homelabbing.</p>
+<p>I was looking for a way to connect to my homelab from my personal devices to do development work, without affecting my actual network. Initially, the plan was a traditional self-hosted VPN like Wireguard but it was going to require port forwarding and other firewall workarounds that I was just not comfortable with on my personal network.</p>
+<p>In comes Tailscale.</p>
+<h3 id="what-is-tailscale">What is Tailscale?</h3>
+<p>Tailscale is a virtual private network. Traditional VPNs work by client devices authenticating and connecting to a main VPN server on. Tailscale is a &ldquo;mesh&rdquo; network. This mesh network allows all devices on the network to connect to each other, without requiring a main server.</p>
+<p>When first setting up Tailscale, you create what they refer to as a &ldquo;Tailnet&rdquo;, which is the network all devices on the network connect to to communicate. Setup for client devices is often as simple as downloading Tailscale, usually through the app store but can also be done via command line. Once downloaded, you log in as your user and enable Tailscale on the client device. It&rsquo;s really that simple (there is a setting to require approval before allowing a device to connect).</p>
+<h4 id="exit-nodes">Exit Nodes</h4>
+<p>This basic setup alone does not fully function like a traditional VPN. Tailscale only routes tailnet traffic to other devices on the tailnet, so anything leaving the tailnet is untouched by Tailscale. Region-locked content, public wifi privacy, and other VPN scenarios require one of the devices to act as an &ldquo;exit node&rdquo;, this way, all traffic leaving the tailnet is routed through the exit node, making it look like all traffic is on that one device. Exit nodes also encrypt all traffic that leaves the network.</p>
+<h4 id="subnet-routers">Subnet Routers</h4>
+<p>Not all devices can simply download Tailscale, or you may be in a scenario where you just don&rsquo;t want to or can&rsquo;t feasibly download Tailscale on all client devices. To set up a device that does not have Tailscale installed, a tailnet device will need to &ldquo;advertise subnet routes&rdquo;. This &ldquo;subnet router&rdquo; sends traffic between the tailnet and traditional subnet.</p>
+<h3 id="how-to-set-up-tailscale-on-eligible-devices">How to set up Tailscale on eligible devices</h3>
+<ul>
+<li>List of available devices and how to install can be found <a href="https://tailscale.com/kb/1347/installation">here</a> but here is a simple guide</li>
+</ul>
+<ol>
+<li>Navigate to <a href="login.tailscale.com">login.tailscale.com</a></li>
+<li>Create an account</li>
+<li>Download Tailscale via:
+<ol>
+<li>Tailscale website</li>
+<li>Google Play Store</li>
+<li>Apple App Store</li>
+<li>Command line
+<ol>
+<li>Run the following commands:
+<pre tabindex="0"><code>curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+</code></pre></li>
+<li>Navigate to the url that is output from above command</li>
+<li>Sign In</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="how-to-set-up-an-exit-node">How to set up an Exit Node</h3>
+<ol>
+<li>From Command Line:
+<ol>
+<li>Run the following command on the device you want to act as the exit node:
+<pre tabindex="0"><code>sudo tailscale set --advertise-exit-node
+sudo tailscale up
+</code></pre></li>
+</ol>
+</li>
+<li>From web/mobile app:
+<ol>
+<li>Log in</li>
+<li>Select device you want to act as exit node</li>
+<li>Select &ldquo;Machine Settings&rdquo; then &ldquo;Edit Route Settings&rdquo;</li>
+<li>Check &ldquo;Use Exit Node&rdquo;</li>
+</ol>
+</li>
+<li>See <a href="https://tailscale.com/kb/1103/exit-nodes">here</a> for more details</li>
+</ol>
+<h3 id="how-to-set-up-a-subnet-router">How to set up a Subnet Router</h3>
+<ol>
+<li>From Command Line:
+<ol>
+<li>Advertise subnet routes with the following command:</li>
+</ol>
+<pre tabindex="0"><code>sudo tailscale set --advertise-routes=192.0.2.0/24,198.51.100.0/24
+</code></pre></li>
+<li>See <a href="https://tailscale.com/kb/1019/subnets">here</a> for more details</li>
+</ol>
+<h3 id="what-i-learned">What I learned</h3>
+<ol>
+<li>Differences between a traditional VPN and a mesh VPN</li>
+<li>Tailscale setup and basic admin</li>
+</ol>
+
+    </div>
+    
+    
+</div>
+
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#my-problem">My Problem</a></li>
+        <li><a href="#what-is-tailscale">What is Tailscale?</a></li>
+        <li><a href="#how-to-set-up-tailscale-on-eligible-devices">How to set up Tailscale on eligible devices</a></li>
+        <li><a href="#how-to-set-up-an-exit-node">How to set up an Exit Node</a></li>
+        <li><a href="#how-to-set-up-a-subnet-router">How to set up a Subnet Router</a></li>
+        <li><a href="#what-i-learned">What I learned</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
+
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>

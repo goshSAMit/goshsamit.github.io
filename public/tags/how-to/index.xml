@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>how-to on goshSAMit</title>
+    <title>How-To on goshSAMit</title>
     <link>https://goshsamit.com/tags/how-to/</link>
-    <description>Recent content in how-to on goshSAMit</description>
+    <description>Recent content in How-To on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/how-to/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://goshsamit.com/tags/how-to/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Accessing an SMB Share on Ubuntu</title>
       <link>https://goshsamit.com/topics/accessing-an-smb-share-on-ubuntu/</link>
       <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://goshsamit.com/topics/accessing-an-smb-share-on-ubuntu/</guid>
       <description>Intro Server Message Block (SMB) is a protocol that enables a device to communicate with a remote server or other network device. It is mainly used for file sharing. It is mostly used for Windows-based devices but Apple devices are capable of using the protocol as well. You may hear Common Internet File System (CIFS) used when talking about SMB. It is basically an older version of SMB and is used less frequently in favor of SMB.</description>
     </item>
-    
     <item>
       <title>How to install Docker and Docker Compose on Ubuntu</title>
       <link>https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/</link>
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/</guid>
-      <description>run the following commands to set up docker&amp;rsquo;s apt repository  # Add Docker&#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates curl sudo install -m 0755 -d /etc/apt/keyrings sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc sudo chmod a+r /etc/apt/keyrings/docker.asc # Add the repository to Apt sources: echo \ &amp;quot;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \ $(. /etc/os-release &amp;amp;&amp;amp; echo &amp;quot;${UBUNTU_CODENAME:-$VERSION_CODENAME}&amp;quot;) stable&amp;quot; | \ sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null sudo apt-get update run the following command to install the latest version of docker  sudo apt-get install docker-ce docker-ce-cli containerd.</description>
+      <description>run the following commands to set up docker&amp;rsquo;s apt repository # Add Docker&amp;#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates curl sudo install -m 0755 -d /etc/apt/keyrings sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc sudo chmod a+r /etc/apt/keyrings/docker.asc # Add the repository to Apt sources: echo \ &amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \ $(. /etc/os-release &amp;amp;&amp;amp; echo &amp;#34;${UBUNTU_CODENAME:-$VERSION_CODENAME}&amp;#34;) stable&amp;#34; | \ sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null sudo apt-get update run the following command to install the latest version of docker sudo apt-get install docker-ce docker-ce-cli containerd.</description>
     </item>
-    
   </channel>
 </rss>

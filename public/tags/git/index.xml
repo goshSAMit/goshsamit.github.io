@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>git on goshSAMit</title>
+    <title>Git on goshSAMit</title>
     <link>https://goshsamit.com/tags/git/</link>
-    <description>Recent content in git on goshSAMit</description>
+    <description>Recent content in Git on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://goshsamit.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://goshsamit.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git Commands</title>
       <link>https://goshsamit.com/topics/git-commands-and-github/</link>
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://goshsamit.com/topics/git-commands-and-github/</guid>
-      <description>Steps to connect to a Github repository  Create the repository (repo) on Github Create a folder on your local device that you want to hold the repo Run the following command to clone the Github repository  git clone repo_url_from_github Run the following command to link &amp;ldquo;origin&amp;rdquo; to github url  git remote set-url origin repo_url_from_github Run the following commands to link your commits to your name and email address  git config --global user.</description>
+      <description>Steps to connect to a Github repository Create the repository (repo) on Github Create a folder on your local device that you want to hold the repo Run the following command to clone the Github repository git clone repo_url_from_github Run the following command to link &amp;ldquo;origin&amp;rdquo; to github url git remote set-url origin repo_url_from_github Run the following commands to link your commits to your name and email address git config --global user.</description>
     </item>
-    
   </channel>
 </rss>

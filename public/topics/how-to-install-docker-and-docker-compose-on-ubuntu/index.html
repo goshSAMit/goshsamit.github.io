@@ -19,22 +19,22 @@
 
     
     <title>How to install Docker and Docker Compose on Ubuntu</title>
-    <meta name="description" content="run the following commands to set up docker&amp;rsquo;s apt repository  # Add Docker&#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates …">
+    <meta name="description" content="run the following commands to set up docker&amp;rsquo;s apt repository # Add Docker&amp;#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates …">
     <meta name="keywords" content='topics, docker, dockercompose, how-to'>
 
     <meta property="og:url" content="https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="How to install Docker and Docker Compose on Ubuntu">
-    <meta property="og:description" content="run the following commands to set up docker&amp;rsquo;s apt repository  # Add Docker&#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates …">
-    <meta property="og:image" content="https://goshsamit.com">
-    <meta property="og:image:secure_url" content="https://goshsamit.com">
+    <meta property="og:description" content="run the following commands to set up docker&amp;rsquo;s apt repository # Add Docker&amp;#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates …">
+    <meta property="og:image" content="https://goshsamit.com/">
+    <meta property="og:image:secure_url" content="https://goshsamit.com/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="How to install Docker and Docker Compose on Ubuntu">
-    <meta name="twitter:description" content="run the following commands to set up docker&amp;rsquo;s apt repository  # Add Docker&#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates …">
+    <meta name="twitter:description" content="run the following commands to set up docker&amp;rsquo;s apt repository # Add Docker&amp;#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates …">
     <meta property="twitter:domain" content="https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/">
     <meta property="twitter:url" content="https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/">
-    <meta name="twitter:image" content="https://goshsamit.com">
+    <meta name="twitter:image" content="https://goshsamit.com/">
 
     
     <link rel="canonical" href="https://goshsamit.com/topics/how-to-install-docker-and-docker-compose-on-ubuntu/">
@@ -49,7 +49,7 @@
     <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
 
     
-    <script src="/js/bundle.min.4ebcf867d90c30eb0ddad45ea3a07c1aa7fa4a1049453f29452bab3829c86c8b.js" integrity="sha256-Trz4Z9kMMOsN2tReo6B8Gqf6ShBJRT8pRSurOCnIbIs="></script>
+    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
 
     
     
@@ -64,7 +64,7 @@
         
 
         <div class="nav-title">
-            <a class="nav-brand" href="https://goshsamit.com">goshSAMit</a>
+            <a class="nav-brand" href="https://goshsamit.com/">goshSAMit</a>
         </div>
 
         <div class="nav-links">
@@ -204,7 +204,7 @@
         <ol>
 <li>run the following commands to set up docker&rsquo;s apt repository</li>
 </ol>
-<pre tabindex="0"><code># Add Docker's official GPG key:
+<pre tabindex="0"><code># Add Docker&#39;s official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -213,8 +213,8 @@ sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 # Add the repository to Apt sources:
 echo \
-  &quot;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release &amp;&amp; echo &quot;${UBUNTU_CODENAME:-$VERSION_CODENAME}&quot;) stable&quot; | \
+  &#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release &amp;&amp; echo &#34;${UBUNTU_CODENAME:-$VERSION_CODENAME}&#34;) stable&#34; | \
   sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
 sudo apt-get update
 </code></pre><ol start="2">

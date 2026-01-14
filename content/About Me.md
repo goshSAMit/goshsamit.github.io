@@ -7,6 +7,7 @@ showTableOfContents: true
 ---
 ## Download Resume (To Be Added)
 ***
+
 ## Past
  I was a Quality Assurance Consultant responsible for the manual and automated test of web apps, mobile apps, and POS apps. I consulted for Huntington Bank, BMW Financial Services, and Bath & Body Works. I graduated from Ohio University with a Bachelor's Degree in Information and Telecommunication Systems.
 ## Present
