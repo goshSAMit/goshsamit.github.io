@@ -6,6 +6,7 @@ showTableOfContents: false
 ---
 ## Project Pages that are Complete:
 
+- [Terraform with Proxmox](/projects/terraform/) | 11 February, 2026
 - [Tailscale Setup](/projects/tailscale) | 06 January, 2026
 - [Traefik and PiHole](/projects/traefik-and-pihole) | 19 June, 2025
 - [Network Attached Storage](/projects/network-attached-storage) | 17 June, 2025

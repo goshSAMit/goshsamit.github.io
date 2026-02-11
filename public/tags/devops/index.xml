@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on goshSAMit</title>
+    <link>https://goshsamit.com/tags/devops/</link>
+    <description>Recent content in Devops on goshSAMit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 11 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://goshsamit.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform with Proxmox</title>
+      <link>https://goshsamit.com/projects/terraform/</link>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/projects/terraform/</guid>
+      <description>Terraform and Proxmox Setup A. Install Terraform I am starting this development on Ubuntu, Hashicorp&amp;rsquo;s website has detailed instructions for downloading on different operating systems.&#xA;First step, as always with Linux, is to update your package manager. sudo apt update Terraform then requires the download of gnupg and software-property-commons packages. sudo apt install -y gnupg software-properties-common Next, download Terraform&amp;rsquo;s gpg key. wget -O- https://apt.releases.hashicorp.com/gpg | \ gpg --dearmor | \ sudo tee /usr/share/keyrings/hashicorp-archive-keyring.</description>
+    </item>
+  </channel>
+</rss>

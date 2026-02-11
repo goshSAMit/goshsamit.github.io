@@ -6,13 +6,34 @@
     <description>Recent content in Tags on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 06 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://goshsamit.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Devops</title>
+      <link>https://goshsamit.com/tags/devops/</link>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/devops/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Homelab</title>
       <link>https://goshsamit.com/tags/homelab/</link>
-      <pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://goshsamit.com/tags/homelab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iac</title>
+      <link>https://goshsamit.com/tags/iac/</link>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/iac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>https://goshsamit.com/tags/terraform/</link>
+      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/terraform/</guid>
       <description></description>
     </item>
     <item>
