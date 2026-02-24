@@ -3,9 +3,18 @@ import re
 import shutil
 
 # Paths
-posts_dir = "/home/sam/website/goshsamit.github.io/content/projects/"
-attachments_dir = "/home/sam/Documents/Obsidian Vault/Attachments/"
-static_images_dir = "/home/sam/website/goshsamit.github.io/static/images"
+
+# UBUNTU PATH - obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content"
+# UBUNTU PATH - hugoContentPath="/home/sam/website/goshsamit.github.io"
+
+obsidianContentPath="/Volumes/arnold/files/sam/Obsidian Vault/content" # MAC PATH
+hugoContentPath="/Users/sam/projects/personal/goshsamit.github.io" # MAC PATH
+
+posts_dir = hugoContentPath + "/content/projects/"
+attachments_dir = obsidianContentPath + "/Attachments/"
+static_images_dir = hugoContentPath + "/static/images"
+
+
 
 # Step 1: Process each markdown file in the posts directory
 for filename in os.listdir(posts_dir):

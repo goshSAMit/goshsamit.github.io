@@ -1,13 +1,12 @@
 ---
 title: Git Commands
-date: 2025-04-03
 type: post
 tags:
-  - topics
   - git
+  - topics
 showTableOfContents: true
+date: 2025-04-03
 ---
-
 ## Steps to connect to a Github repository
 1. Create the repository (repo) on Github
 2. Create a folder on your local device that you want to hold the repo

@@ -1,10 +1,10 @@
 ---
 title: VLAN Basics
-date: 2025-04-09
 type: post
 tags:
   - topics
   - vlan
+date: 2025-04-09
 ---
 
 ## Virtual Local Area Network (VLAN) Basics

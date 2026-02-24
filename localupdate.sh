@@ -1,7 +1,8 @@
-# obsidianContentPath="/home/sam/Documents/Obsidian Vault/content"
-obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content"
+# obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content" # UBUNTU PATH
+# hugoContentPath="/home/sam/website/goshsamit.github.io" #UBUNTU PATH
 
-hugoContentPath="/home/sam/website/goshsamit.github.io"
+obsidianContentPath="/Volumes/arnold/files/sam/Obsidian Vault/content" #MAC PATH
+hugoContentPath="/Users/sam/projects/personal/goshsamit.github.io" #MAC PATH
 
 echo "Syncing files from Obsidian..."
 
@@ -28,4 +29,4 @@ if ! python3 images.py; then
     exit 1
 fi
 
-hugo server
+hugo server --disableFastRender

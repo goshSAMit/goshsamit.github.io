@@ -1,13 +1,14 @@
 ---
-title: How to install Docker and Docker Compose on Ubuntu
-date: 2025-04-03
+title: Install Docker
 type: post
 tags:
-  - topics
   - docker
   - dockercompose
   - how-to
+date: 2025-04-03
 ---
+### How to install Docker and Docker Compose on Ubuntu
+
 1. run the following commands to set up docker's apt repository
 ```
 # Add Docker's official GPG key:

@@ -4,7 +4,6 @@ type: page
 tags:
   - homelab
   - homepage
-date: 2025-04-03
 showTableOfContents: true
 ---
 ## Intro

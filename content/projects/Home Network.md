@@ -1,6 +1,6 @@
 ---
 title: Home Network
-type: post
+type: page
 tags:
   - homelab
   - vlan
@@ -8,7 +8,6 @@ tags:
   - firewall
   - ssid
 showTableOfContents: true
-date: 2025-03-28
 ---
 ## Intro
 This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.

@@ -1,11 +1,12 @@
 ---
 title: Network Attached Storage
-type: page
+type: post
 tags:
   - homelab
   - nas
-date: 2025-03-01
+  - topics
 showTableOfContents: true
+date: 0225-06-17
 ---
 ### What is Network Attached Storage?
 Networked attached storage, or NAS, is a storage device that can be access through a network, rather than being directly connected to a device. Basically, it's a portable hard-drive that anyone on the network can access (but is not actually portable). Users directly accessing the network as well as users outside the network but using a VPN to remotely connect to the network can access a NAS.

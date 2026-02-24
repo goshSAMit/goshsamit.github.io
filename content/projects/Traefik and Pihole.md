@@ -7,10 +7,9 @@ tags:
   - dockercompose
   - certs
   - dns
-date: 2025-06-19
 showTableOfContents: true
 ---
-### Project
+### Why?
 I was getting tired of entering IP addresses and having to click through the "connection not secure" messaging to get into my homelab services. I found a video by TechnoTim on YouTube where he walks through the "how-to's" of setting up Traefik as a cert manager and local DNS records on PiHole. So instead of copying his tutorial, I will just link it here.
 
 - [TechnoTim's website with tutorial](https://technotim.live/posts/traefik-3-docker-certificates/)

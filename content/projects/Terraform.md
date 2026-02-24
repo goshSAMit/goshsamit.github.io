@@ -1,15 +1,15 @@
 ---
 title: Terraform with Proxmox
-type: post
+type: page
 tags:
   - homelab
   - terraform
   - iac
   - devops
-date: 2026-02-11
 showTableOfContents: true
 ---
 ## Terraform and Proxmox Setup
+
 ### A. Install Terraform
 I am starting this development on Ubuntu, Hashicorp's website has [detailed instructions](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for downloading on different operating systems.
 

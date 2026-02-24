@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Install Docker</title>
+    <meta name="description" content="How to install Docker and Docker Compose on Ubuntu run the following commands to set up docker&rsquo;s apt repository # Add Docker&#39;s official GPG key: sudo …">
+    <meta name="keywords" content='docker, dockercompose, how-to'>
+
+    <meta property="og:url" content="http://localhost:1313/projects/install-docker/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Install Docker">
+    <meta property="og:description" content="How to install Docker and Docker Compose on Ubuntu run the following commands to set up docker&rsquo;s apt repository # Add Docker&#39;s official GPG key: sudo …">
+    <meta property="og:image" content="http://localhost:1313/">
+    <meta property="og:image:secure_url" content="http://localhost:1313/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Install Docker">
+    <meta name="twitter:description" content="How to install Docker and Docker Compose on Ubuntu run the following commands to set up docker&rsquo;s apt repository # Add Docker&#39;s official GPG key: sudo …">
+    <meta property="twitter:domain" content="http://localhost:1313/projects/install-docker/">
+    <meta property="twitter:url" content="http://localhost:1313/projects/install-docker/">
+    <meta name="twitter:image" content="http://localhost:1313/">
+
+    
+    <link rel="canonical" href="http://localhost:1313/projects/install-docker/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="http://localhost:1313/">goshSAMit</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/about-me/" aria-label="" ><span data-feather='user'></span> About Me </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/projects/" aria-label="" ><span data-feather='terminal'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/topics/" aria-label="" ><span data-feather='list'></span> Topics </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/tags/" aria-label="tags" ><span data-feather='tag'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/goshsamit" aria-label="github" ><span data-feather='github'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://www.linkedin.com/in/goshsamit/" aria-label="linkedin" ><span data-feather='linkedin'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/about-me/" ><span data-feather='user'></span> About Me </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/projects/" ><span data-feather='terminal'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/topics/" ><span data-feather='list'></span> Topics </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/tags/" ><span data-feather='tag'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/goshsamit" ><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/goshsamit/" ><span data-feather='linkedin'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    
+
+    <div class="post container">
+
+    <div class="post-header-section">
+        <h1>Install Docker</h1>
+    </div>
+
+    <div class="post-content">
+        <h3 id="how-to-install-docker-and-docker-compose-on-ubuntu">How to install Docker and Docker Compose on Ubuntu</h3>
+<ol>
+<li>run the following commands to set up docker&rsquo;s apt repository</li>
+</ol>
+<pre tabindex="0"><code># Add Docker&#39;s official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  &#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release &amp;&amp; echo &#34;${UBUNTU_CODENAME:-$VERSION_CODENAME}&#34;) stable&#34; | \
+  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
+</code></pre><ol start="2">
+<li>run the following command to install the latest version of docker</li>
+</ol>
+<pre tabindex="0"><code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre><ol start="3">
+<li>When complete, you can check installation with:</li>
+</ol>
+<pre tabindex="0"><code>docker -v &amp;&amp; docker compose version
+</code></pre><ol start="4">
+<li>Run the following command to run a test container</li>
+</ol>
+<pre tabindex="0"><code>sudo docker run hello-world
+</code></pre>
+    </div>
+    
+    
+</div>
+
+
+
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>

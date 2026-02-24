@@ -1,14 +1,13 @@
 ---
-title: Basic Tailscale Setup
+title: Tailscale Setup
 type: page
 tags:
   - homelab
   - tailscale
   - vpn
-date: 2026-01-06
 showTableOfContents: true
 ---
-### My Problem
+### Why?
 I set up my home lab with three VLANs. My main VLAN, where all of our personal devices connect, a VLAN for smart devices to keep them separated from our personal network, and a VLAN for homelabbing. 
 
 I was looking for a way to connect to my homelab from my personal devices to do development work, without affecting my actual network. Initially, the plan was a traditional self-hosted VPN like Wireguard but it was going to require port forwarding and other firewall workarounds that I was just not comfortable with on my personal network.

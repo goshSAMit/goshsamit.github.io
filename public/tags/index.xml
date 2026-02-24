@@ -4,78 +4,15 @@
     <title>Tags on goshSAMit</title>
     <link>https://goshsamit.com/tags/</link>
     <description>Recent content in Tags on goshSAMit</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 11 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://goshsamit.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Devops</title>
-      <link>https://goshsamit.com/tags/devops/</link>
-      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/devops/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Homelab</title>
       <link>https://goshsamit.com/tags/homelab/</link>
-      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
       <guid>https://goshsamit.com/tags/homelab/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Iac</title>
-      <link>https://goshsamit.com/tags/iac/</link>
-      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/iac/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Terraform</title>
-      <link>https://goshsamit.com/tags/terraform/</link>
-      <pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/terraform/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tailscale</title>
-      <link>https://goshsamit.com/tags/tailscale/</link>
-      <pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/tailscale/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vpn</title>
-      <link>https://goshsamit.com/tags/vpn/</link>
-      <pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/vpn/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Certs</title>
-      <link>https://goshsamit.com/tags/certs/</link>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/certs/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Dns</title>
-      <link>https://goshsamit.com/tags/dns/</link>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/dns/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Docker</title>
-      <link>https://goshsamit.com/tags/docker/</link>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Dockercompose</title>
-      <link>https://goshsamit.com/tags/dockercompose/</link>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/dockercompose/</guid>
       <description></description>
     </item>
     <item>
@@ -95,7 +32,7 @@
     <item>
       <title>Topics</title>
       <link>https://goshsamit.com/tags/topics/</link>
-      <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
       <guid>https://goshsamit.com/tags/topics/</guid>
       <description></description>
     </item>
@@ -107,6 +44,20 @@
       <description></description>
     </item>
     <item>
+      <title>Docker</title>
+      <link>https://goshsamit.com/tags/docker/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dockercompose</title>
+      <link>https://goshsamit.com/tags/dockercompose/</link>
+      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/dockercompose/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Git</title>
       <link>https://goshsamit.com/tags/git/</link>
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
@@ -114,38 +65,87 @@
       <description></description>
     </item>
     <item>
-      <title>Homepage</title>
-      <link>https://goshsamit.com/tags/homepage/</link>
-      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/homepage/</guid>
+      <title>Certs</title>
+      <link>https://goshsamit.com/tags/certs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/certs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>https://goshsamit.com/tags/devops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Dhcp</title>
       <link>https://goshsamit.com/tags/dhcp/</link>
-      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://goshsamit.com/tags/dhcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dns</title>
+      <link>https://goshsamit.com/tags/dns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/dns/</guid>
       <description></description>
     </item>
     <item>
       <title>Firewall</title>
       <link>https://goshsamit.com/tags/firewall/</link>
-      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://goshsamit.com/tags/firewall/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ssid</title>
-      <link>https://goshsamit.com/tags/ssid/</link>
-      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/ssid/</guid>
       <description></description>
     </item>
     <item>
       <title>Hardware</title>
       <link>https://goshsamit.com/tags/hardware/</link>
-      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://goshsamit.com/tags/hardware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homepage</title>
+      <link>https://goshsamit.com/tags/homepage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/homepage/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iac</title>
+      <link>https://goshsamit.com/tags/iac/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/iac/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ssid</title>
+      <link>https://goshsamit.com/tags/ssid/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/ssid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tailscale</title>
+      <link>https://goshsamit.com/tags/tailscale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/tailscale/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terraform</title>
+      <link>https://goshsamit.com/tags/terraform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/terraform/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vpn</title>
+      <link>https://goshsamit.com/tags/vpn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/tags/vpn/</guid>
       <description></description>
     </item>
   </channel>

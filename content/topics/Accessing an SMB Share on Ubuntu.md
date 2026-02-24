@@ -1,11 +1,12 @@
 ---
 title: Accessing an SMB Share on Ubuntu
-date: 2025-06-11
 type: post
 tags:
   - homelab
   - how-to
   - nas
+  - topics
+date: 2025-06-11
 ---
 ### Intro
 Server Message Block (SMB) is a protocol that enables a device to communicate with a remote server or other network device. It is mainly used for file sharing. It is mostly used for Windows-based devices but Apple devices are capable of using the protocol as well. You may hear Common Internet File System (CIFS) used when talking about SMB. It is basically an older version of SMB and is used less frequently in favor of SMB.
