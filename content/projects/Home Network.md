@@ -9,12 +9,15 @@ tags:
   - ssid
 showTableOfContents: true
 ---
-## Intro
+## The Problem
+Ultimately, all of my home lab and home networking projects come down to "getting experience without experience." Rolling my own router has also allowed me to save a few dollars on my ISP bill, since I am not renting one of their devices. Having full control of the router, I am also able to create VLANs and have devices logically separated, keeping my trusted devices on different networks than some of the less trustworthy IoT devices. 
+
+## The Approach
 This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.
 
 My network at home is set into 3 Virtual Local Area Networks (VLAN). The first is VLAN 1, and it is the default network that my family's everyday devices connect to. The second is VLAN 20. It is for smart devices that have questionable security vulnerabilities. I buy devices that I generally trust, but you can't be too careful. Plus, this was a good way to help me understand VLANs a bit more. The third one is VLAN 30, and it is for my home lab devices. This way, I can make router, firewall, DNS, and other changes without interrupting anyone's network connectivity.
 
-## PFSense - Create VLAN
+### PFSense - Create VLAN
 1. Log into your PFSense Router/Firewall
 2. Navigate to Interfaces -> Assignments
 3. Select VLANs -> Add
@@ -28,13 +31,13 @@ My network at home is set into 3 Virtual Local Area Networks (VLAN). The first i
 7. Click Add
 !![Image Description](/images/step%208%209.png)
 
-## PFSense - Interface Configuration
+### PFSense - Interface Configuration
 1. Navigate to Interfaces -> VLAN Interface to edit
 2. Make the following configurations:
 	1. Enable the Interface
 	2. Under static IPv4, set the IP address that you want the gateway/router to be
 !![Image Description](/images/Step%201%202%203.png)
-## PFSense DHCP Server
+### PFSense DHCP Server
 1. Navigate to Services -> DHCP Server
 2. Select the interface you want to configure
 3. Make the following configurations:
@@ -46,12 +49,12 @@ My network at home is set into 3 Virtual Local Area Networks (VLAN). The first i
 		2. Enter the IP Address the device should have
 		3. Give it a hostname and description
 
-## PFSense - Firewall Setup for VLANs
+### PFSense - Firewall Setup for VLANs
 This firewall setup will be to prevent traffic from one VLAN from having any access to traffic on a separate VLAN.
 1. Navigate to Firewall -> Rules
 2. Set VLAN interface firewall rules to the following:
 !![Image Description](/images/fstep%201%202%203.png)
-## Set Up VLAN on TP-Link Omada Switch
+### Set Up VLAN on TP-Link Omada Switch
 This setup is for a specific device but should be relatively similar to most consumer manage switches.
 1. Log in to switch
 2. Navigate to L2 Features -> VLAN -> 802.1Q
@@ -63,7 +66,7 @@ This setup is for a specific device but should be relatively similar to most con
 	3. Select ports for untagged traffic
 	4. Select ports for tagged traffic
 !![Image Description](/images/steps%205%206%207.png)
-## Extra - Add a Wireless Network to a VLAN
+### Extra - Add a Wireless Network to a VLAN
 If you plan to have wireless devices connecting to one of your new VLANs, use the following steps. As mentioned above, these steps are for a specific TP-Link Wireless Access Point (WAP) but should be similar to other consumer WAPs.
 1. Log in to WAP
 2. Navigate to Wireless
@@ -81,8 +84,9 @@ If you plan to have wireless devices connecting to one of your new VLANs, use th
 7. Add the VLAN ID that matches what was set up in PFSense
 8. The port the WAP is plugged into the on the other switch will need to be tagged with the VLAN ID (see previous section)
 !![Image Description](/images/step%204%205%206.png)
-## What Did I Learn?
-- VLAN Creation
-- [Tagged vs. Untagged VLAN Traffic](https://goshsamit.com/topics/tagged-and-untagged-vlans/)
-- Basic Firewall Rules
-- DHCP Server Setup
+## The Impact
+- Things I learned
+	- VLAN Creation
+	-  [Tagged vs. Untagged VLAN Traffic](https://goshsamit.com/topics/tagged-and-untagged-vlans/)
+	- Basic Firewall Rules
+	- DHCP Server Setup

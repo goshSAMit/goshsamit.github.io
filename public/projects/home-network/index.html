@@ -19,22 +19,19 @@
 
     
     <title>Home Network</title>
-    <meta name="description" content="Intro This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.
-My network at home is set into 3 Virtual …">
+    <meta name="description" content="The Problem Ultimately, all of my home lab and home networking projects come down to &amp;ldquo;getting experience without experience.&amp;rdquo; Rolling my own router …">
     <meta name="keywords" content='homelab, vlan, dhcp, firewall, ssid'>
 
     <meta property="og:url" content="https://goshsamit.com/projects/home-network/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Home Network">
-    <meta property="og:description" content="Intro This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.
-My network at home is set into 3 Virtual …">
+    <meta property="og:description" content="The Problem Ultimately, all of my home lab and home networking projects come down to &amp;ldquo;getting experience without experience.&amp;rdquo; Rolling my own router …">
     <meta property="og:image" content="https://goshsamit.com/">
     <meta property="og:image:secure_url" content="https://goshsamit.com/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Home Network">
-    <meta name="twitter:description" content="Intro This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.
-My network at home is set into 3 Virtual …">
+    <meta name="twitter:description" content="The Problem Ultimately, all of my home lab and home networking projects come down to &amp;ldquo;getting experience without experience.&amp;rdquo; Rolling my own router …">
     <meta property="twitter:domain" content="https://goshsamit.com/projects/home-network/">
     <meta property="twitter:url" content="https://goshsamit.com/projects/home-network/">
     <meta name="twitter:image" content="https://goshsamit.com/">
@@ -52,7 +49,7 @@ My network at home is set into 3 Virtual …">
     <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
 
     
-    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
+    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
 
     
     
@@ -160,10 +157,12 @@ My network at home is set into 3 Virtual …">
     </div>
 
     <div class="post-content">
-        <h2 id="intro">Intro</h2>
+        <h2 id="the-problem">The Problem</h2>
+<p>Ultimately, all of my home lab and home networking projects come down to &ldquo;getting experience without experience.&rdquo; Rolling my own router has also allowed me to save a few dollars on my ISP bill, since I am not renting one of their devices. Having full control of the router, I am also able to create VLANs and have devices logically separated, keeping my trusted devices on different networks than some of the less trustworthy IoT devices.</p>
+<h2 id="the-approach">The Approach</h2>
 <p>This is a walk-through guide of how I set up home network and how to set up VLANs on a TP-Link Managed Switch.</p>
 <p>My network at home is set into 3 Virtual Local Area Networks (VLAN). The first is VLAN 1, and it is the default network that my family&rsquo;s everyday devices connect to. The second is VLAN 20. It is for smart devices that have questionable security vulnerabilities. I buy devices that I generally trust, but you can&rsquo;t be too careful. Plus, this was a good way to help me understand VLANs a bit more. The third one is VLAN 30, and it is for my home lab devices. This way, I can make router, firewall, DNS, and other changes without interrupting anyone&rsquo;s network connectivity.</p>
-<h2 id="pfsense---create-vlan">PFSense - Create VLAN</h2>
+<h3 id="pfsense---create-vlan">PFSense - Create VLAN</h3>
 <ol>
 <li>Log into your PFSense Router/Firewall</li>
 <li>Navigate to Interfaces -&gt; Assignments</li>
@@ -181,7 +180,7 @@ My network at home is set into 3 Virtual …">
 <li>Click Add
 !<img src="/images/step%208%209.png" alt="Image Description"></li>
 </ol>
-<h2 id="pfsense---interface-configuration">PFSense - Interface Configuration</h2>
+<h3 id="pfsense---interface-configuration">PFSense - Interface Configuration</h3>
 <ol>
 <li>Navigate to Interfaces -&gt; VLAN Interface to edit</li>
 <li>Make the following configurations:
@@ -192,7 +191,7 @@ My network at home is set into 3 Virtual …">
 </ol>
 </li>
 </ol>
-<h2 id="pfsense-dhcp-server">PFSense DHCP Server</h2>
+<h3 id="pfsense-dhcp-server">PFSense DHCP Server</h3>
 <ol>
 <li>Navigate to Services -&gt; DHCP Server</li>
 <li>Select the interface you want to configure</li>
@@ -211,14 +210,14 @@ My network at home is set into 3 Virtual …">
 </ol>
 </li>
 </ol>
-<h2 id="pfsense---firewall-setup-for-vlans">PFSense - Firewall Setup for VLANs</h2>
+<h3 id="pfsense---firewall-setup-for-vlans">PFSense - Firewall Setup for VLANs</h3>
 <p>This firewall setup will be to prevent traffic from one VLAN from having any access to traffic on a separate VLAN.</p>
 <ol>
 <li>Navigate to Firewall -&gt; Rules</li>
 <li>Set VLAN interface firewall rules to the following:
 !<img src="/images/fstep%201%202%203.png" alt="Image Description"></li>
 </ol>
-<h2 id="set-up-vlan-on-tp-link-omada-switch">Set Up VLAN on TP-Link Omada Switch</h2>
+<h3 id="set-up-vlan-on-tp-link-omada-switch">Set Up VLAN on TP-Link Omada Switch</h3>
 <p>This setup is for a specific device but should be relatively similar to most consumer manage switches.</p>
 <ol>
 <li>Log in to switch</li>
@@ -235,7 +234,7 @@ My network at home is set into 3 Virtual …">
 </ol>
 </li>
 </ol>
-<h2 id="extra---add-a-wireless-network-to-a-vlan">Extra - Add a Wireless Network to a VLAN</h2>
+<h3 id="extra---add-a-wireless-network-to-a-vlan">Extra - Add a Wireless Network to a VLAN</h3>
 <p>If you plan to have wireless devices connecting to one of your new VLANs, use the following steps. As mentioned above, these steps are for a specific TP-Link Wireless Access Point (WAP) but should be similar to other consumer WAPs.</p>
 <ol>
 <li>Log in to WAP</li>
@@ -258,12 +257,16 @@ My network at home is set into 3 Virtual …">
 <li>The port the WAP is plugged into the on the other switch will need to be tagged with the VLAN ID (see previous section)
 !<img src="/images/step%204%205%206.png" alt="Image Description"></li>
 </ol>
-<h2 id="what-did-i-learn">What Did I Learn?</h2>
+<h2 id="the-impact">The Impact</h2>
+<ul>
+<li>Things I learned
 <ul>
 <li>VLAN Creation</li>
 <li><a href="https://goshsamit.com/topics/tagged-and-untagged-vlans/">Tagged vs. Untagged VLAN Traffic</a></li>
 <li>Basic Firewall Rules</li>
 <li>DHCP Server Setup</li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -276,14 +279,18 @@ My network at home is set into 3 Virtual …">
     <nav id="toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#intro">Intro</a></li>
-    <li><a href="#pfsense---create-vlan">PFSense - Create VLAN</a></li>
-    <li><a href="#pfsense---interface-configuration">PFSense - Interface Configuration</a></li>
-    <li><a href="#pfsense-dhcp-server">PFSense DHCP Server</a></li>
-    <li><a href="#pfsense---firewall-setup-for-vlans">PFSense - Firewall Setup for VLANs</a></li>
-    <li><a href="#set-up-vlan-on-tp-link-omada-switch">Set Up VLAN on TP-Link Omada Switch</a></li>
-    <li><a href="#extra---add-a-wireless-network-to-a-vlan">Extra - Add a Wireless Network to a VLAN</a></li>
-    <li><a href="#what-did-i-learn">What Did I Learn?</a></li>
+    <li><a href="#the-problem">The Problem</a></li>
+    <li><a href="#the-approach">The Approach</a>
+      <ul>
+        <li><a href="#pfsense---create-vlan">PFSense - Create VLAN</a></li>
+        <li><a href="#pfsense---interface-configuration">PFSense - Interface Configuration</a></li>
+        <li><a href="#pfsense-dhcp-server">PFSense DHCP Server</a></li>
+        <li><a href="#pfsense---firewall-setup-for-vlans">PFSense - Firewall Setup for VLANs</a></li>
+        <li><a href="#set-up-vlan-on-tp-link-omada-switch">Set Up VLAN on TP-Link Omada Switch</a></li>
+        <li><a href="#extra---add-a-wireless-network-to-a-vlan">Extra - Add a Wireless Network to a VLAN</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-impact">The Impact</a></li>
   </ul>
 </nav>
     </nav>

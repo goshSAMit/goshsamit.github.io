@@ -7,7 +7,7 @@ tags:
   - vpn
 showTableOfContents: true
 ---
-### Why?
+## The Problem
 I set up my home lab with three VLANs. My main VLAN, where all of our personal devices connect, a VLAN for smart devices to keep them separated from our personal network, and a VLAN for homelabbing. 
 
 I was looking for a way to connect to my homelab from my personal devices to do development work, without affecting my actual network. Initially, the plan was a traditional self-hosted VPN like Wireguard but it was going to require port forwarding and other firewall workarounds that I was just not comfortable with on my personal network.
@@ -25,7 +25,8 @@ This basic setup alone does not fully function like a traditional VPN. Tailscale
 #### Subnet Routers
 Not all devices can simply download Tailscale, or you may be in a scenario where you just don't want to or can't feasibly download Tailscale on all client devices. To set up a device that does not have Tailscale installed, a tailnet device will need to "advertise subnet routes". This "subnet router" sends traffic between the tailnet and traditional subnet. 
 
-### How to set up Tailscale on eligible devices
+### The Approach
+How to set up Tailscale on eligible devices
 - List of available devices and how to install can be found [here](https://tailscale.com/kb/1347/installation) but here is a simple guide
 1. Navigate to [login.tailscale.com](login.tailscale.com)
 2. Create an account
@@ -63,6 +64,6 @@ Not all devices can simply download Tailscale, or you may be in a scenario where
 	```
 2. See [here](https://tailscale.com/kb/1019/subnets) for more details
 
-### What I learned
+### The Impact
 1. Differences between a traditional VPN and a mesh VPN
 2. Tailscale setup and basic admin

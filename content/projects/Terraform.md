@@ -8,8 +8,10 @@ tags:
   - devops
 showTableOfContents: true
 ---
-## Terraform and Proxmox Setup
+## The Problem
+There is no specific problem from this. I started using Terraform at work with Google Cloud and wanted some more practice with it.
 
+## The Approach
 ### A. Install Terraform
 I am starting this development on Ubuntu, Hashicorp's website has [detailed instructions](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for downloading on different operating systems.
 
@@ -106,8 +108,8 @@ target_node = "lab-server"
 
 ### Additional functionality
 - You can declare local variables in a "locals" block between the provider and the resources. This allows you to declare variable key/value maps. Once they've been declared, you can use a for loop to loop through and create multiple devices with unique configuration.
-	```
-	locals {
+```
+locals {
 		nodes = {
 			101 = {
 				name = var.node1_name
@@ -140,3 +142,9 @@ target_node = "lab-server"
 			mac_address = each.value.mac
 		}
 	}
+
+```
+
+## The Impact
+- Basic Terraform project structure
+- Using for-each loops to create multiple devices with fewer lines of code

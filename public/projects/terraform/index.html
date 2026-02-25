@@ -19,19 +19,22 @@
 
     
     <title>Terraform with Proxmox</title>
-    <meta name="description" content="Terraform and Proxmox Setup A. Install Terraform I am starting this development on Ubuntu, Hashicorp&rsquo;s website has detailed instructions for downloading …">
+    <meta name="description" content="The Problem There is no specific problem from this. I started using Terraform at work with Google Cloud and wanted some more practice with it.
+The Approach A. …">
     <meta name="keywords" content='homelab, terraform, iac, devops'>
 
     <meta property="og:url" content="https://goshsamit.com/projects/terraform/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Terraform with Proxmox">
-    <meta property="og:description" content="Terraform and Proxmox Setup A. Install Terraform I am starting this development on Ubuntu, Hashicorp&rsquo;s website has detailed instructions for downloading …">
+    <meta property="og:description" content="The Problem There is no specific problem from this. I started using Terraform at work with Google Cloud and wanted some more practice with it.
+The Approach A. …">
     <meta property="og:image" content="https://goshsamit.com/">
     <meta property="og:image:secure_url" content="https://goshsamit.com/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Terraform with Proxmox">
-    <meta name="twitter:description" content="Terraform and Proxmox Setup A. Install Terraform I am starting this development on Ubuntu, Hashicorp&rsquo;s website has detailed instructions for downloading …">
+    <meta name="twitter:description" content="The Problem There is no specific problem from this. I started using Terraform at work with Google Cloud and wanted some more practice with it.
+The Approach A. …">
     <meta property="twitter:domain" content="https://goshsamit.com/projects/terraform/">
     <meta property="twitter:url" content="https://goshsamit.com/projects/terraform/">
     <meta name="twitter:image" content="https://goshsamit.com/">
@@ -49,7 +52,7 @@
     <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
 
     
-    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
+    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
 
     
     
@@ -157,52 +160,54 @@
     </div>
 
     <div class="post-content">
-        <h2 id="terraform-and-proxmox-setup">Terraform and Proxmox Setup</h2>
+        <h2 id="the-problem">The Problem</h2>
+<p>There is no specific problem from this. I started using Terraform at work with Google Cloud and wanted some more practice with it.</p>
+<h2 id="the-approach">The Approach</h2>
 <h3 id="a-install-terraform">A. Install Terraform</h3>
 <p>I am starting this development on Ubuntu, Hashicorp&rsquo;s website has <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli">detailed instructions</a> for downloading on different operating systems.</p>
 <ol>
 <li>First step, as always with Linux, is to update your package manager.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
 </span></span></code></pre></div><ol start="2">
 <li>Terraform then requires the download of gnupg and software-property-commons packages.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install -y gnupg software-properties-common
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install -y gnupg software-properties-common
 </span></span></code></pre></div><ol start="3">
 <li>Next, download Terraform&rsquo;s gpg key.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -O- https://apt.releases.hashicorp.com/gpg | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>gpg --dearmor | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg &gt; /dev/null
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -O- https://apt.releases.hashicorp.com/gpg | <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>gpg --dearmor | <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg &gt; /dev/null
 </span></span></code></pre></div><ol start="4">
 <li>Add the Terraform repository.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com </span><span style="color:#66d9ef">$(</span>grep -oP <span style="color:#e6db74">&#39;(?&lt;=UBUNTU_CODENAME=).*&#39;</span> /etc/os-release <span style="color:#f92672">||</span> lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> main&#34;</span> | sudo tee /etc/apt/sources.list.d/hashicorp.list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com </span><span style="color:#66d9ef">$(</span>grep -oP <span style="color:#e6db74">&#39;(?&lt;=UBUNTU_CODENAME=).*&#39;</span> /etc/os-release <span style="color:#f92672">||</span> lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> main&#34;</span> | sudo tee /etc/apt/sources.list.d/hashicorp.list
 </span></span></code></pre></div><ol start="5">
 <li>Update the repository.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
 </span></span></code></pre></div><ol start="6">
 <li>Finally, install Terraform.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install terraform
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install terraform
 </span></span></code></pre></div><ol start="7">
 <li>To verify installation, check the version of Terraform.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>terraform -v
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>terraform -v
 </span></span></code></pre></div><h3 id="b-creating-a-terraform-user-for-proxmox">B. Creating a Terraform user for Proxmox</h3>
 <ol>
 <li>Create a role for the Terraform to use when interacting with Proxmox.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum role add TerraformProv -privs <span style="color:#e6db74">&#34;Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt SDN.Use&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum role add TerraformProv -privs <span style="color:#e6db74">&#34;Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt SDN.Use&#34;</span>
 </span></span></code></pre></div><ol start="2">
 <li>Create the Terraform user (replacing password with your chose of password).</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum user add terraform-prov@pve --password &lt;password&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum user add terraform-prov@pve --password &lt;password&gt;
 </span></span></code></pre></div><ol start="3">
 <li>Assign the newly created role to the newly created user.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum aclmod / -user terraform-prov@pve -role TerraformProv
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum aclmod / -user terraform-prov@pve -role TerraformProv
 </span></span></code></pre></div><h3 id="c-basic-terraform-project-structure">C. Basic Terraform Project Structure</h3>
 <h4 id="maintf">main.tf</h4>
 <p>The main.tf file is where the actual code to build the resources in Proxmox will be put. Typically, the file starts with a &ldquo;providers&rdquo; section that includes what platform Terraform will be using. Some common provider sources are AWS, Google Cloud, and Microsoft Azure, but in our case, we will use Proxmox. The below code blocks are going to vary for your chosen provider, this using bgp/proxmox provider. Its documentation can be found <a href="https://registry.terraform.io/providers/bpg/proxmox/latest">here</a>.</p>
@@ -239,41 +244,45 @@
 <pre tabindex="0"><code>target_node = &#34;lab-server&#34;
 </code></pre><h3 id="additional-functionality">Additional functionality</h3>
 <ul>
-<li>You can declare local variables in a &ldquo;locals&rdquo; block between the provider and the resources. This allows you to declare variable key/value maps. Once they&rsquo;ve been declared, you can use a for loop to loop through and create multiple devices with unique configuration.
+<li>You can declare local variables in a &ldquo;locals&rdquo; block between the provider and the resources. This allows you to declare variable key/value maps. Once they&rsquo;ve been declared, you can use a for loop to loop through and create multiple devices with unique configuration.</li>
+</ul>
 <pre tabindex="0"><code>locals {
-	nodes = {
-		101 = {
-			name = var.node1_name
-			mac = var.node1_mac
-		}
-
-		102 = {
-			name = var.node2_name
-			mac = var.node2_mac
-		}
-
-		103 = {
-			name = var.node3_name
-			mac = var.node3_mac
+		nodes = {
+			101 = {
+				name = var.node1_name
+				mac = var.node1_mac
+			}
+		
+			102 = {
+				name = var.node2_name
+				mac = var.node2_mac
+			}
+		
+			103 = {
+				name = var.node3_name
+				mac = var.node3_mac
+			}
 		}
 	}
-}
 
-# Then, in resources block, you can assign the variable to for_each, and 
-# then set variables to be the key or value for each pair in the map. 
-# So below will go through each pair in &#39;nodes&#39; and assign a hostname, mac
-# address, and vmid.
+	# Then, in resources block, you can assign the variable to for_each, and 
+	# then set variables to be the key or value for each pair in the map. 
+	# So below will go through each pair in &#39;nodes&#39; and assign a hostname, mac
+	# address, and vmid.
 
-resource &#34;resource_type&#34; &#34;resource_name&#34; {
-	for_each = local.nodes
-	node_name = var.target_node
-	hostname = each.value.name
-
-	network_interface {
-		mac_address = each.value.mac
+	resource &#34;resource_type&#34; &#34;resource_name&#34; {
+		for_each = local.nodes
+		node_name = var.target_node
+		hostname = each.value.name
+	
+		network_interface {
+			mac_address = each.value.mac
+		}
 	}
-}
-</code></pre></li>
+</code></pre><h2 id="the-impact">The Impact</h2>
+<ul>
+<li>Basic Terraform project structure</li>
+<li>Using for-each loops to create multiple devices with fewer lines of code</li>
 </ul>
 
     </div>
@@ -286,7 +295,8 @@ resource &#34;resource_type&#34; &#34;resource_name&#34; {
     <nav id="toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#terraform-and-proxmox-setup">Terraform and Proxmox Setup</a>
+    <li><a href="#the-problem">The Problem</a></li>
+    <li><a href="#the-approach">The Approach</a>
       <ul>
         <li><a href="#a-install-terraform">A. Install Terraform</a></li>
         <li><a href="#b-creating-a-terraform-user-for-proxmox">B. Creating a Terraform user for Proxmox</a></li>
@@ -294,6 +304,7 @@ resource &#34;resource_type&#34; &#34;resource_name&#34; {
         <li><a href="#additional-functionality">Additional functionality</a></li>
       </ul>
     </li>
+    <li><a href="#the-impact">The Impact</a></li>
   </ul>
 </nav>
     </nav>

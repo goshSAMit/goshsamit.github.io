@@ -6,11 +6,14 @@ tags:
   - homepage
 showTableOfContents: true
 ---
-## Intro
+## The Problem
+As I started bringing up more and more self-hosted services, I wanted a one-page dashboard that would allow me to see all my services in one place, allowing me to access them quickly and repetitively. 
+
+## The Approach
 Homepage is a simple dashboard allowing users to set up a single page to get a quick view of services running on their network, resource utilization, and important links. It's also a good project to start working with docker containers, as you can create a docker container to run your homepage instance, which is what this guide will show. 
 
 - If you would like to see the configuration files for my own homepage dashboard, please follow [this link](https://github.com/goshSAMit/homepage_dashboard).
-## Steps
+### Steps
 1. Install docker and docker compose [with this guide]("https://goshsamit.com/how-to-install-docker-and-docker-compose-on-ubuntu")
 2. On your docker machine (mine is a VM running Ubuntu server), create a folder where you want to keep your homepage files
 ```
@@ -78,6 +81,6 @@ sudo docker ps
 	- widgets
 	- https://gethomepage.dev/ has a list of all of the services and widgets
 
-## What did I learn?
+## The Impact
 - docker and docker compose basics
 - Using API tokens instead of usernames and passwords

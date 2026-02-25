@@ -1,6 +1,6 @@
 ---
 title: Network Attached Storage
-type: post
+type: page
 tags:
   - homelab
   - nas
@@ -8,10 +8,13 @@ tags:
 showTableOfContents: true
 date: 0225-06-17
 ---
+## The Problem
+As time goes on, I am finding it more difficult to share all of my data with major corporations. So I was looking for a cloud storage replacement. 
+
 ### What is Network Attached Storage?
 Networked attached storage, or NAS, is a storage device that can be access through a network, rather than being directly connected to a device. Basically, it's a portable hard-drive that anyone on the network can access (but is not actually portable). Users directly accessing the network as well as users outside the network but using a VPN to remotely connect to the network can access a NAS.
 
-### TrueNAS
+## The Approach
 Part of the reason behind this project, was to learn more about NAS setup and configuration. Another reason is that I am hoping to slowly move away from large cloud storage providers and be more in control of the digital content that I create, consume, and save. After some research, I decided to go with TrueNAS as my self-hosted NAS solution. The other popular option was Unraid, however, comparing features, TrueNAS fit my use-cases more.
 
 This is not going to be a complete walk-through of how I set it up. General set up of TrueNAS is relatively straightforward.
@@ -23,6 +26,7 @@ This is not going to be a complete walk-through of how I set it up. General set 
 6. After you've created a pool, you'll want to create a share. I have a little article about the differences between an SMB share and NFS share [here](https://goshsamit.com/topics/accessing-an-smb-share-on-ubuntu/), but I'd recommend starting with an SMB share, assuming you are using Windows devices.
 7. Once that share is created, you'll configure the access control and then can use your account to connect to the share and start saving your files.
 
+## The Impact
 ### Redundant Array of Independent Disks (RAID)
 The key part of RAID is redundancy. There are various levels of RAID and each can offer varying levels of performance and redundancy. Each level requires a specific number of hard drives/disks to function.
 

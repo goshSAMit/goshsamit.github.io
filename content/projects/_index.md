@@ -18,3 +18,4 @@ My projects consist of...
 - [Tailscale Setup](/projects/tailscale)
 - [Traefik and PiHole](/projects/traefik-and-pihole)
 - [Homepage Dashboard Set Up](/projects/homepage-dashboard)
+- [Network Attached Storage](/projects/nas)

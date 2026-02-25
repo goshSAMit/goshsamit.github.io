@@ -7,7 +7,7 @@ tags:
 showTableOfContents: true
 date: 2025-04-03
 ---
-## Steps to connect to a Github repository
+### Steps to connect to a Github repository
 1. Create the repository (repo) on Github
 2. Create a folder on your local device that you want to hold the repo
 3. Run the following command to clone the Github repository
@@ -45,7 +45,7 @@ git push -u origin <branch-name>
 ```
 10. Go to Github and create a new pull request to merge the new branch into the main branch
 
-## Steps to start a repo on local and push to github
+### Steps to start a repo on local and push to github
 1. In command prompt/terminal, navigate to home directory of local project
 2. Run the following command to initialize the directory as a git repository
 ```
@@ -68,7 +68,7 @@ git remote add <url-of-remote-repo-from-github>
 git push -u origin <branch-name>
 ```
 
-## Various git commands
+### Various git commands
 - pulls from the main branch to local checked out branch
 ```
 git pull -u origin <branch-name>

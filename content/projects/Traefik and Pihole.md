@@ -9,12 +9,16 @@ tags:
   - dns
 showTableOfContents: true
 ---
-### Why?
-I was getting tired of entering IP addresses and having to click through the "connection not secure" messaging to get into my homelab services. I found a video by TechnoTim on YouTube where he walks through the "how-to's" of setting up Traefik as a cert manager and local DNS records on PiHole. So instead of copying his tutorial, I will just link it here.
+## The Problem
+I was getting tired of entering IP addresses and having to click through the "connection not secure" messaging to get into my homelab services. 
+
+## The Approach
+I found a video by TechnoTim on YouTube where he walks through the "how-to's" of setting up Traefik as a cert manager and local DNS records on PiHole. So instead of copying his tutorial, I will just link it here.
 
 - [TechnoTim's website with tutorial](https://technotim.live/posts/traefik-3-docker-certificates/)
 - [TechnoTim's Youtube tutorial](https://www.youtube.com/watch?v=n1vOfdz5Nm8)
 
+### The Impact
 ### Domain Name System
 Part of this project focuses on creating local Domain Name System (DNS) records, which allow you to access services in a browser using domain names instead of IP addresses. At it's very basic, DNS servers translate human-readable website domains to network-readable IP addresses. PiHole allows us to create local DNS records that only devices on our local network will use. 
 
@@ -50,8 +54,3 @@ The certificate management process for this project works like this:
 	7. Traefik presents the verified certificate to the browser.
 	8. The browser verifies the certificate is from a valid DNS provider.
 	9. Traefik sends the browser to the IP address of service1.example.com and the traffic between the two is now secure (usually represented by a lock symbol next to the url in your browser's address bar).
-
-### What did I learn?
-1. Docker and Docker Compose
-2. Setting up local A and CNAME domain records
-3. Certificate Management and Verification

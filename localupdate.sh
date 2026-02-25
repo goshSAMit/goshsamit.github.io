@@ -1,8 +1,8 @@
-# obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content" # UBUNTU PATH
-# hugoContentPath="/home/sam/website/goshsamit.github.io" #UBUNTU PATH
+obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content" # UBUNTU PATH
+hugoContentPath="/home/sam/website/goshsamit.github.io" #UBUNTU PATH
 
-obsidianContentPath="/Volumes/arnold/files/sam/Obsidian Vault/content" #MAC PATH
-hugoContentPath="/Users/sam/projects/personal/goshsamit.github.io" #MAC PATH
+# obsidianContentPath="/Volumes/arnold/files/sam/Obsidian Vault/content" #MAC PATH
+# hugoContentPath="/Users/sam/projects/personal/goshsamit.github.io" #MAC PATH
 
 echo "Syncing files from Obsidian..."
 

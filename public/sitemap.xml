@@ -20,10 +20,10 @@
     <loc>https://goshsamit.com/tags/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/topics/</loc>
+    <loc>https://goshsamit.com/topics/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/topics/</loc>
+    <loc>https://goshsamit.com/tags/topics/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/tags/vlan/</loc>
@@ -50,7 +50,10 @@
     <loc>https://goshsamit.com/about-me/</loc>
     <lastmod>2025-03-19T20:57:33-04:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/topics/network-attached-storage/</loc>
+    <loc>https://goshsamit.com/projects/nas/</loc>
+    <lastmod>0225-06-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/projects/</loc>
     <lastmod>0225-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/categories/</loc>
@@ -76,8 +79,6 @@
     <loc>https://goshsamit.com/projects/homepage-dashboard/</loc>
   </url><url>
     <loc>https://goshsamit.com/tags/iac/</loc>
-  </url><url>
-    <loc>https://goshsamit.com/projects/</loc>
   </url><url>
     <loc>https://goshsamit.com/tags/ssid/</loc>
   </url><url>

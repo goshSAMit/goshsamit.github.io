@@ -19,19 +19,19 @@
 
     
     <title>Homepage Dashboard</title>
-    <meta name="description" content="Intro Homepage is a simple dashboard allowing users to set up a single page to get a quick view of services running on their network, resource utilization, and …">
+    <meta name="description" content="The Problem As I started bringing up more and more self-hosted services, I wanted a one-page dashboard that would allow me to see all my services in one place, …">
     <meta name="keywords" content='homelab, homepage'>
 
     <meta property="og:url" content="https://goshsamit.com/projects/homepage-dashboard/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Homepage Dashboard">
-    <meta property="og:description" content="Intro Homepage is a simple dashboard allowing users to set up a single page to get a quick view of services running on their network, resource utilization, and …">
+    <meta property="og:description" content="The Problem As I started bringing up more and more self-hosted services, I wanted a one-page dashboard that would allow me to see all my services in one place, …">
     <meta property="og:image" content="https://goshsamit.com/">
     <meta property="og:image:secure_url" content="https://goshsamit.com/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Homepage Dashboard">
-    <meta name="twitter:description" content="Intro Homepage is a simple dashboard allowing users to set up a single page to get a quick view of services running on their network, resource utilization, and …">
+    <meta name="twitter:description" content="The Problem As I started bringing up more and more self-hosted services, I wanted a one-page dashboard that would allow me to see all my services in one place, …">
     <meta property="twitter:domain" content="https://goshsamit.com/projects/homepage-dashboard/">
     <meta property="twitter:url" content="https://goshsamit.com/projects/homepage-dashboard/">
     <meta name="twitter:image" content="https://goshsamit.com/">
@@ -49,7 +49,7 @@
     <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
 
     
-    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
+    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
 
     
     
@@ -157,12 +157,14 @@
     </div>
 
     <div class="post-content">
-        <h2 id="intro">Intro</h2>
+        <h2 id="the-problem">The Problem</h2>
+<p>As I started bringing up more and more self-hosted services, I wanted a one-page dashboard that would allow me to see all my services in one place, allowing me to access them quickly and repetitively.</p>
+<h2 id="the-approach">The Approach</h2>
 <p>Homepage is a simple dashboard allowing users to set up a single page to get a quick view of services running on their network, resource utilization, and important links. It&rsquo;s also a good project to start working with docker containers, as you can create a docker container to run your homepage instance, which is what this guide will show.</p>
 <ul>
 <li>If you would like to see the configuration files for my own homepage dashboard, please follow <a href="https://github.com/goshSAMit/homepage_dashboard">this link</a>.</li>
 </ul>
-<h2 id="steps">Steps</h2>
+<h3 id="steps">Steps</h3>
 <ol>
 <li>Install docker and docker compose <a href="%22https://goshsamit.com/how-to-install-docker-and-docker-compose-on-ubuntu%22">with this guide</a></li>
 <li>On your docker machine (mine is a VM running Ubuntu server), create a folder where you want to keep your homepage files</li>
@@ -236,7 +238,7 @@ PGID=1000
 </ul>
 </li>
 </ol>
-<h2 id="what-did-i-learn">What did I learn?</h2>
+<h2 id="the-impact">The Impact</h2>
 <ul>
 <li>docker and docker compose basics</li>
 <li>Using API tokens instead of usernames and passwords</li>
@@ -252,9 +254,13 @@ PGID=1000
     <nav id="toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#intro">Intro</a></li>
-    <li><a href="#steps">Steps</a></li>
-    <li><a href="#what-did-i-learn">What did I learn?</a></li>
+    <li><a href="#the-problem">The Problem</a></li>
+    <li><a href="#the-approach">The Approach</a>
+      <ul>
+        <li><a href="#steps">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-impact">The Impact</a></li>
   </ul>
 </nav>
     </nav>
