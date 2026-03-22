@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nas on goshSAMit</title>
-    <link>https://goshsamit.com/tags/nas/</link>
+    <link>http://localhost:1313/tags/nas/</link>
     <description>Recent content in Nas on goshSAMit</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://goshsamit.com/tags/nas/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/nas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Accessing an SMB Share on Ubuntu</title>
-      <link>https://goshsamit.com/topics/accessing-an-smb-share-on-ubuntu/</link>
+      <link>http://localhost:1313/topics/accessing-an-smb-share-on-ubuntu/</link>
       <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/topics/accessing-an-smb-share-on-ubuntu/</guid>
-      <description>Intro Server Message Block (SMB) is a protocol that enables a device to communicate with a remote server or other network device. It is mainly used for file sharing. It is mostly used for Windows-based devices but Apple devices are capable of using the protocol as well. You may hear Common Internet File System (CIFS) used when talking about SMB. It is basically an older version of SMB and is used less frequently in favor of SMB.</description>
+      <guid>http://localhost:1313/topics/accessing-an-smb-share-on-ubuntu/</guid>
+      <description>&lt;h3 id=&#34;intro&#34;&gt;Intro&lt;/h3&gt;&#xA;&lt;p&gt;Server Message Block (SMB) is a protocol that enables a device to communicate with a remote server or other network device. It is mainly used for file sharing. It is mostly used for Windows-based devices but Apple devices are capable of using the protocol as well. You may hear Common Internet File System (CIFS) used when talking about SMB. It is basically an older version of SMB and is used less frequently in favor of SMB.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Network Attached Storage</title>
-      <link>https://goshsamit.com/projects/nas/</link>
+      <link>http://localhost:1313/projects/nas/</link>
       <pubDate>Fri, 17 Jun 0225 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/projects/nas/</guid>
-      <description>The Problem As time goes on, I am finding it more difficult to share all of my data with major corporations. So I was looking for a cloud storage replacement.&#xA;What is Network Attached Storage? Networked attached storage, or NAS, is a storage device that can be access through a network, rather than being directly connected to a device. Basically, it&amp;rsquo;s a portable hard-drive that anyone on the network can access (but is not actually portable).</description>
+      <guid>http://localhost:1313/projects/nas/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;As time goes on, I am finding it more difficult to share all of my data with major corporations. So I was looking for a cloud storage replacement.&lt;/p&gt;&#xA;&lt;h3 id=&#34;what-is-network-attached-storage&#34;&gt;What is Network Attached Storage?&lt;/h3&gt;&#xA;&lt;p&gt;Networked attached storage, or NAS, is a storage device that can be access through a network, rather than being directly connected to a device. Basically, it&amp;rsquo;s a portable hard-drive that anyone on the network can access (but is not actually portable). Users directly accessing the network as well as users outside the network but using a VPN to remotely connect to the network can access a NAS.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

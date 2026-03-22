@@ -2,102 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://goshsamit.com/topics/accessing-an-smb-share-on-ubuntu/</loc>
+    <loc>http://localhost:1313/topics/accessing-an-smb-share-on-ubuntu/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/homelab/</loc>
+    <loc>http://localhost:1313/tags/homelab/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/how-to/</loc>
+    <loc>http://localhost:1313/tags/how-to/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/nas/</loc>
+    <loc>http://localhost:1313/tags/nas/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/topics/</loc>
+    <loc>http://localhost:1313/tags/topics/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/topics/</loc>
+    <loc>http://localhost:1313/topics/</loc>
     <lastmod>2025-06-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/vlan/</loc>
+    <loc>http://localhost:1313/tags/vlan/</loc>
     <lastmod>2025-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/topics/virtual-local-area-network-vlan-basics/</loc>
+    <loc>http://localhost:1313/topics/virtual-local-area-network-vlan-basics/</loc>
     <lastmod>2025-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/docker/</loc>
+    <loc>http://localhost:1313/tags/docker/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/dockercompose/</loc>
+    <loc>http://localhost:1313/tags/dockercompose/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/tags/git/</loc>
+    <loc>http://localhost:1313/tags/git/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/topics/git-commands-and-github/</loc>
+    <loc>http://localhost:1313/topics/git-commands-and-github/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/topics/install-docker/</loc>
+    <loc>http://localhost:1313/topics/install-docker/</loc>
     <lastmod>2025-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/about-me/</loc>
+    <loc>http://localhost:1313/about-me/</loc>
     <lastmod>2025-03-19T20:57:33-04:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/projects/nas/</loc>
+    <loc>http://localhost:1313/projects/nas/</loc>
     <lastmod>0225-06-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/projects/</loc>
+    <loc>http://localhost:1313/projects/</loc>
     <lastmod>0225-06-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/certs/</loc>
+    <loc>http://localhost:1313/tags/certs/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/clustering/</loc>
+    <loc>http://localhost:1313/tags/clustering/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/devops/</loc>
+    <loc>http://localhost:1313/tags/devops/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/dhcp/</loc>
+    <loc>http://localhost:1313/tags/dhcp/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/dns/</loc>
+    <loc>http://localhost:1313/tags/dns/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/firewall/</loc>
+    <loc>http://localhost:1313/tags/firewall/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/hardware/</loc>
+    <loc>http://localhost:1313/tags/hardware/</loc>
   </url><url>
-    <loc>https://goshsamit.com/projects/home-lab-hardware/</loc>
+    <loc>http://localhost:1313/projects/home-lab-hardware/</loc>
   </url><url>
-    <loc>https://goshsamit.com/projects/home-network/</loc>
+    <loc>http://localhost:1313/projects/home-network/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/homepage/</loc>
+    <loc>http://localhost:1313/tags/homepage/</loc>
   </url><url>
-    <loc>https://goshsamit.com/projects/homepage-dashboard/</loc>
+    <loc>http://localhost:1313/projects/homepage-dashboard/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/iac/</loc>
+    <loc>http://localhost:1313/tags/iac/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/k3s/</loc>
+    <loc>http://localhost:1313/tags/k3s/</loc>
   </url><url>
-    <loc>https://goshsamit.com/projects/k3s/</loc>
+    <loc>http://localhost:1313/projects/k3s/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/ssid/</loc>
+    <loc>http://localhost:1313/tags/ssid/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/tailscale/</loc>
+    <loc>http://localhost:1313/tags/tailscale/</loc>
   </url><url>
-    <loc>https://goshsamit.com/projects/tailscale/</loc>
+    <loc>http://localhost:1313/projects/tailscale/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/terraform/</loc>
+    <loc>http://localhost:1313/tags/terraform/</loc>
   </url><url>
-    <loc>https://goshsamit.com/projects/terraform/</loc>
+    <loc>http://localhost:1313/projects/terraform/</loc>
   </url><url>
-    <loc>https://goshsamit.com/projects/traefik-and-pihole/</loc>
+    <loc>http://localhost:1313/projects/traefik-and-pihole/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/vpn/</loc>
+    <loc>http://localhost:1313/tags/vpn/</loc>
   </url>
 </urlset>

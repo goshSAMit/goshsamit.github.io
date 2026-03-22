@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>K3s on goshSAMit</title>
-    <link>https://goshsamit.com/tags/k3s/</link>
+    <link>http://localhost:1313/tags/k3s/</link>
     <description>Recent content in K3s on goshSAMit</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://goshsamit.com/tags/k3s/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/k3s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>K3S Setup</title>
-      <link>https://goshsamit.com/projects/k3s/</link>
+      <link>http://localhost:1313/projects/k3s/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/projects/k3s/</guid>
-      <description>The Problem At work, my team is currently using a kubernetes cluster in Google Cloud to work as a gitlab runner for test automation. The cluster has already been built so I am looking to actually build a cluster.&#xA;Kubernetes clustering can be a major benefit for production applications. Clusters can be set up to scale automatically as demand on an application fluctuates. So demand increases, the cluster can add more pods to meet that demand.</description>
+      <guid>http://localhost:1313/projects/k3s/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;At work, my team is currently using a kubernetes cluster in Google Cloud to work as a gitlab runner for test automation. The cluster has already been built so I am looking to actually build a cluster.&lt;/p&gt;&#xA;&lt;p&gt;Kubernetes clustering can be a major benefit for production applications. Clusters can be set up to scale automatically as demand on an application fluctuates. So demand increases, the cluster can add more pods to meet that demand. Once demand calms down, the nodes can start spinning down unnecessary pods. The nodes also work together to make sure applications are always running on healthy pods. If a pod is identified as unhealthy, the application is moved to a new pod and the malfunctioning pod is restart and/or destroyed.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

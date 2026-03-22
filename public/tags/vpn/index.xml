@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vpn on goshSAMit</title>
-    <link>https://goshsamit.com/tags/vpn/</link>
+    <link>http://localhost:1313/tags/vpn/</link>
     <description>Recent content in Vpn on goshSAMit</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://goshsamit.com/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tailscale Setup</title>
-      <link>https://goshsamit.com/projects/tailscale/</link>
+      <link>http://localhost:1313/projects/tailscale/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/projects/tailscale/</guid>
-      <description>The Problem I set up my home lab with three VLANs. My main VLAN, where all of our personal devices connect, a VLAN for smart devices to keep them separated from our personal network, and a VLAN for homelabbing.&#xA;I was looking for a way to connect to my homelab from my personal devices to do development work, without affecting my actual network. Initially, the plan was a traditional self-hosted VPN like Wireguard but it was going to require port forwarding and other firewall workarounds that I was just not comfortable with on my personal network.</description>
+      <guid>http://localhost:1313/projects/tailscale/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;I set up my home lab with three VLANs. My main VLAN, where all of our personal devices connect, a VLAN for smart devices to keep them separated from our personal network, and a VLAN for homelabbing.&lt;/p&gt;&#xA;&lt;p&gt;I was looking for a way to connect to my homelab from my personal devices to do development work, without affecting my actual network. Initially, the plan was a traditional self-hosted VPN like Wireguard but it was going to require port forwarding and other firewall workarounds that I was just not comfortable with on my personal network.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,15 +1,21 @@
+OS="$(uname -s)"
+
+if [ "$OS" = "Darwin" ]; then
+    obsidianContentPath="/Volumes/arnold/files/sam/Obsidian Vault/content"
+    hugoContentPath="/Users/sam/projects/personal/goshsamit.github.io"
+elif [ "$OS" = "Linux" ]; then
+    obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content"
+    hugoContentPath="/home/sam/website/goshsamit.github.io"
+else
+    echo "Unsupported OS: $OS"
+    exit 1
+fi
 #!/bin/bash
 set -euo pipefail
 
 # Change to the script's directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
-
-# Set variables for Obsidian to Hugo copy
-obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content" # UBUNTU PATH
-hugoContentPath="/home/sam/website/goshsamit.github.io" #UBUNTU PATH
-# obsidianContentPath="/Volumes/arnold/files/sam/Obsidian Vault/content" #MAC PATH
-# hugoContentPath="/Users/sam/projects/personal/goshsamit.github.io" #MAC PATH
 
 # Set GitHub Repo
 myrepo="goshsamit.github.io"

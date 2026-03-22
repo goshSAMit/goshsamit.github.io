@@ -1,20 +1,26 @@
-import os
-import re
-import shutil
+import platform, sys, os, re, shutil
+
+os_name = platform.system()
+
+if os_name == "Darwin":
+    print("macOS detected — doing macOS stuff")
+    obsidianContentPath="/Volumes/arnold/files/sam/Obsidian Vault/content" #MAC PATH
+    hugoContentPath="/Users/sam/projects/personal/goshsamit.github.io" #MAC PATH
+elif os_name == "Linux":
+    print("Linux detected — doing Linux stuff")
+    obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content" # UBUNTU PATH
+    hugoContentPath="/home/sam/website/goshsamit.github.io" #UBUNTU PATH
+elif os_name == "Windows":
+    print("Windows detected — doing Windows stuff")
+    # your Windows code here
+else:
+    print(f"Unknown OS: {os_name}")
 
 # Paths
-
-obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content" # UBUNTU PATH
-hugoContentPath="/home/sam/website/goshsamit.github.io" # UBUNTU PATH
-
-# obsidianContentPath="/Volumes/arnold/files/sam/Obsidian Vault/content" # MAC PATH
-# hugoContentPath="/Users/sam/projects/personal/goshsamit.github.io" # MAC PATH
 
 posts_dir = hugoContentPath + "/content/projects/"
 attachments_dir = obsidianContentPath + "/Attachments/"
 static_images_dir = hugoContentPath + "/static/images"
-
-
 
 # Step 1: Process each markdown file in the posts directory
 for filename in os.listdir(posts_dir):

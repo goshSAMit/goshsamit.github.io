@@ -2,164 +2,164 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on goshSAMit</title>
-    <link>https://goshsamit.com/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on goshSAMit</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://goshsamit.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Homelab</title>
-      <link>https://goshsamit.com/tags/homelab/</link>
+      <link>http://localhost:1313/tags/homelab/</link>
       <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/homelab/</guid>
+      <guid>http://localhost:1313/tags/homelab/</guid>
       <description></description>
     </item>
     <item>
       <title>How-To</title>
-      <link>https://goshsamit.com/tags/how-to/</link>
+      <link>http://localhost:1313/tags/how-to/</link>
       <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/how-to/</guid>
+      <guid>http://localhost:1313/tags/how-to/</guid>
       <description></description>
     </item>
     <item>
       <title>Nas</title>
-      <link>https://goshsamit.com/tags/nas/</link>
+      <link>http://localhost:1313/tags/nas/</link>
       <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/nas/</guid>
+      <guid>http://localhost:1313/tags/nas/</guid>
       <description></description>
     </item>
     <item>
       <title>Topics</title>
-      <link>https://goshsamit.com/tags/topics/</link>
+      <link>http://localhost:1313/tags/topics/</link>
       <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/topics/</guid>
+      <guid>http://localhost:1313/tags/topics/</guid>
       <description></description>
     </item>
     <item>
       <title>Vlan</title>
-      <link>https://goshsamit.com/tags/vlan/</link>
+      <link>http://localhost:1313/tags/vlan/</link>
       <pubDate>Wed, 09 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/vlan/</guid>
+      <guid>http://localhost:1313/tags/vlan/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>https://goshsamit.com/tags/docker/</link>
+      <link>http://localhost:1313/tags/docker/</link>
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/docker/</guid>
+      <guid>http://localhost:1313/tags/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Dockercompose</title>
-      <link>https://goshsamit.com/tags/dockercompose/</link>
+      <link>http://localhost:1313/tags/dockercompose/</link>
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/dockercompose/</guid>
+      <guid>http://localhost:1313/tags/dockercompose/</guid>
       <description></description>
     </item>
     <item>
       <title>Git</title>
-      <link>https://goshsamit.com/tags/git/</link>
+      <link>http://localhost:1313/tags/git/</link>
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/git/</guid>
+      <guid>http://localhost:1313/tags/git/</guid>
       <description></description>
     </item>
     <item>
       <title>Certs</title>
-      <link>https://goshsamit.com/tags/certs/</link>
+      <link>http://localhost:1313/tags/certs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/certs/</guid>
+      <guid>http://localhost:1313/tags/certs/</guid>
       <description></description>
     </item>
     <item>
       <title>Clustering</title>
-      <link>https://goshsamit.com/tags/clustering/</link>
+      <link>http://localhost:1313/tags/clustering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/clustering/</guid>
+      <guid>http://localhost:1313/tags/clustering/</guid>
       <description></description>
     </item>
     <item>
       <title>Devops</title>
-      <link>https://goshsamit.com/tags/devops/</link>
+      <link>http://localhost:1313/tags/devops/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/devops/</guid>
+      <guid>http://localhost:1313/tags/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Dhcp</title>
-      <link>https://goshsamit.com/tags/dhcp/</link>
+      <link>http://localhost:1313/tags/dhcp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/dhcp/</guid>
+      <guid>http://localhost:1313/tags/dhcp/</guid>
       <description></description>
     </item>
     <item>
       <title>Dns</title>
-      <link>https://goshsamit.com/tags/dns/</link>
+      <link>http://localhost:1313/tags/dns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/dns/</guid>
+      <guid>http://localhost:1313/tags/dns/</guid>
       <description></description>
     </item>
     <item>
       <title>Firewall</title>
-      <link>https://goshsamit.com/tags/firewall/</link>
+      <link>http://localhost:1313/tags/firewall/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/firewall/</guid>
+      <guid>http://localhost:1313/tags/firewall/</guid>
       <description></description>
     </item>
     <item>
       <title>Hardware</title>
-      <link>https://goshsamit.com/tags/hardware/</link>
+      <link>http://localhost:1313/tags/hardware/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/hardware/</guid>
+      <guid>http://localhost:1313/tags/hardware/</guid>
       <description></description>
     </item>
     <item>
       <title>Homepage</title>
-      <link>https://goshsamit.com/tags/homepage/</link>
+      <link>http://localhost:1313/tags/homepage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/homepage/</guid>
+      <guid>http://localhost:1313/tags/homepage/</guid>
       <description></description>
     </item>
     <item>
       <title>Iac</title>
-      <link>https://goshsamit.com/tags/iac/</link>
+      <link>http://localhost:1313/tags/iac/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/iac/</guid>
+      <guid>http://localhost:1313/tags/iac/</guid>
       <description></description>
     </item>
     <item>
       <title>K3s</title>
-      <link>https://goshsamit.com/tags/k3s/</link>
+      <link>http://localhost:1313/tags/k3s/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/k3s/</guid>
+      <guid>http://localhost:1313/tags/k3s/</guid>
       <description></description>
     </item>
     <item>
       <title>Ssid</title>
-      <link>https://goshsamit.com/tags/ssid/</link>
+      <link>http://localhost:1313/tags/ssid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/ssid/</guid>
+      <guid>http://localhost:1313/tags/ssid/</guid>
       <description></description>
     </item>
     <item>
       <title>Tailscale</title>
-      <link>https://goshsamit.com/tags/tailscale/</link>
+      <link>http://localhost:1313/tags/tailscale/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/tailscale/</guid>
+      <guid>http://localhost:1313/tags/tailscale/</guid>
       <description></description>
     </item>
     <item>
       <title>Terraform</title>
-      <link>https://goshsamit.com/tags/terraform/</link>
+      <link>http://localhost:1313/tags/terraform/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/terraform/</guid>
+      <guid>http://localhost:1313/tags/terraform/</guid>
       <description></description>
     </item>
     <item>
       <title>Vpn</title>
-      <link>https://goshsamit.com/tags/vpn/</link>
+      <link>http://localhost:1313/tags/vpn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/tags/vpn/</guid>
+      <guid>http://localhost:1313/tags/vpn/</guid>
       <description></description>
     </item>
   </channel>

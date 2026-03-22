@@ -1,8 +1,17 @@
-obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content" # UBUNTU PATH
-hugoContentPath="/home/sam/website/goshsamit.github.io" #UBUNTU PATH
+OS="$(uname -s)"
 
-# obsidianContentPath="/Volumes/arnold/files/sam/Obsidian Vault/content" #MAC PATH
-# hugoContentPath="/Users/sam/projects/personal/goshsamit.github.io" #MAC PATH
+if [ "$OS" = "Darwin" ]; then
+    obsidianContentPath="/Volumes/arnold/files/sam/Obsidian Vault/content"
+    hugoContentPath="/Users/sam/projects/personal/goshsamit.github.io"
+elif [ "$OS" = "Linux" ]; then
+    obsidianContentPath="/mnt/share/files/sam/Obsidian Vault/content"
+    hugoContentPath="/home/sam/website/goshsamit.github.io"
+else
+    echo "Unsupported OS: $OS"
+    exit 1
+fi
+
+echo "$OS"
 
 echo "Syncing files from Obsidian..."
 
