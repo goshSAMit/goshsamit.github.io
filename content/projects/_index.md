@@ -14,6 +14,7 @@ My projects consist of...
 ### Home Lab
 - [Home Network](/projects/home-network)
 - [Home Lab Hardware](/projects/home-lab-hardware/)
+- [Kubernetes Cluster with k3s](/projects/k3s/)
 ### Self-Hosted Services
 - [Tailscale Setup](/projects/tailscale)
 - [Traefik and PiHole](/projects/traefik-and-pihole)

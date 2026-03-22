@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>K3S Setup</title>
+    <meta name="description" content="The Problem At work, my team is currently using a kubernetes cluster in Google Cloud to work as a gitlab runner for test automation. The cluster has already …">
+    <meta name="keywords" content='homelab, k3s, clustering'>
+
+    <meta property="og:url" content="https://goshsamit.com/projects/k3s/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="K3S Setup">
+    <meta property="og:description" content="The Problem At work, my team is currently using a kubernetes cluster in Google Cloud to work as a gitlab runner for test automation. The cluster has already …">
+    <meta property="og:image" content="https://goshsamit.com/">
+    <meta property="og:image:secure_url" content="https://goshsamit.com/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="K3S Setup">
+    <meta name="twitter:description" content="The Problem At work, my team is currently using a kubernetes cluster in Google Cloud to work as a gitlab runner for test automation. The cluster has already …">
+    <meta property="twitter:domain" content="https://goshsamit.com/projects/k3s/">
+    <meta property="twitter:url" content="https://goshsamit.com/projects/k3s/">
+    <meta name="twitter:image" content="https://goshsamit.com/">
+
+    
+    <link rel="canonical" href="https://goshsamit.com/projects/k3s/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://goshsamit.com/">goshSAMit</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/about-me/" aria-label="" ><span data-feather='user'></span> About Me </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/projects/" aria-label="" ><span data-feather='terminal'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/topics/" aria-label="" ><span data-feather='list'></span> Topics </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/tags/" aria-label="tags" ><span data-feather='tag'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/goshsamit" aria-label="github" ><span data-feather='github'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://www.linkedin.com/in/goshsamit/" aria-label="linkedin" ><span data-feather='linkedin'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/about-me/" ><span data-feather='user'></span> About Me </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/projects/" ><span data-feather='terminal'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/topics/" ><span data-feather='list'></span> Topics </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/tags/" ><span data-feather='tag'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/goshsamit" ><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/goshsamit/" ><span data-feather='linkedin'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    
+
+    <div class="post container">
+
+    <div class="post-header-section">
+        <h1>K3S Setup</h1>
+    </div>
+
+    <div class="post-content">
+        <h2 id="the-problem">The Problem</h2>
+<p>At work, my team is currently using a kubernetes cluster in Google Cloud to work as a gitlab runner for test automation. The cluster has already been built so I am looking to actually build a cluster.</p>
+<p>Kubernetes clustering can be a major benefit for production applications. Clusters can be set up to scale automatically as demand on an application fluctuates. So demand increases, the cluster can add more pods to meet that demand. Once demand calms down, the nodes can start spinning down unnecessary pods. The nodes also work together to make sure applications are always running on healthy pods. If a pod is identified as unhealthy, the application is moved to a new pod and the malfunctioning pod is restart and/or destroyed.</p>
+<p>On my homelab, a kubernetes cluster is practically unnecessary. I am the only one accessing the services so I don&rsquo;t need the scalability or high availability clustering allows for. I&rsquo;m using this as an opportunity to learn how to configure a cluster, set up shared storage, and deploy applications.</p>
+<h2 id="the-approach">The Approach</h2>
+<p>I decided to use k3s instead of kubernetes for this cluster because k3s is touted as a lightweight version of kubernetes for resource-constrained environments.</p>
+<h3 id="a-installation-of-k3s">A. Installation of k3s</h3>
+<ul>
+<li>Quick start guide is crazy easy and fast - <a href="https://docs.k3s.io/quick-start">here</a></li>
+</ul>
+<ol>
+<li>run this command on the machine you plan to use as the control node:</li>
+</ol>
+<pre tabindex="0"><code>curl -sfL https://get.k3s.io | sh -
+</code></pre><ol start="2">
+<li>Run this command on the worker nodes - get &lsquo;mynodetoken&rsquo; from the control node&rsquo;s /var/lib/rancher/k3s/server/node-token (myserver will be the control&rsquo;s ip address):</li>
+</ol>
+<pre tabindex="0"><code>curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
+</code></pre><ol start="3">
+<li>Once complete, run this on the control node:</li>
+</ol>
+<pre tabindex="0"><code>sudo kubectl get nodes
+</code></pre><ul>
+<li>Issue - I could get control server up and running but couldn&rsquo;t get node connected to it, after some research, I learned that the control server was advertising its localhost ip address instead of its actual ip address.</li>
+</ul>
+<pre tabindex="0"><code># to see what control server is advertising
+sudo systemctl cat k3s
+
+# results should include:
+  --advertise-address control-server-ip
+  
+# add the following if the advertise-address is not found in that file
+[Service]
+ExecStart=
+ExecStart=/usr/local/bin/k3s server \
+  --node-ip control-server-ip \
+  --advertise-address control-server-ip
+  
+# save and restart nodes
+</code></pre><ul>
+<li>When you run the get nodes command again, the worker nodes should appear, but won&rsquo;t have a role assigned to them.</li>
+</ul>
+<ol start="4">
+<li>Next, assign the worker role to other nodes.</li>
+</ol>
+<pre tabindex="0"><code>kubectl label node &lt;worker1-name&gt; node-role.kubernetes.io/worker=worker
+kubectl label node &lt;worker2-name&gt; node-role.kubernetes.io/worker=worker
+</code></pre><h3 id="b-storage">B. Storage</h3>
+<ul>
+<li>The next thing to set up is shared storage for the whole cluster to use and access.</li>
+<li>I am using TrueNAS Scale, so that is where I will create the share for my cluster. This will just include general steps for the setup in TrueNAS using the GUI.</li>
+</ul>
+<ol>
+<li>Create a resource pool, if you do not already have one.</li>
+<li>Inside that pool, create a dataset that the cluster will access.</li>
+<li>Create an NFS share pointing at that new data set.</li>
+<li>Configure permissions so the cluster user and IP can read and write to the data set.
+<ul>
+<li>You&rsquo;ll want to check the UID of the user on the cluster with the following command, then make sure the owner of the share has a match uid (the nfs share on the cluster doesn&rsquo;t really care about the username, just the matching uid).</li>
+</ul>
+</li>
+</ol>
+<pre tabindex="0"><code>id USERNAME_OF_CLUSTER_USER
+</code></pre><ol start="5">
+<li>On all of the k3s nodes, install nfs common with:</li>
+</ol>
+<pre tabindex="0"><code>sudo apt install nfs-common
+</code></pre><ol start="6">
+<li>Temporarily Mount the nfs share on the cluster nodes (make sure mount point path is created on nodes):</li>
+</ol>
+<pre tabindex="0"><code>sudo mount -t nfs IP_OF_NAS:/path/to/share /path/to/node_mount_point
+</code></pre><ol start="6">
+<li>Permanently mount the nfs share on the nodes (make sure mount point path is created on nodes):</li>
+</ol>
+<pre tabindex="0"><code>sudo nano /etc/fstab
+IP_OF_NAS:/path/to/share /path/to/node_mount_point nfs  defaults,_netdev  0  0
+</code></pre><h3 id="c-persistent-volume-claim-pvc-setup">C. Persistent Volume Claim (PVC) Setup</h3>
+<ul>
+<li>Next, we need to set up a Persistent Volume Claim. This will be used when adding an application to the node. It will allow kubernetes  to create an NFS share and assign it to the application automatically.</li>
+</ul>
+<ol>
+<li>First, we will need to install helm, which is a package manager for kubernetes.</li>
+</ol>
+<pre tabindex="0"><code>curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+</code></pre><ol start="2">
+<li>check it successfully installed with:</li>
+</ol>
+<pre tabindex="0"><code>helm version
+</code></pre><ol start="2">
+<li>Install nfs provisioner repository.</li>
+</ol>
+<pre tabindex="0"><code>helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+</code></pre><ol start="4">
+<li>Update the helm repo.</li>
+</ol>
+<pre tabindex="0"><code>helm repo update
+</code></pre><ol start="5">
+<li>Create the helm values.yaml file for nfs-provisioner.</li>
+</ol>
+<pre tabindex="0"><code>mkdir -p ~/kubernetes/apps/nfs-provisioner
+nano ~/kubernetes/apps/nfs-provisioner/values.yaml
+
+nfs:
+  server: 192.168.x.x
+  path: /mnt/pool/k3s
+
+storageClass:
+  name: nfs
+  defaultClass: true
+  reclaimPolicy: Retain
+</code></pre><ol start="6">
+<li>Install the helm chart and point it at nfs share created earlier.</li>
+</ol>
+<pre tabindex="0"><code>helm install nfs-provisioner nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+  --set nfs.server=IP_OF_NAS \
+  --set nfs.path=/path/to/share
+</code></pre><ol start="7">
+<li>You may need to modify file permissions.</li>
+</ol>
+<pre tabindex="0"><code>sudo chmod 644 /etc/rancher/k3s/k3s.yaml
+</code></pre><ol start="8">
+<li>Verify.</li>
+</ol>
+<pre tabindex="0"><code>kubectl get pods -n nfs-provisioner
+</code></pre><ol start="9">
+<li>Create a test persistent volume claim (pvc).</li>
+</ol>
+<pre tabindex="0"><code>cat &lt;&lt;EOF | kubectl apply -f -
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: test-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs-client
+  resources:
+    requests:
+      storage: 1Gi
+EOF
+</code></pre><ol start="10">
+<li>Check it&rsquo;s creation, after 10 - 30 seconds, the result should say bound.</li>
+</ol>
+<pre tabindex="0"><code>kubectl get pvc test-pvc
+</code></pre><ol start="11">
+<li>Check your nfs share mount point on the cluster and see if files are autogenerated there.</li>
+<li>After the test is successful you can clean up by deleting the test PVC.</li>
+</ol>
+<pre tabindex="0"><code>kubectl delete pvc test-pvc
+</code></pre><h3 id="d-ingress-controller-traefik">D. Ingress Controller (Traefik)</h3>
+<ul>
+<li>This will be done when I move out of my homelab VM and into my main VLAN, as I already have Traefik set up to access apps by url and setting up SSL certificates with Let&rsquo;sEncrypt.</li>
+</ul>
+<h3 id="e-application-deployment---metallb">E. Application Deployment - MetalLB</h3>
+<ul>
+<li>MetalLB is a load balancer. After being installed onto the control node, it can be configured with a range of IPs. These IP addresses should be unused and outside of your router&rsquo;s dhcp range. Once configured, we can deploy another application. That application will be given an available IP address in the configured range.</li>
+</ul>
+<ol>
+<li>Add the helm repo for MetalLB.</li>
+</ol>
+<pre tabindex="0"><code>helm repo add metallb https://metallb.github.io/metallb
+helm repo update
+</code></pre><ol start="2">
+<li>Create the values.yaml file on the node.</li>
+</ol>
+<pre tabindex="0"><code>mkdir -p ~/kubernetes/apps/metallb
+nano ~/kubernetes/apps/metallb/values.yaml
+</code></pre><ol start="3">
+<li>Add the following:</li>
+</ol>
+<pre tabindex="0"><code>controller:
+  enabled: true
+</code></pre><ol start="4">
+<li>Install MetalLB.</li>
+</ol>
+<pre tabindex="0"><code>helm install metallb metallb/metallb \
+  -f ~/kubernetes/apps/metallb/values.yaml \
+  -n metallb-system \
+  --create-namespace
+</code></pre><ol start="5">
+<li>After about a minute, run the following command to verify the pods are running (there will be 4):</li>
+</ol>
+<pre tabindex="0"><code>kubectl get pods -n metallb-system
+</code></pre><ol start="6">
+<li>Create the MetalLB Manifest, this will be where we configure the IP address range it will use.</li>
+</ol>
+<pre tabindex="0"><code>nano ~/kubernetes/apps/metallb/ippool.yaml
+</code></pre><ol start="7">
+<li>Add the following, using your own values.</li>
+</ol>
+<pre tabindex="0"><code>apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: default-pool
+  namespace: metallb-system
+spec:
+  addresses:
+    - 192.168.0.150-192.168.0.175
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: default
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+    - default-pool
+</code></pre><ol start="8">
+<li>Verify the IP pool was created.</li>
+</ol>
+<pre tabindex="0"><code>kubectl get ipaddresspool -n metallb-system
+</code></pre><ol start="9">
+<li>Now another application can be deployed with helm and it will be given one of these IP addresses. You will use the given ip to access the app.</li>
+</ol>
+<h2 id="the-impact">The Impact</h2>
+<h3 id="what-did-i-learn">What did I learn?</h3>
+<h4 id="1-k3s-setup">1. k3s setup</h4>
+<ul>
+<li>As I said, the installation of k3s was incredibly easy. Just a couple commands and my three ubuntu nodes were clustered with shared storage.</li>
+</ul>
+<h4 id="2-persistent-volume-claim-pvc">2. Persistent Volume Claim (PVC)</h4>
+<ul>
+<li>Storage Class Set up Analogy
+Imagine you&rsquo;re at a hotel:
+<ul>
+<li>You don&rsquo;t go find your own room — you just say <strong>&ldquo;I need a room&rdquo;</strong></li>
+<li>The hotel automatically assigns you one based on what&rsquo;s available
+Storage Class works the same way:</li>
+<li>Your app says <strong>&ldquo;I need 10GB of storage&rdquo;</strong></li>
+<li>Kubernetes automatically creates a volume on your NFS share and assigns it to the app</li>
+<li>You don&rsquo;t have to manually create storage for every app</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-ingress-controller">3. Ingress Controller</h4>
+<ul>
+<li>While I didn&rsquo;t set up an ingress control yet, I did learn some valuable information. Using traefik, we can route all http/https traffic for cluster applications through a single IP address assigned by MetalLB. Then, we can set up a DNS server on another MetalLB-assigned IP. With this set up, we can access our services using local domain names instead of IP addresses and port numbers.</li>
+</ul>
+<h4 id="4-application-deployment">4. Application deployment</h4>
+<ul>
+<li>Using Helm, application installation can also be incredibly simple. adding the repo then running the repo&rsquo;s install command is enough. After that, you configure the application the same way you would if you installed it manually or any way other than Helm.</li>
+</ul>
+
+    </div>
+    
+    
+</div>
+
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-problem">The Problem</a></li>
+    <li><a href="#the-approach">The Approach</a>
+      <ul>
+        <li><a href="#a-installation-of-k3s">A. Installation of k3s</a></li>
+        <li><a href="#b-storage">B. Storage</a></li>
+        <li><a href="#c-persistent-volume-claim-pvc-setup">C. Persistent Volume Claim (PVC) Setup</a></li>
+        <li><a href="#d-ingress-controller-traefik">D. Ingress Controller (Traefik)</a></li>
+        <li><a href="#e-application-deployment---metallb">E. Application Deployment - MetalLB</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-impact">The Impact</a>
+      <ul>
+        <li><a href="#what-did-i-learn">What did I learn?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
+
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>
