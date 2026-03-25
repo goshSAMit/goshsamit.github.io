@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on goshSAMit</title>
-    <link>http://localhost:1313/tags/docker/</link>
+    <link>https://goshsamit.com/tags/docker/</link>
     <description>Recent content in Docker on goshSAMit</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 03 Apr 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://goshsamit.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install Docker</title>
-      <link>http://localhost:1313/topics/install-docker/</link>
+      <link>https://goshsamit.com/topics/install-docker/</link>
       <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/topics/install-docker/</guid>
-      <description>&lt;h3 id=&#34;how-to-install-docker-and-docker-compose-on-ubuntu&#34;&gt;How to install Docker and Docker Compose on Ubuntu&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;run the following commands to set up docker&amp;rsquo;s apt repository&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# Add Docker&amp;#39;s official GPG key:&#xA;sudo apt-get update&#xA;sudo apt-get install ca-certificates curl&#xA;sudo install -m 0755 -d /etc/apt/keyrings&#xA;sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc&#xA;sudo chmod a+r /etc/apt/keyrings/docker.asc&#xA;&#xA;# Add the repository to Apt sources:&#xA;echo \&#xA;  &amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \&#xA;  $(. /etc/os-release &amp;amp;&amp;amp; echo &amp;#34;${UBUNTU_CODENAME:-$VERSION_CODENAME}&amp;#34;) stable&amp;#34; | \&#xA;  sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null&#xA;sudo apt-get update&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;run the following command to install the latest version of docker&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;When complete, you can check installation with:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;docker -v &amp;amp;&amp;amp; docker compose version&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;4&#34;&gt;&#xA;&lt;li&gt;Run the following command to run a test container&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo docker run hello-world&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+      <guid>https://goshsamit.com/topics/install-docker/</guid>
+      <description>How to install Docker and Docker Compose on Ubuntu run the following commands to set up docker&amp;rsquo;s apt repository # Add Docker&amp;#39;s official GPG key: sudo apt-get update sudo apt-get install ca-certificates curl sudo install -m 0755 -d /etc/apt/keyrings sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc sudo chmod a+r /etc/apt/keyrings/docker.asc # Add the repository to Apt sources: echo \ &amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \ $(. /etc/os-release &amp;amp;&amp;amp; echo &amp;#34;${UBUNTU_CODENAME:-$VERSION_CODENAME}&amp;#34;) stable&amp;#34; | \ sudo tee /etc/apt/sources.</description>
     </item>
     <item>
       <title>Traefik and PiHole</title>
-      <link>http://localhost:1313/projects/traefik-and-pihole/</link>
+      <link>https://goshsamit.com/projects/traefik-and-pihole/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/traefik-and-pihole/</guid>
-      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;I was getting tired of entering IP addresses and having to click through the &amp;ldquo;connection not secure&amp;rdquo; messaging to get into my homelab services.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-approach&#34;&gt;The Approach&lt;/h2&gt;&#xA;&lt;p&gt;I found a video by TechnoTim on YouTube where he walks through the &amp;ldquo;how-to&amp;rsquo;s&amp;rdquo; of setting up Traefik as a cert manager and local DNS records on PiHole. So instead of copying his tutorial, I will just link it here.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://technotim.live/posts/traefik-3-docker-certificates/&#34;&gt;TechnoTim&amp;rsquo;s website with tutorial&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=n1vOfdz5Nm8&#34;&gt;TechnoTim&amp;rsquo;s Youtube tutorial&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;the-impact&#34;&gt;The Impact&lt;/h3&gt;&#xA;&lt;h3 id=&#34;domain-name-system&#34;&gt;Domain Name System&lt;/h3&gt;&#xA;&lt;p&gt;Part of this project focuses on creating local Domain Name System (DNS) records, which allow you to access services in a browser using domain names instead of IP addresses. At it&amp;rsquo;s very basic, DNS servers translate human-readable website domains to network-readable IP addresses. PiHole allows us to create local DNS records that only devices on our local network will use.&lt;/p&gt;</description>
+      <guid>https://goshsamit.com/projects/traefik-and-pihole/</guid>
+      <description>The Problem I was getting tired of entering IP addresses and having to click through the &amp;ldquo;connection not secure&amp;rdquo; messaging to get into my homelab services.&#xA;The Approach I found a video by TechnoTim on YouTube where he walks through the &amp;ldquo;how-to&amp;rsquo;s&amp;rdquo; of setting up Traefik as a cert manager and local DNS records on PiHole. So instead of copying his tutorial, I will just link it here.&#xA;TechnoTim&amp;rsquo;s website with tutorial TechnoTim&amp;rsquo;s Youtube tutorial The Impact Domain Name System Part of this project focuses on creating local Domain Name System (DNS) records, which allow you to access services in a browser using domain names instead of IP addresses.</description>
     </item>
   </channel>
 </rss>

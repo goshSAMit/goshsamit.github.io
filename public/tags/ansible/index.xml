@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on goshSAMit</title>
-    <link>https://goshsamit.com/tags/git/</link>
-    <description>Recent content in Git on goshSAMit</description>
+    <title>Ansible on goshSAMit</title>
+    <link>https://goshsamit.com/tags/ansible/</link>
+    <description>Recent content in Ansible on goshSAMit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 06 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://goshsamit.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://goshsamit.com/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git Submodule</title>
       <link>https://goshsamit.com/topics/git-submodule/</link>
       <pubDate>Fri, 06 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://goshsamit.com/topics/git-submodule/</guid>
       <description>Intro Git Submodules allow developers to use existing projects inside their current project. For example, I have created a github project that will house all of my Infrastructure-as-code work. While I could always create my own ansible playbook from scratch, I decided to use the existing [k3s-ansible]((https://github.com/k3s-io/k3s-ansible) repo.&#xA;How to use a Git Submodule In this example, I will be using the [k3s-ansible]((https://github.com/k3s-io/k3s-ansible) repo and Github. 1. Create a Fork Go to the repo&amp;rsquo;s Github page and click the Fork button at the top right of the page.</description>
-    </item>
-    <item>
-      <title>Git Commands</title>
-      <link>https://goshsamit.com/topics/git-commands-and-github/</link>
-      <pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
-      <guid>https://goshsamit.com/topics/git-commands-and-github/</guid>
-      <description>Steps to connect to a Github repository Create the repository (repo) on Github Create a folder on your local device that you want to hold the repo Run the following command to clone the Github repository git clone repo_url_from_github Run the following command to link &amp;ldquo;origin&amp;rdquo; to github url git remote set-url origin repo_url_from_github Run the following commands to link your commits to your name and email address git config --global user.</description>
     </item>
   </channel>
 </rss>

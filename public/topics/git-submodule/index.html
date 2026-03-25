@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Git Submodule</title>
+    <meta name="description" content="Intro Git Submodules allow developers to use existing projects inside their current project. For example, I have created a github project that will house all of …">
+    <meta name="keywords" content='topics, git, ansible'>
+
+    <meta property="og:url" content="https://goshsamit.com/topics/git-submodule/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Git Submodule">
+    <meta property="og:description" content="Intro Git Submodules allow developers to use existing projects inside their current project. For example, I have created a github project that will house all of …">
+    <meta property="og:image" content="https://goshsamit.com/">
+    <meta property="og:image:secure_url" content="https://goshsamit.com/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Git Submodule">
+    <meta name="twitter:description" content="Intro Git Submodules allow developers to use existing projects inside their current project. For example, I have created a github project that will house all of …">
+    <meta property="twitter:domain" content="https://goshsamit.com/topics/git-submodule/">
+    <meta property="twitter:url" content="https://goshsamit.com/topics/git-submodule/">
+    <meta name="twitter:image" content="https://goshsamit.com/">
+
+    
+    <link rel="canonical" href="https://goshsamit.com/topics/git-submodule/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://goshsamit.com/">goshSAMit</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/about-me/" aria-label="" ><span data-feather='user'></span> About Me </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/projects/" aria-label="" ><span data-feather='terminal'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/topics/" aria-label="" ><span data-feather='list'></span> Topics </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/tags/" aria-label="tags" ><span data-feather='tag'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/goshsamit" aria-label="github" ><span data-feather='github'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://www.linkedin.com/in/goshsamit/" aria-label="linkedin" ><span data-feather='linkedin'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/about-me/" ><span data-feather='user'></span> About Me </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/projects/" ><span data-feather='terminal'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/topics/" ><span data-feather='list'></span> Topics </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/tags/" ><span data-feather='tag'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/goshsamit" ><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/goshsamit/" ><span data-feather='linkedin'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>Git Submodule</h1>
+
+        
+
+        
+	
+	
+	
+	
+        
+
+	
+
+	
+
+	
+          <small role="doc-subtitle"></small>
+	
+
+	
+          <p class="post-date">
+              
+
+              6 March, 2026
+
+              
+          </p>
+	
+
+        <ul class="post-tags">
+          
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/topics">topics</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/git">git</a></li>
+           
+         
+           
+             <li class="post-tag"><a href="https://goshsamit.com/tags/ansible">ansible</a></li>
+           
+         
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <h2 id="intro">Intro</h2>
+<p>Git Submodules allow developers to use existing projects inside their current project. For example, I have created a github project that will house all of my Infrastructure-as-code work. While I could always create my own ansible playbook from scratch, I decided to use the existing [k3s-ansible]((<a href="https://github.com/k3s-io/k3s-ansible">https://github.com/k3s-io/k3s-ansible</a>) repo.</p>
+<h2 id="how-to-use-a-git-submodule">How to use a Git Submodule</h2>
+<ul>
+<li>In this example, I will be using the [k3s-ansible]((<a href="https://github.com/k3s-io/k3s-ansible">https://github.com/k3s-io/k3s-ansible</a>) repo and Github.</li>
+</ul>
+<h3 id="1-create-a-fork">1. Create a Fork</h3>
+<ul>
+<li>Go to the repo&rsquo;s Github page and click the Fork button at the top right of the page.</li>
+<li>This will put the repo under your account, so you can make changes to it as you like, without having to create a merge request to edit the overall project.</li>
+</ul>
+<h3 id="2-update-the-submodule-remote">2. Update the submodule remote</h3>
+<ul>
+<li>Inside your project, create a directory where your forked repo will be house.</li>
+</ul>
+<pre tabindex="0"><code>mkdir ansible/k3s-ansible
+</code></pre><ul>
+<li>Set the remote url for this directory as the url to the forked repo under your account.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ansible/k3s-ansible
+</span></span><span style="display:flex;"><span>git remote set-url origin https://github.com/YOUR_USERNAME/k3s-ansible
+</span></span><span style="display:flex;"><span>git remote -v  <span style="color:#75715e"># verify it changed</span>
+</span></span></code></pre></div><h3 id="3-make-changes-if-needed">3. Make changes if needed</h3>
+<ul>
+<li>That&rsquo;s mostly it. Now you can use and edit that forked project as much or as little you need.</li>
+</ul>
+<h3 id="4-commit-any-changes-to-your-submodule">4. Commit any changes to your submodule</h3>
+<ul>
+<li>It is important to remember to commit and push any changes in your submodule to its remote BEFORE the main project. If the main project is first, it can cause problems where your main project is pointing to a commit that doesn&rsquo;t actually exist yet.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ansible/k3s-ansible
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;your message&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><h3 id="5-commit-changes-to-your-main-repo">5. Commit changes to your main repo</h3>
+<ul>
+<li>Move back to the main directory of the repo and commit/push your changes when you&rsquo;re ready.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ../..
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;your message&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><h2 id="upstream-syncing">Upstream Syncing</h2>
+<ul>
+<li>If you want to keep your submodule fork up-to-date with the original repo, you will have to sync your submodule from upstream.</li>
+</ul>
+<h3 id="how-to-sync-when-you-want-to">How to sync when you want to</h3>
+<h3 id="1-add-the-upstream-remote-once">1. Add the upstream remote once:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ansible/k3s-ansible
+</span></span><span style="display:flex;"><span>git remote add upstream https://github.com/k3s-io/k3s-ansible
+</span></span></code></pre></div><h3 id="2-pull-changes-as-desired">2. Pull changes as desired:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git fetch upstream
+</span></span><span style="display:flex;"><span>git merge upstream/main
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># resolve any conflicts</span>
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div>
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+
+    
+    
+    
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>

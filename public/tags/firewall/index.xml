@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Firewall on goshSAMit</title>
-    <link>http://localhost:1313/tags/firewall/</link>
+    <link>https://goshsamit.com/tags/firewall/</link>
     <description>Recent content in Firewall on goshSAMit</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/tags/firewall/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://goshsamit.com/tags/firewall/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Home Network</title>
-      <link>http://localhost:1313/projects/home-network/</link>
+      <link>https://goshsamit.com/projects/home-network/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/projects/home-network/</guid>
-      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;Ultimately, all of my home lab and home networking projects come down to &amp;ldquo;getting experience without experience.&amp;rdquo; Rolling my own router has also allowed me to save a few dollars on my ISP bill, since I am not renting one of their devices. Having full control of the router, I am also able to create VLANs and have devices logically separated, keeping my trusted devices on different networks than some of the less trustworthy IoT devices.&lt;/p&gt;</description>
+      <guid>https://goshsamit.com/projects/home-network/</guid>
+      <description>The Problem Ultimately, all of my home lab and home networking projects come down to &amp;ldquo;getting experience without experience.&amp;rdquo; Rolling my own router has also allowed me to save a few dollars on my ISP bill, since I am not renting one of their devices. Having full control of the router, I am also able to create VLANs and have devices logically separated, keeping my trusted devices on different networks than some of the less trustworthy IoT devices.</description>
     </item>
   </channel>
 </rss>
