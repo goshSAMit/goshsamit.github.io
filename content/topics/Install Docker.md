@@ -10,7 +10,7 @@ date: 2025-04-03
 ### How to install Docker and Docker Compose on Ubuntu
 
 1. run the following commands to set up docker's apt repository
-```
+```bash
 # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -26,14 +26,14 @@ echo \
 sudo apt-get update
 ```
 2. run the following command to install the latest version of docker
-```
+```bash
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 3. When complete, you can check installation with:
-```
+```bash
 docker -v && docker compose version
 ```
 4. Run the following command to run a test container
-```
+```bash
 sudo docker run hello-world
 ```

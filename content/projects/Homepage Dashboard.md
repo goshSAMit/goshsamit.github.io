@@ -16,25 +16,25 @@ Homepage is a simple dashboard allowing users to set up a single page to get a q
 ### Steps
 1. Install docker and docker compose [with this guide]("https://goshsamit.com/how-to-install-docker-and-docker-compose-on-ubuntu")
 2. On your docker machine (mine is a VM running Ubuntu server), create a folder where you want to keep your homepage files
-```
+```bash
 mkdir homepage
 ```
 3. "CD" into that directory
-```
+```bash
 cd homepage
 ```
 4. Create two new files inside that directory called "docker-compose.yaml" and .env
-```
+```bash
 touch docker-compose.yaml $$ touch .env
 ```
 - The docker-compose file is an easier way to create and configure docker containers
 - The .env file will be used to store environment variables so you aren't hard coding ip addresses or user IDs and passwords directly into your homepage configuration files
 5. Open the docker-compose file in the nano text editor
-```
+```bash
 nano docker-compose.yaml
 ```
 6. Copy and paste the following block into docker-compose.yaml file using a text editor like nano
-```
+```text
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:latest
@@ -51,22 +51,22 @@ services:
 ```
 7. In nano, press Ctrl + X to save, press 'y' to say yes, and Enter to confirm
 8. open the .env file in nano
-```
+```bash
 nano .env
 ```
 9. The following lines will be necessary for homepage functionality, we can add usernames/api tokens/urls later
-```
+```text
 HOMEPAGE_ALLOWED_HOSTS=192.168.30.200:3000
 PUID=1000
 PGID=1000
 ```
 10. In nano, press Ctrl + X to save, press 'y' to say yes, and Enter to confirm
 11. Now that the docker compose yaml and the environment variable files are set up, we can create the container with the following command and watch it do it's thing
-```
+```bash
 sudo docker compose up -d
 ```
 12. When that completes, you can run the following command to check the status of any running containers
-```
+```bash
 sudo docker ps
 ```
 13. Wait for the status of the new container to be "healthy" under status

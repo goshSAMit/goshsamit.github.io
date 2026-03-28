@@ -49,7 +49,7 @@
     <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
 
     
-    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
+    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
 
     
     
@@ -209,7 +209,7 @@
 <ol>
 <li>Make sure your packages</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sudo apt update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
 </span></span></code></pre></div><ol start="2">
 <li>Install the Samba Package, the SMB Client package, and the CIFS Utilities package
 <ul>
@@ -219,7 +219,7 @@
 </ul>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sudo apt install samba smbclient cifs-utils
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install samba smbclient cifs-utils
 </span></span></code></pre></div><h3 id="mount-directly-in-ubuntus-file-explorer">Mount Directly in Ubuntu&rsquo;s File Explorer</h3>
 <ol>
 <li>Open File Explorer</li>
@@ -232,21 +232,21 @@
 <li>Open the terminal</li>
 <li>Create a directory in the /mnt folder to mount the drive to</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>mkdir /mnt/share
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir /mnt/share
 </span></span></code></pre></div><ol start="3">
 <li>Then mount the drive to that newly created directory</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sudo mount -t cifs //IP_ADDRESS_OF_SHARE/SHARE_NAME /mnt/share -o username=YOUR_USERNAME,password=YOUR_PASSWORD,uid=$(id -u),gid=$(id -g)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mount -t cifs //IP_ADDRESS_OF_SHARE/SHARE_NAME /mnt/share -o username<span style="color:#f92672">=</span>YOUR_USERNAME,password<span style="color:#f92672">=</span>YOUR_PASSWORD,uid<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>id -u<span style="color:#66d9ef">)</span>,gid<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>id -g<span style="color:#66d9ef">)</span>
 </span></span></code></pre></div><ol start="3">
 <li>(Optional) In the terminal, open the fstab file</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>	sudo nano //etc/fstab
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>	sudo nano //etc/fstab
 </span></span></code></pre></div><ol start="4">
 <li>(Optional) Add the following line to the fstab file to make sure your share automatically mounts on restart</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>\pard\pardeftab720\partightenfactor0
-</span></span><span style="display:flex;"><span>\cf2 //IP-address-of-share/share-name /mnt/share cifs username=your-username,password=your-password,uid=1000,gid=1000 0 0\
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ae81ff">\p</span>ard<span style="color:#ae81ff">\p</span>ardeftab720<span style="color:#ae81ff">\p</span>artightenfactor0
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">\c</span>f2 //IP-address-of-share/share-name /mnt/share cifs username<span style="color:#f92672">=</span>your-username,password<span style="color:#f92672">=</span>your-password,uid<span style="color:#f92672">=</span>1000,gid<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">0</span> 0<span style="color:#ae81ff">\
+</span></span></span></code></pre></div>
         
     </div>
 

@@ -11,6 +11,7 @@ My projects consist of...
 
 ### DevOps and Infrastructure-as-Code
 - [Terraform with Proxmox](/projects/terraform/)
+- [k3s with Ansible](/projects/k3s-ansible)
 ### Home Lab
 - [Home Network](/projects/home-network)
 - [Home Lab Hardware](/projects/home-lab-hardware/)

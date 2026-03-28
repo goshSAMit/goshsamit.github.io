@@ -19,19 +19,19 @@
 
     
     <title>Traefik and PiHole</title>
-    <meta name="description" content="The Problem I was getting tired of entering IP addresses and having to click through the &amp;ldquo;connection not secure&amp;rdquo; messaging to get into my homelab …">
+    <meta name="description" content="The Problem I was getting tired of entering IP addresses and having to click through the &ldquo;connection not secure&rdquo; messaging to get into my homelab …">
     <meta name="keywords" content='homelab, docker, dockercompose, certs, dns'>
 
     <meta property="og:url" content="https://goshsamit.com/projects/traefik-and-pihole/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Traefik and PiHole">
-    <meta property="og:description" content="The Problem I was getting tired of entering IP addresses and having to click through the &amp;ldquo;connection not secure&amp;rdquo; messaging to get into my homelab …">
+    <meta property="og:description" content="The Problem I was getting tired of entering IP addresses and having to click through the &ldquo;connection not secure&rdquo; messaging to get into my homelab …">
     <meta property="og:image" content="https://goshsamit.com/">
     <meta property="og:image:secure_url" content="https://goshsamit.com/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Traefik and PiHole">
-    <meta name="twitter:description" content="The Problem I was getting tired of entering IP addresses and having to click through the &amp;ldquo;connection not secure&amp;rdquo; messaging to get into my homelab …">
+    <meta name="twitter:description" content="The Problem I was getting tired of entering IP addresses and having to click through the &ldquo;connection not secure&rdquo; messaging to get into my homelab …">
     <meta property="twitter:domain" content="https://goshsamit.com/projects/traefik-and-pihole/">
     <meta property="twitter:url" content="https://goshsamit.com/projects/traefik-and-pihole/">
     <meta name="twitter:image" content="https://goshsamit.com/">
@@ -49,7 +49,7 @@
     <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
 
     
-    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
+    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
 
     
     
@@ -177,10 +177,10 @@
 <li>This next server is the TLD server. It has A Records for all domains in the .com domain. So in our example, the TLD server provides our DNS resolver with the IP address of example.com&rsquo;s name server.</li>
 </ol>
 <p>An A record is the most basic form of a DNS record. A records are responsible for returning the IP address of a domain. So the A Record for example.com would look something like this:</p>
-<pre tabindex="0"><code>example.com IN A 192.168.0.1
-</code></pre><p>Canonical Names (CNAME) allow a host to have more than one domain name. In the case of example.com, you could create a CNAME record for email.example.com. The CNAME record would look something like this:</p>
-<pre tabindex="0"><code>email.example.com IN CNAME example.com
-</code></pre><p>So for this project, in PiHole, we can create a local A record that uses the domain name of our Traefik server and links it to its IP Address. After that, for every service behind our Traefik server, we can set up a CNAME record with the domain name we would like to use (service1.example.com, service2.example.com) and assign it to the A record&rsquo;s domain. We can then configure Traefik to take this CNAME that is requested by a user and route it to the servers IP address.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>example.com IN A 192.168.0.1
+</span></span></code></pre></div><p>Canonical Names (CNAME) allow a host to have more than one domain name. In the case of example.com, you could create a CNAME record for email.example.com. The CNAME record would look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>email.example.com IN CNAME example.com
+</span></span></code></pre></div><p>So for this project, in PiHole, we can create a local A record that uses the domain name of our Traefik server and links it to its IP Address. After that, for every service behind our Traefik server, we can set up a CNAME record with the domain name we would like to use (service1.example.com, service2.example.com) and assign it to the A record&rsquo;s domain. We can then configure Traefik to take this CNAME that is requested by a user and route it to the servers IP address.</p>
 <h3 id="certificate-verification">Certificate Verification</h3>
 <p>The second part of this project was to get rid of that &ldquo;certificate not valid&rdquo; message when accessing a local service. Certificates put the “Secure” in HTTPS (Hypertext Transfer Protocol Secure). They ensure that all communication between your browser and a remote server is encrypted. Without a certificate, your browser defaults to plain HTTP, meaning anyone on the network could intercept and read the traffic.</p>
 <p>The certificate management process for this project works like this:

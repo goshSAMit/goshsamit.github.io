@@ -19,19 +19,19 @@
 
     
     <title>Install Docker</title>
-    <meta name="description" content="How to install Docker and Docker Compose on Ubuntu run the following commands to set up docker&amp;rsquo;s apt repository # Add Docker&amp;#39;s official GPG key: sudo …">
+    <meta name="description" content="How to install Docker and Docker Compose on Ubuntu run the following commands to set up docker&rsquo;s apt repository # Add Docker&#39;s official GPG key: sudo …">
     <meta name="keywords" content='docker, dockercompose, how-to'>
 
     <meta property="og:url" content="https://goshsamit.com/topics/install-docker/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Install Docker">
-    <meta property="og:description" content="How to install Docker and Docker Compose on Ubuntu run the following commands to set up docker&amp;rsquo;s apt repository # Add Docker&amp;#39;s official GPG key: sudo …">
+    <meta property="og:description" content="How to install Docker and Docker Compose on Ubuntu run the following commands to set up docker&rsquo;s apt repository # Add Docker&#39;s official GPG key: sudo …">
     <meta property="og:image" content="https://goshsamit.com/">
     <meta property="og:image:secure_url" content="https://goshsamit.com/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Install Docker">
-    <meta name="twitter:description" content="How to install Docker and Docker Compose on Ubuntu run the following commands to set up docker&amp;rsquo;s apt repository # Add Docker&amp;#39;s official GPG key: sudo …">
+    <meta name="twitter:description" content="How to install Docker and Docker Compose on Ubuntu run the following commands to set up docker&rsquo;s apt repository # Add Docker&#39;s official GPG key: sudo …">
     <meta property="twitter:domain" content="https://goshsamit.com/topics/install-docker/">
     <meta property="twitter:url" content="https://goshsamit.com/topics/install-docker/">
     <meta name="twitter:image" content="https://goshsamit.com/">
@@ -49,7 +49,7 @@
     <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
 
     
-    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
+    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
 
     
     
@@ -201,32 +201,32 @@
 <ol>
 <li>run the following commands to set up docker&rsquo;s apt repository</li>
 </ol>
-<pre tabindex="0"><code># Add Docker&#39;s official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-
-# Add the repository to Apt sources:
-echo \
-  &#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release &amp;&amp; echo &#34;${UBUNTU_CODENAME:-$VERSION_CODENAME}&#34;) stable&#34; | \
-  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-sudo apt-get update
-</code></pre><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Add Docker&#39;s official GPG key:</span>
+</span></span><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt-get install ca-certificates curl
+</span></span><span style="display:flex;"><span>sudo install -m <span style="color:#ae81ff">0755</span> -d /etc/apt/keyrings
+</span></span><span style="display:flex;"><span>sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+</span></span><span style="display:flex;"><span>sudo chmod a+r /etc/apt/keyrings/docker.asc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add the repository to Apt sources:</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  </span><span style="color:#66d9ef">$(</span>. /etc/os-release <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>UBUNTU_CODENAME<span style="color:#66d9ef">:-</span>$VERSION_CODENAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable&#34;</span> | <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</span></span><span style="display:flex;"><span>sudo apt-get update
+</span></span></code></pre></div><ol start="2">
 <li>run the following command to install the latest version of docker</li>
 </ol>
-<pre tabindex="0"><code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-</code></pre><ol start="3">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</span></span></code></pre></div><ol start="3">
 <li>When complete, you can check installation with:</li>
 </ol>
-<pre tabindex="0"><code>docker -v &amp;&amp; docker compose version
-</code></pre><ol start="4">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker -v <span style="color:#f92672">&amp;&amp;</span> docker compose version
+</span></span></code></pre></div><ol start="4">
 <li>Run the following command to run a test container</li>
 </ol>
-<pre tabindex="0"><code>sudo docker run hello-world
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker run hello-world
+</span></span></code></pre></div>
         
     </div>
 

@@ -63,7 +63,7 @@ pveum aclmod / -user terraform-prov@pve -role TerraformProv
 ### C. Basic Terraform Project Structure
 #### main.tf
 The main.tf file is where the actual code to build the resources in Proxmox will be put. Typically, the file starts with a "providers" section that includes what platform Terraform will be using. Some common provider sources are AWS, Google Cloud, and Microsoft Azure, but in our case, we will use Proxmox. The below code blocks are going to vary for your chosen provider, this using bgp/proxmox provider. Its documentation can be found [here](https://registry.terraform.io/providers/bpg/proxmox/latest).
-```
+```terraform
 provider "proxmox" {
 	endpoint = var.proxmox_api_url
 	api_token = var.api_token
@@ -75,7 +75,7 @@ provider "proxmox" {
 }
 ```
  After our provider has been declared, we can add "resource" blocks to create the resources for the provider. We will use the bgp provider's `"proxmox_virtual_environment_container"` resource. We give the terraform resource a name for easy referral, and add fields based on what the resource requires to be created. Below is just a small section of the resource's fields. It will also include network config information, disk, memory, etc. Basically any options you have during set up of a container using proxmox GUI, will have a matching field with a terraform provider,
- ```
+ ```terraform
 resource "proxmox_virtual_environment_container" "cluster-node" {
 	unprivileged = true
 	for_each = local.nodes
@@ -88,7 +88,7 @@ resource "proxmox_virtual_environment_container" "cluster-node" {
  ```
 #### variables.tf
 The variables.tf file is where variables are declared a given a type, along with additional metadata fields. You can declare a default value, a description, and even include simple validation steps. 
-```
+```terraform
 variable target_node {
 	type = string
 	default = "node"
@@ -102,13 +102,13 @@ The terraform.tfvars file is where all variables declared in variables.tf are as
 
 This is basically the variable name created in the variables.tf file, followed by an equal sign, and then the value that must match the type declared in the variables file.
 
-```
+```terraform
 target_node = "lab-server"
 ```
 
 ### Additional functionality
 - You can declare local variables in a "locals" block between the provider and the resources. This allows you to declare variable key/value maps. Once they've been declared, you can use a for loop to loop through and create multiple devices with unique configuration.
-```
+```terraform
 locals {
 		nodes = {
 			101 = {

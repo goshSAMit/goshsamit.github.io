@@ -19,7 +19,7 @@ Git Submodules allow developers to use existing projects inside their current pr
 ### 2. Update the submodule remote
 
 - Inside your project, create a directory where your forked repo will be house. 
-```
+```bash
 mkdir ansible/k3s-ansible
 ```
 - Set the remote url for this directory as the url to the forked repo under your account.

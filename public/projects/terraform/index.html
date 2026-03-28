@@ -52,7 +52,7 @@ The Approach A. …">
     <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
 
     
-    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
+    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
 
     
     
@@ -168,118 +168,118 @@ The Approach A. …">
 <ol>
 <li>First step, as always with Linux, is to update your package manager.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
 </span></span></code></pre></div><ol start="2">
 <li>Terraform then requires the download of gnupg and software-property-commons packages.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install -y gnupg software-properties-common
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install -y gnupg software-properties-common
 </span></span></code></pre></div><ol start="3">
 <li>Next, download Terraform&rsquo;s gpg key.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -O- https://apt.releases.hashicorp.com/gpg | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>gpg --dearmor | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg &gt; /dev/null
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -O- https://apt.releases.hashicorp.com/gpg | <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>gpg --dearmor | <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg &gt; /dev/null
 </span></span></code></pre></div><ol start="4">
 <li>Add the Terraform repository.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com </span><span style="color:#66d9ef">$(</span>grep -oP <span style="color:#e6db74">&#39;(?&lt;=UBUNTU_CODENAME=).*&#39;</span> /etc/os-release <span style="color:#f92672">||</span> lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> main&#34;</span> | sudo tee /etc/apt/sources.list.d/hashicorp.list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com </span><span style="color:#66d9ef">$(</span>grep -oP <span style="color:#e6db74">&#39;(?&lt;=UBUNTU_CODENAME=).*&#39;</span> /etc/os-release <span style="color:#f92672">||</span> lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> main&#34;</span> | sudo tee /etc/apt/sources.list.d/hashicorp.list
 </span></span></code></pre></div><ol start="5">
 <li>Update the repository.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
 </span></span></code></pre></div><ol start="6">
 <li>Finally, install Terraform.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install terraform
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install terraform
 </span></span></code></pre></div><ol start="7">
 <li>To verify installation, check the version of Terraform.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>terraform -v
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>terraform -v
 </span></span></code></pre></div><h3 id="b-creating-a-terraform-user-for-proxmox">B. Creating a Terraform user for Proxmox</h3>
 <ol>
 <li>Create a role for the Terraform to use when interacting with Proxmox.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum role add TerraformProv -privs <span style="color:#e6db74">&#34;Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt SDN.Use&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum role add TerraformProv -privs <span style="color:#e6db74">&#34;Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt SDN.Use&#34;</span>
 </span></span></code></pre></div><ol start="2">
 <li>Create the Terraform user (replacing password with your chose of password).</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum user add terraform-prov@pve --password &lt;password&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum user add terraform-prov@pve --password &lt;password&gt;
 </span></span></code></pre></div><ol start="3">
 <li>Assign the newly created role to the newly created user.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum aclmod / -user terraform-prov@pve -role TerraformProv
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pveum aclmod / -user terraform-prov@pve -role TerraformProv
 </span></span></code></pre></div><h3 id="c-basic-terraform-project-structure">C. Basic Terraform Project Structure</h3>
 <h4 id="maintf">main.tf</h4>
 <p>The main.tf file is where the actual code to build the resources in Proxmox will be put. Typically, the file starts with a &ldquo;providers&rdquo; section that includes what platform Terraform will be using. Some common provider sources are AWS, Google Cloud, and Microsoft Azure, but in our case, we will use Proxmox. The below code blocks are going to vary for your chosen provider, this using bgp/proxmox provider. Its documentation can be found <a href="https://registry.terraform.io/providers/bpg/proxmox/latest">here</a>.</p>
-<pre tabindex="0"><code>provider &#34;proxmox&#34; {
-	endpoint = var.proxmox_api_url
-	api_token = var.api_token
-	insecure = true
-	ssh {
-		agent = true
-		private_key = file(var.private_key)
-	}
-}
-</code></pre><p>After our provider has been declared, we can add &ldquo;resource&rdquo; blocks to create the resources for the provider. We will use the bgp provider&rsquo;s <code>&quot;proxmox_virtual_environment_container&quot;</code> resource. We give the terraform resource a name for easy referral, and add fields based on what the resource requires to be created. Below is just a small section of the resource&rsquo;s fields. It will also include network config information, disk, memory, etc. Basically any options you have during set up of a container using proxmox GUI, will have a matching field with a terraform provider,</p>
-<pre tabindex="0"><code>resource &#34;proxmox_virtual_environment_container&#34; &#34;cluster-node&#34; {
-   unprivileged = true
-   for_each = local.nodes
-   vm_id = each.key
-   node_name = var.target_node
-   started = true
-   start_on_boot = true
-   tags = var.tags
-}
-</code></pre><h4 id="variablestf">variables.tf</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;proxmox&#34;</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">endpoint</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">proxmox_api_url</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">api_token</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">api_token</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">insecure</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ssh</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">agent</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">private_key</span> <span style="color:#f92672">=</span> file(var.<span style="color:#a6e22e">private_key</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After our provider has been declared, we can add &ldquo;resource&rdquo; blocks to create the resources for the provider. We will use the bgp provider&rsquo;s <code>&quot;proxmox_virtual_environment_container&quot;</code> resource. We give the terraform resource a name for easy referral, and add fields based on what the resource requires to be created. Below is just a small section of the resource&rsquo;s fields. It will also include network config information, disk, memory, etc. Basically any options you have during set up of a container using proxmox GUI, will have a matching field with a terraform provider,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;proxmox_virtual_environment_container&#34;</span> <span style="color:#e6db74">&#34;cluster-node&#34;</span> {
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">unprivileged</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">for_each</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">local</span>.<span style="color:#a6e22e">nodes</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">vm_id</span> <span style="color:#f92672">=</span> each.<span style="color:#a6e22e">key</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">node_name</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">target_node</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">started</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">start_on_boot</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">tags</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">tags</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="variablestf">variables.tf</h4>
 <p>The variables.tf file is where variables are declared a given a type, along with additional metadata fields. You can declare a default value, a description, and even include simple validation steps.</p>
-<pre tabindex="0"><code>variable target_node {
-	type = string
-	default = &#34;node&#34;
-	description = &#34;proxmox host node&#34;
-}
-</code></pre><p><a href="https://developer.hashicorp.com/terraform/language/values/variables">See here for more details from Hashicorp.</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#66d9ef">variable</span> <span style="color:#a6e22e">target_node</span> {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">	type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">string</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">	default</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;node&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">	description</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;proxmox host node&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><a href="https://developer.hashicorp.com/terraform/language/values/variables">See here for more details from Hashicorp.</a></p>
 <h4 id="terraformtfvars">terraform.tfvars</h4>
 <p>The terraform.tfvars file is where all variables declared in variables.tf are assigned. This is generally where usernames/passwords/tokens and other sensitive information should go. <strong>When committing the project to git, ALWAYS include *.tfvars in your .gitignore file so your secrets are not made publicly available.</strong></p>
 <p>This is basically the variable name created in the variables.tf file, followed by an equal sign, and then the value that must match the type declared in the variables file.</p>
-<pre tabindex="0"><code>target_node = &#34;lab-server&#34;
-</code></pre><h3 id="additional-functionality">Additional functionality</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#a6e22e">target_node</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;lab-server&#34;</span>
+</span></span></code></pre></div><h3 id="additional-functionality">Additional functionality</h3>
 <ul>
 <li>You can declare local variables in a &ldquo;locals&rdquo; block between the provider and the resources. This allows you to declare variable key/value maps. Once they&rsquo;ve been declared, you can use a for loop to loop through and create multiple devices with unique configuration.</li>
 </ul>
-<pre tabindex="0"><code>locals {
-		nodes = {
-			101 = {
-				name = var.node1_name
-				mac = var.node1_mac
-			}
-		
-			102 = {
-				name = var.node2_name
-				mac = var.node2_mac
-			}
-		
-			103 = {
-				name = var.node3_name
-				mac = var.node3_mac
-			}
-		}
-	}
-
-	# Then, in resources block, you can assign the variable to for_each, and 
-	# then set variables to be the key or value for each pair in the map. 
-	# So below will go through each pair in &#39;nodes&#39; and assign a hostname, mac
-	# address, and vmid.
-
-	resource &#34;resource_type&#34; &#34;resource_name&#34; {
-		for_each = local.nodes
-		node_name = var.target_node
-		hostname = each.value.name
-	
-		network_interface {
-			mac_address = each.value.mac
-		}
-	}
-</code></pre><h2 id="the-impact">The Impact</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#a6e22e">locals</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">nodes</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#ae81ff">101</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">node1_name</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">mac</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">node1_mac</span>
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>			<span style="color:#ae81ff">102</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">node2_name</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">mac</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">node2_mac</span>
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>			<span style="color:#ae81ff">103</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">node3_name</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">mac</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">node3_mac</span>
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}<span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	# Then, in resources block, you can assign the variable to for_each, and 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	# then set variables to be the key or value for each pair in the map. 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	# So below will go through each pair in &#39;nodes&#39; and assign a hostname, mac
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">	# address, and vmid.
+</span></span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">resource</span> <span style="color:#e6db74">&#34;resource_type&#34;</span> <span style="color:#e6db74">&#34;resource_name&#34;</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">for_each</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">local</span>.<span style="color:#a6e22e">nodes</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">node_name</span> <span style="color:#f92672">=</span> var.<span style="color:#a6e22e">target_node</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">hostname</span> <span style="color:#f92672">=</span> each.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">name</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">network_interface</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">mac_address</span> <span style="color:#f92672">=</span> each.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">mac</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><h2 id="the-impact">The Impact</h2>
 <ul>
 <li>Basic Terraform project structure</li>
 <li>Using for-each loops to create multiple devices with fewer lines of code</li>

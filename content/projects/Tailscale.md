@@ -36,19 +36,19 @@ How to set up Tailscale on eligible devices
 	3. Apple App Store
 	4. Command line
 		1. Run the following commands:
-			```
-			curl -fsSL https://tailscale.com/install.sh | sh
-			sudo tailscale up
-			```
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+```
 		2. Navigate to the url that is output from above command
 		3. Sign In
 ### How to set up an Exit Node
 1. From Command Line:
 	1. Run the following command on the device you want to act as the exit node:
-		```
-		sudo tailscale set --advertise-exit-node
-		sudo tailscale up
-		```
+```bash
+sudo tailscale set --advertise-exit-node
+sudo tailscale up
+```
 2. From web/mobile app:
 	1. Log in
 	2. Select device you want to act as exit node
@@ -59,9 +59,9 @@ How to set up Tailscale on eligible devices
 ### How to set up a Subnet Router
 1. From Command Line:
 	1. Advertise subnet routes with the following command:
-	```
-	sudo tailscale set --advertise-routes=192.0.2.0/24,198.51.100.0/24
-	```
+```bash
+sudo tailscale set --advertise-routes=192.0.2.0/24,198.51.100.0/24
+```
 2. See [here](https://tailscale.com/kb/1019/subnets) for more details
 
 ### The Impact

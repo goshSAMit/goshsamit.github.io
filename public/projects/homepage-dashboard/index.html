@@ -49,7 +49,7 @@
     <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
 
     
-    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
+    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
 
     
     
@@ -169,60 +169,60 @@
 <li>Install docker and docker compose <a href="%22https://goshsamit.com/how-to-install-docker-and-docker-compose-on-ubuntu%22">with this guide</a></li>
 <li>On your docker machine (mine is a VM running Ubuntu server), create a folder where you want to keep your homepage files</li>
 </ol>
-<pre tabindex="0"><code>mkdir homepage
-</code></pre><ol start="3">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir homepage
+</span></span></code></pre></div><ol start="3">
 <li>&ldquo;CD&rdquo; into that directory</li>
 </ol>
-<pre tabindex="0"><code>cd homepage
-</code></pre><ol start="4">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd homepage
+</span></span></code></pre></div><ol start="4">
 <li>Create two new files inside that directory called &ldquo;docker-compose.yaml&rdquo; and .env</li>
 </ol>
-<pre tabindex="0"><code>touch docker-compose.yaml $$ touch .env
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch docker-compose.yaml $$ touch .env
+</span></span></code></pre></div><ul>
 <li>The docker-compose file is an easier way to create and configure docker containers</li>
 <li>The .env file will be used to store environment variables so you aren&rsquo;t hard coding ip addresses or user IDs and passwords directly into your homepage configuration files</li>
 </ul>
 <ol start="5">
 <li>Open the docker-compose file in the nano text editor</li>
 </ol>
-<pre tabindex="0"><code>nano docker-compose.yaml
-</code></pre><ol start="6">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano docker-compose.yaml
+</span></span></code></pre></div><ol start="6">
 <li>Copy and paste the following block into docker-compose.yaml file using a text editor like nano</li>
 </ol>
-<pre tabindex="0"><code>services:
-  homepage:
-    image: ghcr.io/gethomepage/homepage:latest
-    container_name: homepage
-    ports:
-      - 3000:3000
-    env_file: .env # get environment variables from this file
-    volumes:
-      - ./config:/app/config # creates the config folder in the same director as this docker compose file
-    environment:
-      HOMEPAGE_ALLOWED_HOSTS: $HOMEPAGE_ALLOWED_HOSTS # read them from .env
-      PUID: $PUID # read them from .env
-      PGID: $PGID # read them from .env
-</code></pre><ol start="7">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>services:
+</span></span><span style="display:flex;"><span>  homepage:
+</span></span><span style="display:flex;"><span>    image: ghcr.io/gethomepage/homepage:latest
+</span></span><span style="display:flex;"><span>    container_name: homepage
+</span></span><span style="display:flex;"><span>    ports:
+</span></span><span style="display:flex;"><span>      - 3000:3000
+</span></span><span style="display:flex;"><span>    env_file: .env # get environment variables from this file
+</span></span><span style="display:flex;"><span>    volumes:
+</span></span><span style="display:flex;"><span>      - ./config:/app/config # creates the config folder in the same director as this docker compose file
+</span></span><span style="display:flex;"><span>    environment:
+</span></span><span style="display:flex;"><span>      HOMEPAGE_ALLOWED_HOSTS: $HOMEPAGE_ALLOWED_HOSTS # read them from .env
+</span></span><span style="display:flex;"><span>      PUID: $PUID # read them from .env
+</span></span><span style="display:flex;"><span>      PGID: $PGID # read them from .env
+</span></span></code></pre></div><ol start="7">
 <li>In nano, press Ctrl + X to save, press &lsquo;y&rsquo; to say yes, and Enter to confirm</li>
 <li>open the .env file in nano</li>
 </ol>
-<pre tabindex="0"><code>nano .env
-</code></pre><ol start="9">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano .env
+</span></span></code></pre></div><ol start="9">
 <li>The following lines will be necessary for homepage functionality, we can add usernames/api tokens/urls later</li>
 </ol>
-<pre tabindex="0"><code>HOMEPAGE_ALLOWED_HOSTS=192.168.30.200:3000
-PUID=1000
-PGID=1000
-</code></pre><ol start="10">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>HOMEPAGE_ALLOWED_HOSTS=192.168.30.200:3000
+</span></span><span style="display:flex;"><span>PUID=1000
+</span></span><span style="display:flex;"><span>PGID=1000
+</span></span></code></pre></div><ol start="10">
 <li>In nano, press Ctrl + X to save, press &lsquo;y&rsquo; to say yes, and Enter to confirm</li>
 <li>Now that the docker compose yaml and the environment variable files are set up, we can create the container with the following command and watch it do it&rsquo;s thing</li>
 </ol>
-<pre tabindex="0"><code>sudo docker compose up -d
-</code></pre><ol start="12">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker compose up -d
+</span></span></code></pre></div><ol start="12">
 <li>When that completes, you can run the following command to check the status of any running containers</li>
 </ol>
-<pre tabindex="0"><code>sudo docker ps
-</code></pre><ol start="13">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo docker ps
+</span></span></code></pre></div><ol start="13">
 <li>Wait for the status of the new container to be &ldquo;healthy&rdquo; under status
 !<img src="/images/Pasted%20image%2020250403123149.png" alt="Image Description"></li>
 <li>Once that says &ldquo;healthy&rdquo;, open a browser and go to &ldquo;<a href="http://ip.addr:3000">http://ip.addr:3000</a>&rdquo; and you should see the template page show up!</li>

@@ -30,12 +30,12 @@ When a user enters a URL of a website into a browser for the first, a lot happen
 5. This next server is the TLD server. It has A Records for all domains in the .com domain. So in our example, the TLD server provides our DNS resolver with the IP address of example.com's name server.
 
 An A record is the most basic form of a DNS record. A records are responsible for returning the IP address of a domain. So the A Record for example.com would look something like this:
-```
+```bash
 example.com IN A 192.168.0.1
 ```
 
 Canonical Names (CNAME) allow a host to have more than one domain name. In the case of example.com, you could create a CNAME record for email.example.com. The CNAME record would look something like this:
-```
+```bash
 email.example.com IN CNAME example.com
 ```
 

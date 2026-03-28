@@ -49,7 +49,7 @@
     <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
 
     
-    <script src="/js/bundle.min.a036ebe92c17ea3f0c07761c2135b82bec6f37c8efb7f49ddad1f28c22fc4769.js" integrity="sha256-oDbr6SwX6j8MB3YcITW4K&#43;xvN8jvt/Sd2tHyjCL8R2k="></script>
+    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
 
     
     
@@ -183,27 +183,28 @@
 <li>Apple App Store</li>
 <li>Command line
 <ol>
-<li>Run the following commands:
-<pre tabindex="0"><code>curl -fsSL https://tailscale.com/install.sh | sh
-sudo tailscale up
-</code></pre></li>
-<li>Navigate to the url that is output from above command</li>
-<li>Sign In</li>
+<li>Run the following commands:</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://tailscale.com/install.sh | sh
+</span></span><span style="display:flex;"><span>sudo tailscale up
+</span></span></code></pre></div><pre><code>	2. Navigate to the url that is output from above command
+	3. Sign In
+</code></pre>
 <h3 id="how-to-set-up-an-exit-node">How to set up an Exit Node</h3>
 <ol>
 <li>From Command Line:
 <ol>
-<li>Run the following command on the device you want to act as the exit node:
-<pre tabindex="0"><code>sudo tailscale set --advertise-exit-node
-sudo tailscale up
-</code></pre></li>
+<li>Run the following command on the device you want to act as the exit node:</li>
 </ol>
 </li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo tailscale set --advertise-exit-node
+</span></span><span style="display:flex;"><span>sudo tailscale up
+</span></span></code></pre></div><ol start="2">
 <li>From web/mobile app:
 <ol>
 <li>Log in</li>
@@ -220,8 +221,10 @@ sudo tailscale up
 <ol>
 <li>Advertise subnet routes with the following command:</li>
 </ol>
-<pre tabindex="0"><code>sudo tailscale set --advertise-routes=192.0.2.0/24,198.51.100.0/24
-</code></pre></li>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo tailscale set --advertise-routes<span style="color:#f92672">=</span>192.0.2.0/24,198.51.100.0/24
+</span></span></code></pre></div><ol start="2">
 <li>See <a href="https://tailscale.com/kb/1019/subnets">here</a> for more details</li>
 </ol>
 <h3 id="the-impact">The Impact</h3>
