@@ -88,7 +88,7 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```bash
 helm version
 ```
-2. Install nfs provisioner repository.
+3. Install nfs provisioner repository.
 ```bash
 helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
 ```
@@ -151,9 +151,102 @@ kubectl get pvc test-pvc
 ```bash
 kubectl delete pvc test-pvc
 ```
-### D. Ingress Controller (Traefik)
-- This will be done when I move out of my homelab VM and into my main VLAN, as I already have Traefik set up to access apps by url and setting up SSL certificates with Let'sEncrypt.
+#### helpful troubleshooting
+- to get a detailed look at the current state of the test pvc after creation if stuck pending
+```
+kubectl describe pvc test-pvc
+```
+### D. Ingress Controller with Let'sEncrypt Certs
+- We need a way to access the services on the cluster without have to use ip addresses, since the app could be running on any of the nodes. The plan is to use local dns records with a real domain name. So instead of IP addresses, URLs can be used to access apps. 
+- Also, by using Cloudflare with Let'sEncrypt, we can avoid the warnings the browser gives when navigating to an uncertified domain.
+#### - Cloudflare Token Creation
+1. In cloudflare, go to My Profile -> API Tokens -> Create Token.
+2. Create Custom Token.
+3. Name the token.
+4. Under permissions, select Zone | DNS Settings | Edit.
+5. Under zone resources, select Include | Specific Zone | your domain.
+6. Copy/save token for later.
 
+#### - Cert Manager install and ClusterIssuer creation
+1.  On your cluster control server, install cert-manager helm repository.
+```bash
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+helm install cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --set crds.enabled=true
+```
+2. Verify successful installation.
+```bash
+kubectl get pods -n cert-manager
+```
+3. After install, you can store the cloudflare token as a secret on the cluster control server.
+```bash
+kubectl create secret generic cloudflare-api-token \
+  --from-literal=api-token=YOUR_TOKEN_HERE \
+  -n cert-manager
+```
+4. After install, the message will mention a ClusterIssuer will need created. On your control server, create a file called clusterissuer.yaml with the following content:
+```yaml
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    email: you@yourdomain.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-prod-key
+    solvers:
+    - dns01:
+        cloudflare:
+          apiTokenSecretRef:
+            name: cloudflare-api-token
+            key: api-token
+```
+5. Then run the following command:
+```bash
+kubectl apply -f clusterissuer.yaml
+```
+
+#### DNS Setup
+- This will assume PiHole is already running on an LXC in Proxmox.
+1. ssh into or use proxmox console for the PiHole lxc.
+2. open the following file (create if needed):
+```bash
+sudo nano etc/dnsmasq.d/k3s.conf
+```
+3. Add the following wildcard entry:
+```
+address=/.yourdomain.com/ip-of-control-server
+```
+4. Restart PiHole-FTL.
+```bash
+sudo systemctl restart pihole-FTL
+```
+5. Validate on another machine using nslookup:
+```bash
+nslookup test.your.domain.com
+```
+**Issue: I kept seeing this error when running nslookup:**
+```
+server can't find test.your.domain.com: NXDOMAIN
+```
+- If you see the same, do the following:
+1. Make sure your pihole is up-to-date (I was running an old version).
+```bash
+pihole -up
+```
+2. Afterwards, you need to enable the system to include configs created inside of dnsmasq.d.
+```bash
+sudo pihole-FTL --config misc.etc_dnsmasq_d true
+```
+3. Restart FTL and try nslookup again.
+```bash
+sudo systemctl restart pihole-FTL
+```
 ### E. Application Deployment - MetalLB
 - MetalLB is a load balancer. After being installed onto the control node, it can be configured with a range of IPs. These IP addresses should be unused and outside of your router's dhcp range. Once configured, we can deploy another application. That application will be given an available IP address in the configured range.
 1. Add the helm repo for MetalLB.
@@ -226,7 +319,7 @@ kubectl get ipaddresspool -n metallb-system
 	- Kubernetes automatically creates a volume on your NFS share and assigns it to the app
 	- You don't have to manually create storage for every app
 #### 3. Ingress Controller
-- While I didn't set up an ingress control yet, I did learn some valuable information. Using traefik, we can route all http/https traffic for cluster applications through a single IP address assigned by MetalLB. Then, we can set up a DNS server on another MetalLB-assigned IP. With this set up, we can access our services using local domain names instead of IP addresses and port numbers.
+- Using traefik, we can route all http/https traffic for cluster applications through a single IP address assigned by MetalLB. Then, we can set up a DNS server on another MetalLB-assigned IP. With this set up, we can access our services using local domain names instead of IP addresses and port numbers.
 #### 4. Application deployment
 - Using Helm, application installation can also be incredibly simple. adding the repo then running the repo's install command is enough. After that, you configure the application the same way you would if you installed it manually or any way other than Helm.
 

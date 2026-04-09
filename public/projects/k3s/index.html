@@ -245,7 +245,7 @@
 <li>check it successfully installed with:</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm version
-</span></span></code></pre></div><ol start="2">
+</span></span></code></pre></div><ol start="3">
 <li>Install nfs provisioner repository.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
@@ -305,11 +305,107 @@
 <li>After the test is successful you can clean up by deleting the test PVC.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl delete pvc test-pvc
-</span></span></code></pre></div><h3 id="d-ingress-controller-traefik">D. Ingress Controller (Traefik)</h3>
+</span></span></code></pre></div><h4 id="helpful-troubleshooting">helpful troubleshooting</h4>
 <ul>
-<li>This will be done when I move out of my homelab VM and into my main VLAN, as I already have Traefik set up to access apps by url and setting up SSL certificates with Let&rsquo;sEncrypt.</li>
+<li>to get a detailed look at the current state of the test pvc after creation if stuck pending</li>
 </ul>
-<h3 id="e-application-deployment---metallb">E. Application Deployment - MetalLB</h3>
+<pre tabindex="0"><code>kubectl describe pvc test-pvc
+</code></pre><h3 id="d-ingress-controller-with-letsencrypt-certs">D. Ingress Controller with Let&rsquo;sEncrypt Certs</h3>
+<ul>
+<li>We need a way to access the services on the cluster without have to use ip addresses, since the app could be running on any of the nodes. The plan is to use local dns records with a real domain name. So instead of IP addresses, URLs can be used to access apps.</li>
+<li>Also, by using Cloudflare with Let&rsquo;sEncrypt, we can avoid the warnings the browser gives when navigating to an uncertified domain.</li>
+</ul>
+<h4 id="--cloudflare-token-creation">- Cloudflare Token Creation</h4>
+<ol>
+<li>In cloudflare, go to My Profile -&gt; API Tokens -&gt; Create Token.</li>
+<li>Create Custom Token.</li>
+<li>Name the token.</li>
+<li>Under permissions, select Zone | DNS Settings | Edit.</li>
+<li>Under zone resources, select Include | Specific Zone | your domain.</li>
+<li>Copy/save token for later.</li>
+</ol>
+<h4 id="--cert-manager-install-and-clusterissuer-creation">- Cert Manager install and ClusterIssuer creation</h4>
+<ol>
+<li>On your cluster control server, install cert-manager helm repository.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm repo add jetstack https://charts.jetstack.io
+</span></span><span style="display:flex;"><span>helm repo update
+</span></span><span style="display:flex;"><span>helm install cert-manager jetstack/cert-manager <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --namespace cert-manager <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --create-namespace <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --set crds.enabled<span style="color:#f92672">=</span>true
+</span></span></code></pre></div><ol start="2">
+<li>Verify successful installation.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get pods -n cert-manager
+</span></span></code></pre></div><ol start="3">
+<li>After install, you can store the cloudflare token as a secret on the cluster control server.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create secret generic cloudflare-api-token <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --from-literal<span style="color:#f92672">=</span>api-token<span style="color:#f92672">=</span>YOUR_TOKEN_HERE <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -n cert-manager
+</span></span></code></pre></div><ol start="4">
+<li>After install, the message will mention a ClusterIssuer will need created. On your control server, create a file called clusterissuer.yaml with the following content:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">cert-manager.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterIssuer</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">letsencrypt-prod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">acme</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">email</span>: <span style="color:#ae81ff">you@yourdomain.com</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server</span>: <span style="color:#ae81ff">https://acme-v02.api.letsencrypt.org/directory</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">privateKeySecretRef</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">letsencrypt-prod-key</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">solvers</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">dns01</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">cloudflare</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">apiTokenSecretRef</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cloudflare-api-token</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">key</span>: <span style="color:#ae81ff">api-token</span>
+</span></span></code></pre></div><ol start="5">
+<li>Then run the following command:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl apply -f clusterissuer.yaml
+</span></span></code></pre></div><h4 id="dns-setup">DNS Setup</h4>
+<ul>
+<li>This will assume PiHole is already running on an LXC in Proxmox.</li>
+</ul>
+<ol>
+<li>ssh into or use proxmox console for the PiHole lxc.</li>
+<li>open the following file (create if needed):</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano etc/dnsmasq.d/k3s.conf
+</span></span></code></pre></div><ol start="3">
+<li>Add the following wildcard entry:</li>
+</ol>
+<pre tabindex="0"><code>address=/.yourdomain.com/ip-of-control-server
+</code></pre><ol start="4">
+<li>Restart PiHole-FTL.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart pihole-FTL
+</span></span></code></pre></div><ol start="5">
+<li>Validate on another machine using nslookup:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nslookup test.your.domain.com
+</span></span></code></pre></div><p><strong>Issue: I kept seeing this error when running nslookup:</strong></p>
+<pre tabindex="0"><code>server can&#39;t find test.your.domain.com: NXDOMAIN
+</code></pre><ul>
+<li>If you see the same, do the following:</li>
+</ul>
+<ol>
+<li>Make sure your pihole is up-to-date (I was running an old version).</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pihole -up
+</span></span></code></pre></div><ol start="2">
+<li>Afterwards, you need to enable the system to include configs created inside of dnsmasq.d.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pihole-FTL --config misc.etc_dnsmasq_d true
+</span></span></code></pre></div><ol start="3">
+<li>Restart FTL and try nslookup again.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart pihole-FTL
+</span></span></code></pre></div><h3 id="e-application-deployment---metallb">E. Application Deployment - MetalLB</h3>
 <ul>
 <li>MetalLB is a load balancer. After being installed onto the control node, it can be configured with a range of IPs. These IP addresses should be unused and outside of your router&rsquo;s dhcp range. Once configured, we can deploy another application. That application will be given an available IP address in the configured range.</li>
 </ul>
@@ -392,7 +488,7 @@ Storage Class works the same way:</li>
 </ul>
 <h4 id="3-ingress-controller">3. Ingress Controller</h4>
 <ul>
-<li>While I didn&rsquo;t set up an ingress control yet, I did learn some valuable information. Using traefik, we can route all http/https traffic for cluster applications through a single IP address assigned by MetalLB. Then, we can set up a DNS server on another MetalLB-assigned IP. With this set up, we can access our services using local domain names instead of IP addresses and port numbers.</li>
+<li>Using traefik, we can route all http/https traffic for cluster applications through a single IP address assigned by MetalLB. Then, we can set up a DNS server on another MetalLB-assigned IP. With this set up, we can access our services using local domain names instead of IP addresses and port numbers.</li>
 </ul>
 <h4 id="4-application-deployment">4. Application deployment</h4>
 <ul>
@@ -415,7 +511,7 @@ Storage Class works the same way:</li>
         <li><a href="#a-installation-of-k3s">A. Installation of k3s</a></li>
         <li><a href="#b-storage">B. Storage</a></li>
         <li><a href="#c-persistent-volume-claim-pvc-setup">C. Persistent Volume Claim (PVC) Setup</a></li>
-        <li><a href="#d-ingress-controller-traefik">D. Ingress Controller (Traefik)</a></li>
+        <li><a href="#d-ingress-controller-with-letsencrypt-certs">D. Ingress Controller with Let&rsquo;sEncrypt Certs</a></li>
         <li><a href="#e-application-deployment---metallb">E. Application Deployment - MetalLB</a></li>
       </ul>
     </li>
