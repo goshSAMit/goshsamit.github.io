@@ -2,7 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://goshsamit.com/tags/ansible/</loc>
+    <lastmod>2026-03-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://goshsamit.com/projects/k3s-ansible/</loc>
+    <lastmod>2026-03-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/devops/</loc>
     <lastmod>2026-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/</loc>
@@ -11,14 +17,14 @@
     <loc>https://goshsamit.com/tags/homelab/</loc>
     <lastmod>2026-03-27T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://goshsamit.com/tags/iac/</loc>
+    <lastmod>2026-03-27T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://goshsamit.com/projects/</loc>
     <lastmod>2026-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/tags/</loc>
     <lastmod>2026-03-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/tags/ansible/</loc>
-    <lastmod>2026-03-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/tags/git/</loc>
     <lastmod>2026-03-06T00:00:00+00:00</lastmod>
@@ -71,8 +77,6 @@
   </url><url>
     <loc>https://goshsamit.com/tags/clustering/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/devops/</loc>
-  </url><url>
     <loc>https://goshsamit.com/tags/dhcp/</loc>
   </url><url>
     <loc>https://goshsamit.com/tags/dns/</loc>
@@ -89,8 +93,6 @@
   </url><url>
     <loc>https://goshsamit.com/projects/homepage-dashboard/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/iac/</loc>
-  </url><url>
     <loc>https://goshsamit.com/tags/k3s/</loc>
   </url><url>
     <loc>https://goshsamit.com/projects/k3s/</loc>
@@ -104,6 +106,8 @@
     <loc>https://goshsamit.com/tags/terraform/</loc>
   </url><url>
     <loc>https://goshsamit.com/projects/terraform/</loc>
+  </url><url>
+    <loc>https://goshsamit.com/tags/traefik/</loc>
   </url><url>
     <loc>https://goshsamit.com/projects/traefik-and-pihole/</loc>
   </url><url>

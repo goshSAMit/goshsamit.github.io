@@ -5,6 +5,8 @@ tags:
   - homelab
   - k3s
   - clustering
+  - traefik
+  - certs
 showTableOfContents: true
 ---
 ## The Problem
@@ -163,9 +165,14 @@ kubectl describe pvc test-pvc
 1. In cloudflare, go to My Profile -> API Tokens -> Create Token.
 2. Create Custom Token.
 3. Name the token.
-4. Under permissions, select Zone | DNS Settings | Edit.
-5. Under zone resources, select Include | Specific Zone | your domain.
-6. Copy/save token for later.
+4. Under permissions, select Zone | DNS | Edit.
+5. Add another permission, select Zone | DNS | Read
+6. Under zone resources, select Include | Specific Zone | your domain.
+7. Copy/save token for later.
+8. Verify it works with, it should show your domain in the results:
+```bash
+TOKEN='your-token-here' curl -X GET "https://api.cloudflare.com/client/v4/zones" \ -H "Authorization: Bearer $TOKEN" \ -H "Content-Type: application/json" | python3 -m json.tool
+```
 
 #### - Cert Manager install and ClusterIssuer creation
 1.  On your cluster control server, install cert-manager helm repository.
@@ -205,6 +212,9 @@ spec:
           apiTokenSecretRef:
             name: cloudflare-api-token
             key: api-token
+		selector:
+			dnsZones:
+				- "your.domain.com"
 ```
 5. Then run the following command:
 ```bash
@@ -247,63 +257,90 @@ sudo pihole-FTL --config misc.etc_dnsmasq_d true
 ```bash
 sudo systemctl restart pihole-FTL
 ```
-### E. Application Deployment - MetalLB
-- MetalLB is a load balancer. After being installed onto the control node, it can be configured with a range of IPs. These IP addresses should be unused and outside of your router's dhcp range. Once configured, we can deploy another application. That application will be given an available IP address in the configured range.
-1. Add the helm repo for MetalLB.
-```bash
-helm repo add metallb https://metallb.github.io/metallb
-helm repo update
-```
-2. Create the values.yaml file on the node.
-```bash
-mkdir -p ~/kubernetes/apps/metallb
-nano ~/kubernetes/apps/metallb/values.yaml
-```
-3. Add the following:
-```bsh
-controller:
-  enabled: true
-```
-4. Install MetalLB.
-```bash
-helm install metallb metallb/metallb \
-  -f ~/kubernetes/apps/metallb/values.yaml \
-  -n metallb-system \
-  --create-namespace
-```
-5. After about a minute, run the following command to verify the pods are running (there will be 4):
-```bash
-kubectl get pods -n metallb-system
-```
-6. Create the MetalLB Manifest, this will be where we configure the IP address range it will use.
-```bash
-nano ~/kubernetes/apps/metallb/ippool.yaml
-```
-7. Add the following, using your own values.
+### E. Test
+1. On the cluster control server, create smoke-test.yaml and add:
 ```yaml
-apiVersion: metallb.io/v1beta1
-kind: IPAddressPool
+apiVersion: v1
+kind: Namespace
 metadata:
-  name: default-pool
-  namespace: metallb-system
-spec:
-  addresses:
-    - 192.168.0.150-192.168.0.175
+  name: smoke-test
 ---
-apiVersion: metallb.io/v1beta1
-kind: L2Advertisement
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: default
-  namespace: metallb-system
+  name: whoami
+  namespace: smoke-test
 spec:
-  ipAddressPools:
-    - default-pool
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whoami
+  template:
+    metadata:
+      labels:
+        app: whoami
+    spec:
+      containers:
+        - name: whoami
+          image: traefik/whoami:latest
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-svc
+  namespace: smoke-test
+spec:
+  selector:
+    app: whoami
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: whoami
+  namespace: smoke-test
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - whoami.home.goshsamit.com
+      secretName: whoami-tls
+  rules:
+    - host: whoami.home.goshsamit.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: whoami-svc
+                port:
+                  number: 80
 ```
-8. Verify the IP pool was created.
+2. Deploy the test:
 ```bash
-kubectl get ipaddresspool -n metallb-system
+kubectl apply -f smoke-test.yaml
 ```
-9. Now another application can be deployed with helm and it will be given one of these IP addresses. You will use the given ip to access the app.
+3. Wait for the provisioning step to flip to TRUE (wait a couple minutes)
+```bash
+kubectl get certificate -n smoke-test -w
+```
+4. Test with curl:
+```bash
+curl -I https://whoami.your.domain.com
+```
+5. Once passed, clean up the test:
+```bash
+kubectl delete namespace smoke-test
+```
 
 ## The Impact
 ### What did I learn?
@@ -322,4 +359,7 @@ kubectl get ipaddresspool -n metallb-system
 - Using traefik, we can route all http/https traffic for cluster applications through a single IP address assigned by MetalLB. Then, we can set up a DNS server on another MetalLB-assigned IP. With this set up, we can access our services using local domain names instead of IP addresses and port numbers.
 #### 4. Application deployment
 - Using Helm, application installation can also be incredibly simple. adding the repo then running the repo's install command is enough. After that, you configure the application the same way you would if you installed it manually or any way other than Helm.
+
+#### Flow diagram of traffic
+Browser -> PiHole DNS (*.your.domain.com points to control node) -> Traefik (reverse proxy + TLS termination) -> cert-manager (Let's Encrypt certs via Cloudflare DNS-01) -> Your service pods
 

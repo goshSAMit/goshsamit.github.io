@@ -3,6 +3,9 @@ title: Configuring k3s with Ansible
 type: page
 tags:
   - homelab
+  - ansible
+  - iac
+  - devops
 date: 2026-03-27
 showTableOfContents: true
 ---
@@ -26,11 +29,36 @@ openssl rand -base64 64
 ```
   ansible_ssh_private_key_file: ~/.ssh/your_private_key
 ```
-6. Right now, the token is in plain text, so anyone can see it to gain access to your cluster. Encrypt the token with ansible-vault. When you run this command, you will be asked to enter a password. Replace the token value in step 4 with the output of this command.
+6. Right now, the token is in plain text, so anyone can see it to gain access to your cluster. Create an Ansible Vault Password File and change the permissions.
 ```bash
-ansible-vault encrypt_string 'your-generated-token' --name 'token'
+echo -n 'your-vault-password' > ~/.vault_pass
+chmod 600 ~/.vault_pass
 ```
-7. Final, we will want to make sure the cluster has a shared storage system set up. Create a new playbook called storage.yml and include the following:
+7. Add this line to the ansible.cfg file
+```
+vault_password_file = ~/.vault_pass
+```
+8. Encrypt the cloudflare token: 
+```bash
+ansible-vault encrypt_string 'your-token' \ --name 'vault_variable_name'
+```
+9. Copy the value and paste it into your inventory.yml
+10. If you have red squiggles saying !vault is wrong, add this to .vscode/settings.json
+```json
+{
+  "yaml.customTags": [
+    "!vault scalar"
+  ]
+}
+```
+11. You can run this command to verify ansible can unencrypt the value, the result should be your token in plain text.
+```bash
+ansible -i inventory.yml k3s_cluster \
+  -m debug \
+  -a "var=vault_cloudflare_api_token" \
+  --limit IP.OF.Control.Server
+```
+11. Finally, we will want to make sure the cluster has a shared storage system set up. Create a new playbook called storage.yml and include the following:
 ```yml
 - name: Install storage dependencies
 	hosts: k3s_cluster
@@ -41,9 +69,9 @@ ansible-vault encrypt_string 'your-generated-token' --name 'token'
 		name: nfs-common
 		state: present
 ```
-8. Now run the playbooks. Your site.yml playbook will need to be run with an extra switch so you can enter your password.
+8. Now run the playbook.
 ```shell
-ansible-playbook playbooks/site.yml --ask-vault-pass
+ansible-playbook playbooks/site.yml
 ```
 9. As a final step, ensure your inventory.yml is included in .gitignore.
 ### The Impact

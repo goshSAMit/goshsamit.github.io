@@ -20,7 +20,7 @@
     
     <title>K3S Setup</title>
     <meta name="description" content="The Problem At work, my team is currently using a kubernetes cluster in Google Cloud to work as a gitlab runner for test automation. The cluster has already …">
-    <meta name="keywords" content='homelab, k3s, clustering'>
+    <meta name="keywords" content='homelab, k3s, clustering, traefik, certs'>
 
     <meta property="og:url" content="https://goshsamit.com/projects/k3s/">
     <meta property="og:type" content="website">
@@ -320,11 +320,14 @@
 <li>In cloudflare, go to My Profile -&gt; API Tokens -&gt; Create Token.</li>
 <li>Create Custom Token.</li>
 <li>Name the token.</li>
-<li>Under permissions, select Zone | DNS Settings | Edit.</li>
+<li>Under permissions, select Zone | DNS | Edit.</li>
+<li>Add another permission, select Zone | DNS | Read</li>
 <li>Under zone resources, select Include | Specific Zone | your domain.</li>
 <li>Copy/save token for later.</li>
+<li>Verify it works with, it should show your domain in the results:</li>
 </ol>
-<h4 id="--cert-manager-install-and-clusterissuer-creation">- Cert Manager install and ClusterIssuer creation</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>TOKEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;your-token-here&#39;</span> curl -X GET <span style="color:#e6db74">&#34;https://api.cloudflare.com/client/v4/zones&#34;</span> <span style="color:#ae81ff">\ </span>-H <span style="color:#e6db74">&#34;Authorization: Bearer </span>$TOKEN<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\ </span>-H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> | python3 -m json.tool
+</span></span></code></pre></div><h4 id="--cert-manager-install-and-clusterissuer-creation">- Cert Manager install and ClusterIssuer creation</h4>
 <ol>
 <li>On your cluster control server, install cert-manager helm repository.</li>
 </ol>
@@ -363,6 +366,9 @@
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">apiTokenSecretRef</span>:
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">cloudflare-api-token</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">key</span>: <span style="color:#ae81ff">api-token</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>			<span style="color:#f92672">dnsZones</span>:
+</span></span><span style="display:flex;"><span>				- <span style="color:#e6db74">&#34;your.domain.com&#34;</span>
 </span></span></code></pre></div><ol start="5">
 <li>Then run the following command:</li>
 </ol>
@@ -405,68 +411,91 @@
 <li>Restart FTL and try nslookup again.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart pihole-FTL
-</span></span></code></pre></div><h3 id="e-application-deployment---metallb">E. Application Deployment - MetalLB</h3>
-<ul>
-<li>MetalLB is a load balancer. After being installed onto the control node, it can be configured with a range of IPs. These IP addresses should be unused and outside of your router&rsquo;s dhcp range. Once configured, we can deploy another application. That application will be given an available IP address in the configured range.</li>
-</ul>
+</span></span></code></pre></div><h3 id="e-test">E. Test</h3>
 <ol>
-<li>Add the helm repo for MetalLB.</li>
+<li>On the cluster control server, create smoke-test.yaml and add:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm repo add metallb https://metallb.github.io/metallb
-</span></span><span style="display:flex;"><span>helm repo update
-</span></span></code></pre></div><ol start="2">
-<li>Create the values.yaml file on the node.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/kubernetes/apps/metallb
-</span></span><span style="display:flex;"><span>nano ~/kubernetes/apps/metallb/values.yaml
-</span></span></code></pre></div><ol start="3">
-<li>Add the following:</li>
-</ol>
-<pre tabindex="0"><code class="language-bsh" data-lang="bsh">controller:
-  enabled: true
-</code></pre><ol start="4">
-<li>Install MetalLB.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm install metallb metallb/metallb <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -f ~/kubernetes/apps/metallb/values.yaml <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -n metallb-system <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --create-namespace
-</span></span></code></pre></div><ol start="5">
-<li>After about a minute, run the following command to verify the pods are running (there will be 4):</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get pods -n metallb-system
-</span></span></code></pre></div><ol start="6">
-<li>Create the MetalLB Manifest, this will be where we configure the IP address range it will use.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano ~/kubernetes/apps/metallb/ippool.yaml
-</span></span></code></pre></div><ol start="7">
-<li>Add the following, using your own values.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">metallb.io/v1beta1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">IPAddressPool</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Namespace</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">default-pool</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">metallb-system</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">addresses</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">192.168.0.150-192.168.0.175</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">smoke-test</span>
 </span></span><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">metallb.io/v1beta1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">L2Advertisement</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">default</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">metallb-system</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">whoami</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">smoke-test</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ipAddressPools</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">default-pool</span>
-</span></span></code></pre></div><ol start="8">
-<li>Verify the IP pool was created.</li>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">matchLabels</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">whoami</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">whoami</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">whoami</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">image</span>: <span style="color:#ae81ff">traefik/whoami:latest</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">whoami-svc</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">smoke-test</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">whoami</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Ingress</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">whoami</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">smoke-test</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cert-manager.io/cluster-issuer</span>: <span style="color:#e6db74">&#34;letsencrypt-prod&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">traefik.ingress.kubernetes.io/router.entrypoints</span>: <span style="color:#e6db74">&#34;websecure&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">traefik.ingress.kubernetes.io/router.tls</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ingressClassName</span>: <span style="color:#ae81ff">traefik</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tls</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">hosts</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">whoami.home.goshsamit.com</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">secretName</span>: <span style="color:#ae81ff">whoami-tls</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rules</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">host</span>: <span style="color:#ae81ff">whoami.home.goshsamit.com</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">http</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">paths</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">pathType</span>: <span style="color:#ae81ff">Prefix</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">backend</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">service</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">name</span>: <span style="color:#ae81ff">whoami-svc</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">port</span>:
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">number</span>: <span style="color:#ae81ff">80</span>
+</span></span></code></pre></div><ol start="2">
+<li>Deploy the test:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get ipaddresspool -n metallb-system
-</span></span></code></pre></div><ol start="9">
-<li>Now another application can be deployed with helm and it will be given one of these IP addresses. You will use the given ip to access the app.</li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl apply -f smoke-test.yaml
+</span></span></code></pre></div><ol start="3">
+<li>Wait for the provisioning step to flip to TRUE (wait a couple minutes)</li>
 </ol>
-<h2 id="the-impact">The Impact</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get certificate -n smoke-test -w
+</span></span></code></pre></div><ol start="4">
+<li>Test with curl:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -I https://whoami.your.domain.com
+</span></span></code></pre></div><ol start="5">
+<li>Once passed, clean up the test:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl delete namespace smoke-test
+</span></span></code></pre></div><h2 id="the-impact">The Impact</h2>
 <h3 id="what-did-i-learn">What did I learn?</h3>
 <h4 id="1-k3s-setup">1. k3s setup</h4>
 <ul>
@@ -494,6 +523,8 @@ Storage Class works the same way:</li>
 <ul>
 <li>Using Helm, application installation can also be incredibly simple. adding the repo then running the repo&rsquo;s install command is enough. After that, you configure the application the same way you would if you installed it manually or any way other than Helm.</li>
 </ul>
+<h4 id="flow-diagram-of-traffic">Flow diagram of traffic</h4>
+<p>Browser -&gt; PiHole DNS (*.your.domain.com points to control node) -&gt; Traefik (reverse proxy + TLS termination) -&gt; cert-manager (Let&rsquo;s Encrypt certs via Cloudflare DNS-01) -&gt; Your service pods</p>
 
     </div>
     
@@ -512,7 +543,7 @@ Storage Class works the same way:</li>
         <li><a href="#b-storage">B. Storage</a></li>
         <li><a href="#c-persistent-volume-claim-pvc-setup">C. Persistent Volume Claim (PVC) Setup</a></li>
         <li><a href="#d-ingress-controller-with-letsencrypt-certs">D. Ingress Controller with Let&rsquo;sEncrypt Certs</a></li>
-        <li><a href="#e-application-deployment---metallb">E. Application Deployment - MetalLB</a></li>
+        <li><a href="#e-test">E. Test</a></li>
       </ul>
     </li>
     <li><a href="#the-impact">The Impact</a>

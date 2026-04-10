@@ -6,7 +6,15 @@
     <description>Recent content in Devops on goshSAMit</description>
     <generator>Hugo</generator>
     <language>en</language>
+    <lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://goshsamit.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configuring k3s with Ansible</title>
+      <link>https://goshsamit.com/projects/k3s-ansible/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/projects/k3s-ansible/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;There is no real problem here. I have manually deployed several applications on my home network. I am setting up Ansible to practice automating configuration management. I have already created proxmox nodes using Terraform. The plan now is to automate the configuration of the cluster. Ansible seems like a top recommendation from the homelab community.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-approach&#34;&gt;The Approach&lt;/h2&gt;&#xA;&lt;h3 id=&#34;k3s-ansible-repo-vs-from-scratch&#34;&gt;k3s-ansible Repo vs. From Scratch&lt;/h3&gt;&#xA;&lt;p&gt;When researching how to automate k3s configuration, I came across a github repo for this very purpose. So I had a choice ahead of me, create my own ansible playbooks from scratch, or use this repo. After some reddit rabbit holes and some Claude prompting, I decided the best route would be to use the community-maintained repo. Ultimately, I wanted the cluster up and running quickly and my setup will be fairly standard, as I&amp;rsquo;m just learning Anisble for the first time. In the future, I may &amp;ldquo;re-invent the wheel&amp;rdquo; and try my hand at my own Ansible playbook, but for now, the k3s-ansible repo will do just fine.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Terraform with Proxmox</title>
       <link>https://goshsamit.com/projects/terraform/</link>

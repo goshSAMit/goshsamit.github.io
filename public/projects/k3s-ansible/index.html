@@ -20,7 +20,7 @@
     
     <title>Configuring k3s with Ansible</title>
     <meta name="description" content="The Problem There is no real problem here. I have manually deployed several applications on my home network. I am setting up Ansible to practice automating …">
-    <meta name="keywords" content='homelab'>
+    <meta name="keywords" content='homelab, ansible, iac, devops'>
 
     <meta property="og:url" content="https://goshsamit.com/projects/k3s-ansible/">
     <meta property="og:type" content="website">
@@ -175,11 +175,36 @@
 </ol>
 <pre tabindex="0"><code>  ansible_ssh_private_key_file: ~/.ssh/your_private_key
 </code></pre><ol start="6">
-<li>Right now, the token is in plain text, so anyone can see it to gain access to your cluster. Encrypt the token with ansible-vault. When you run this command, you will be asked to enter a password. Replace the token value in step 4 with the output of this command.</li>
+<li>Right now, the token is in plain text, so anyone can see it to gain access to your cluster. Create an Ansible Vault Password File and change the permissions.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ansible-vault encrypt_string <span style="color:#e6db74">&#39;your-generated-token&#39;</span> --name <span style="color:#e6db74">&#39;token&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo -n <span style="color:#e6db74">&#39;your-vault-password&#39;</span> &gt; ~/.vault_pass
+</span></span><span style="display:flex;"><span>chmod 600 ~/.vault_pass
 </span></span></code></pre></div><ol start="7">
-<li>Final, we will want to make sure the cluster has a shared storage system set up. Create a new playbook called storage.yml and include the following:</li>
+<li>Add this line to the ansible.cfg file</li>
+</ol>
+<pre tabindex="0"><code>vault_password_file = ~/.vault_pass
+</code></pre><ol start="8">
+<li>Encrypt the cloudflare token:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ansible-vault encrypt_string <span style="color:#e6db74">&#39;your-token&#39;</span> <span style="color:#ae81ff">\ </span>--name <span style="color:#e6db74">&#39;vault_variable_name&#39;</span>
+</span></span></code></pre></div><ol start="9">
+<li>Copy the value and paste it into your inventory.yml</li>
+<li>If you have red squiggles saying !vault is wrong, add this to .vscode/settings.json</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;yaml.customTags&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;!vault scalar&#34;</span>
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="11">
+<li>You can run this command to verify ansible can unencrypt the value, the result should be your token in plain text.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ansible -i inventory.yml k3s_cluster <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -m debug <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -a <span style="color:#e6db74">&#34;var=vault_cloudflare_api_token&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --limit IP.OF.Control.Server
+</span></span></code></pre></div><ol start="11">
+<li>Finally, we will want to make sure the cluster has a shared storage system set up. Create a new playbook called storage.yml and include the following:</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install storage dependencies</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#f92672">hosts</span>: <span style="color:#ae81ff">k3s_cluster</span>
@@ -190,9 +215,9 @@
 </span></span><span style="display:flex;"><span>		<span style="color:#f92672">name</span>: <span style="color:#ae81ff">nfs-common</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#f92672">state</span>: <span style="color:#ae81ff">present</span>
 </span></span></code></pre></div><ol start="8">
-<li>Now run the playbooks. Your site.yml playbook will need to be run with an extra switch so you can enter your password.</li>
+<li>Now run the playbook.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ansible-playbook playbooks/site.yml --ask-vault-pass
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ansible-playbook playbooks/site.yml
 </span></span></code></pre></div><ol start="9">
 <li>As a final step, ensure your inventory.yml is included in .gitignore.</li>
 </ol>
