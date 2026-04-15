@@ -6,7 +6,15 @@
     <description>Recent content in Clustering on goshSAMit</description>
     <generator>Hugo</generator>
     <language>en</language>
+    <lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://goshsamit.com/tags/clustering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Manual Application Deployment for k3s Cluster</title>
+      <link>https://goshsamit.com/projects/manual-deploy/</link>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/projects/manual-deploy/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;Now that we have a cluster set up with storage, a persistent volume claim, ingress control, as well as local dns, we need something for all of this to do. I figured a good start would be a dashboarding app where we can get all of our future apps and services in one place and easily accessible.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been using the &lt;a href=&#34;https://gethomepage.dev/&#34;&gt;Homepage Dashboard&lt;/a&gt; on a docker container for over a year now, so now I plan to move it to the k3s cluster. This setup below will be for homepage, but other applications should be set up similarly.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>K3S Setup</title>
       <link>https://goshsamit.com/projects/k3s/</link>

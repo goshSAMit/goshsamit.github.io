@@ -6,8 +6,15 @@
     <description>Recent content in Devops on goshSAMit</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 27 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://goshsamit.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating an Ansible Playbook from a Deployed Application</title>
+      <link>https://goshsamit.com/projects/deployed-app-to-playbook/</link>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://goshsamit.com/projects/deployed-app-to-playbook/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;The time has arrived in my ever growing quest to learn DevOps and Infrastructure-as-Code, to take an already deployed kubernetes application, and convert it into an automated and consistent Ansible Playbook.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-approach&#34;&gt;The Approach&lt;/h2&gt;&#xA;&lt;h3 id=&#34;a-plays-and-playbooks&#34;&gt;A. Plays and Playbooks&lt;/h3&gt;&#xA;&lt;p&gt;Ansible uses &amp;ldquo;playbooks&amp;rdquo; to group &amp;ldquo;plays&amp;rdquo; together. These plays run the configuration changes that take place on specified hosts in the &amp;ldquo;inventory file.&amp;rdquo; So, &amp;ldquo;on these hosts, run these plays as a part of this playbook.&amp;rdquo; In our situation, each application will be it&amp;rsquo;s own playbook, with plays that run on the cluster to configure the application as needed.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Configuring k3s with Ansible</title>
       <link>https://goshsamit.com/projects/k3s-ansible/</link>

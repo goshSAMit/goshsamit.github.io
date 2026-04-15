@@ -341,7 +341,6 @@ curl -I https://whoami.your.domain.com
 ```bash
 kubectl delete namespace smoke-test
 ```
-
 ## The Impact
 ### What did I learn?
 #### 1. k3s setup

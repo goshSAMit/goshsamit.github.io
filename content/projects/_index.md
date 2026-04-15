@@ -12,10 +12,12 @@ My projects consist of...
 ### DevOps and Infrastructure-as-Code
 - [Terraform with Proxmox](/projects/terraform/)
 - [k3s with Ansible](/projects/k3s-ansible)
+- [Creating an Ansible Playbook from a Deployed Application](/projects/deployed-app-to-playbook)
 ### Home Lab
 - [Home Network](/projects/home-network)
 - [Home Lab Hardware](/projects/home-lab-hardware/)
 - [Kubernetes Cluster with k3s](/projects/k3s/)
+- [Manual Application Deployment to k3s Cluster](/projects/manual-deploy)
 ### Self-Hosted Services
 - [Tailscale Setup](/projects/tailscale)
 - [Traefik and PiHole](/projects/traefik-and-pihole)

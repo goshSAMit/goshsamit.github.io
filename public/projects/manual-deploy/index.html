@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Manual Application Deployment for k3s Cluster</title>
+    <meta name="description" content="The Problem Now that we have a cluster set up with storage, a persistent volume claim, ingress control, as well as local dns, we need something for all of this …">
+    <meta name="keywords" content='homelab, k3s, clustering'>
+
+    <meta property="og:url" content="https://goshsamit.com/projects/manual-deploy/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Manual Application Deployment for k3s Cluster">
+    <meta property="og:description" content="The Problem Now that we have a cluster set up with storage, a persistent volume claim, ingress control, as well as local dns, we need something for all of this …">
+    <meta property="og:image" content="https://goshsamit.com/">
+    <meta property="og:image:secure_url" content="https://goshsamit.com/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Manual Application Deployment for k3s Cluster">
+    <meta name="twitter:description" content="The Problem Now that we have a cluster set up with storage, a persistent volume claim, ingress control, as well as local dns, we need something for all of this …">
+    <meta property="twitter:domain" content="https://goshsamit.com/projects/manual-deploy/">
+    <meta property="twitter:url" content="https://goshsamit.com/projects/manual-deploy/">
+    <meta name="twitter:image" content="https://goshsamit.com/">
+
+    
+    <link rel="canonical" href="https://goshsamit.com/projects/manual-deploy/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://goshsamit.com/">goshSAMit</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/about-me/" aria-label="" ><span data-feather='user'></span> About Me </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/projects/" aria-label="" ><span data-feather='terminal'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/topics/" aria-label="" ><span data-feather='list'></span> Topics </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/tags/" aria-label="tags" ><span data-feather='tag'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/goshsamit" aria-label="github" ><span data-feather='github'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://www.linkedin.com/in/goshsamit/" aria-label="linkedin" ><span data-feather='linkedin'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/about-me/" ><span data-feather='user'></span> About Me </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/projects/" ><span data-feather='terminal'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/topics/" ><span data-feather='list'></span> Topics </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/tags/" ><span data-feather='tag'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/goshsamit" ><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/goshsamit/" ><span data-feather='linkedin'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    
+
+    <div class="post container">
+
+    <div class="post-header-section">
+        <h1>Manual Application Deployment for k3s Cluster</h1>
+    </div>
+
+    <div class="post-content">
+        <h2 id="the-problem">The Problem</h2>
+<p>Now that we have a cluster set up with storage, a persistent volume claim, ingress control, as well as local dns, we need something for all of this to do. I figured a good start would be a dashboarding app where we can get all of our future apps and services in one place and easily accessible.</p>
+<p>I&rsquo;ve been using the <a href="https://gethomepage.dev/">Homepage Dashboard</a> on a docker container for over a year now, so now I plan to move it to the k3s cluster. This setup below will be for homepage, but other applications should be set up similarly.</p>
+<p>Homepage Dashboard is configurable with xmls and can act as a &ldquo;bookmarks&rdquo; page for apps and services. It also has the ability to pull metrics and display them for various applications. I plan to just use the bookmarks page functionality so this guide will not include individual app metrics. This requires additional Role-Based Access Control (RBAC) set up that I will not be doing here.</p>
+<h2 id="the-approach">The Approach</h2>
+<ol>
+<li>On the control node, create the homepage namespace</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create namespace homepage
+</span></span></code></pre></div><ol start="2">
+<li>On the control node, create a &ldquo;homepage&rdquo; directory and cd into that new directory.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir homepage <span style="color:#f92672">&amp;&amp;</span> cd homepage
+</span></span></code></pre></div><ol start="3">
+<li>Create a &ldquo;manifests&rdquo; and &ldquo;config&rdquo; directories</li>
+</ol>
+<pre tabindex="0"><code>mkdir manifests &amp;&amp; mkdir config
+</code></pre><ol start="4">
+<li>create the following manifest files with the touch command:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch manifests/homepage-deployment.yaml
+</span></span><span style="display:flex;"><span>touch manifests/homepage-service.yaml
+</span></span><span style="display:flex;"><span>touch manifests/clusterissuer.yaml
+</span></span><span style="display:flex;"><span>touch manifests/homepage-ingress.yaml
+</span></span></code></pre></div><ol start="5">
+<li>Create the following config files with the touch command:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch config/settings.yaml
+</span></span><span style="display:flex;"><span>touch config/bookmarks.yaml
+</span></span><span style="display:flex;"><span>touch config/services.yaml
+</span></span><span style="display:flex;"><span>touch config/widgets.yaml
+</span></span></code></pre></div><ol start="6">
+<li>Edit the settings.yaml and copy in the following (the other files can be blank):</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#ae81ff">Homepage</span>
+</span></span></code></pre></div><ol start="7">
+<li>Create the homepage config map:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create configmap homepage-config --from-file<span style="color:#f92672">=</span>settings.yaml --from-file<span style="color:#f92672">=</span>bookmarks.yaml --from-file<span style="color:#f92672">=</span>services.yaml --from-file<span style="color:#f92672">=</span>widgets.yaml -n homepage
+</span></span></code></pre></div><ol start="8">
+<li>cd into manifests directory and edit homepage-deployment.yaml file:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">matchLabels</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">labels</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">image</span>: <span style="color:#ae81ff">ghcr.io/gethomepage/homepage:latest</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">volumeMounts</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/app/config</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">config</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">configMap</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">name</span>: <span style="color:#ae81ff">homepage-config</span>
+</span></span></code></pre></div><ol start="9">
+<li>Apply the deployment manifest:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl apply -f homepage-deployment.yaml
+</span></span></code></pre></div><ol start="10">
+<li>From the manifests directory, edit the homepage-service.yaml</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">3000</span>
+</span></span></code></pre></div><ol start="11">
+<li>Apply the service manifest:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl apply -f homepage-service.yaml
+</span></span></code></pre></div><ol start="12">
+<li>From the manifests directory, edit the clusterissuer.yaml</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">cert-manager.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterIssuer</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">letsencrypt-prod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">acme</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server</span>: <span style="color:#ae81ff">https://acme-v02.api.letsencrypt.org/directory</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">email</span>: <span style="color:#ae81ff">you@yourdomain.com</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">privateKeySecretRef</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">letsencrypt-prod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">solvers</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">http01</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ingress</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">class</span>: <span style="color:#ae81ff">traefik</span>
+</span></span></code></pre></div><ol start="12">
+<li>Apply the clusterissuer manifest</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl apply -f manifests/clusterissuer.yaml
+</span></span></code></pre></div><ol start="13">
+<li>From the manifests directory, edit the homepage-ingress.yaml.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Ingress</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">traefik.ingress.kubernetes.io/router.entrypoints</span>: <span style="color:#ae81ff">websecure</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cert-manager.io/cluster-issuer</span>: <span style="color:#ae81ff">letsencrypt-prod</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tls</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">hosts</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">homepage.yourdomain.com</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">secretName</span>: <span style="color:#ae81ff">homepage-tls                          </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rules</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">host</span>: <span style="color:#ae81ff">homepage.yourdomain.com</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">http</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">paths</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">pathType</span>: <span style="color:#ae81ff">Prefix</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">backend</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">service</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">name</span>: <span style="color:#ae81ff">homepage</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">port</span>:
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">number</span>: <span style="color:#ae81ff">3000</span>
+</span></span></code></pre></div><ol start="14">
+<li>Apply the ingress manifest:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl apply -f homepage-ingress.yaml
+</span></span></code></pre></div><ol start="15">
+<li>Validate it is working with kubectl</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get pods -n homepage
+</span></span><span style="display:flex;"><span>kubectl get svc -n homepage
+</span></span><span style="display:flex;"><span>kubectl get ingress -n homepage
+</span></span></code></pre></div><ol start="16">
+<li>Once running, open browser and navigate to homepage.yourdomain.local and you should hit your new homepage dashboard without a certificate error</li>
+<li>You can update the config files as you wish based on <a href="https://gethomepage.dev/configs/">homepage docs</a>.</li>
+<li>Once edited, you&rsquo;ll need to patch the ConfigMap from step 7:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create configmap homepage-config --from-file<span style="color:#f92672">=</span>settings.yaml --from-file<span style="color:#f92672">=</span>services.yaml --from-file<span style="color:#f92672">=</span>bookmarks.yaml --from-file<span style="color:#f92672">=</span>widgets.yaml -n homepage --dry-run<span style="color:#f92672">=</span>client -o yaml | kubectl apply -f -
+</span></span><span style="display:flex;"><span>kubectl rollout restart deployment/homepage -n homepage
+</span></span></code></pre></div><h2 id="the-impact">The Impact</h2>
+<ul>
+<li>This project taught me the differences between deploying an app to docker vs deploying an app to k3s. With docker being straight forward to set up, deploying an app on a container is as simple as configuring a docker-compose file, which is typically provided by the application or service doc website. The k3s install was a little more involved, due to the initial set up and configuration the cluster required. Once the cluster or containers are set up however, application config is fairly straightforward on k3s as well. Directory creation, manifest creation so the cluster can handle ingress control when the app is running on a pod, and service creation that the application can run as a service on the cluster.</li>
+</ul>
+
+    </div>
+    
+    
+</div>
+
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-problem">The Problem</a></li>
+    <li><a href="#the-approach">The Approach</a></li>
+    <li><a href="#the-impact">The Impact</a></li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
+
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>
