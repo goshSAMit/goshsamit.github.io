@@ -73,4 +73,9 @@ git push -u origin <branch-name>
 ```bash
 git pull -u origin <branch-name>
 ```
-
+- If you have pushed a file to a remote repo that should have been in .gitignore (run after adding the file to gitignore)
+```bash
+git rm --cached .DS_Store
+git commit -m "Remove FILE from tracking"
+git push origin main
+```
