@@ -357,9 +357,6 @@ kubectl delete namespace smoke-test
 	- You don't have to manually create storage for every app
 #### 3. Ingress Controller
 - Using traefik, we can route all http/https traffic for cluster applications through a single IP address assigned by MetalLB. Then, we can set up a DNS server on another MetalLB-assigned IP. With this set up, we can access our services using local domain names instead of IP addresses and port numbers.
-#### 4. Application deployment
-- Using Helm, application installation can also be incredibly simple. adding the repo then running the repo's install command is enough. After that, you configure the application the same way you would if you installed it manually or any way other than Helm.
-
 #### Flow diagram of traffic
 Browser -> PiHole DNS (*.your.domain.com points to control node) -> Traefik (reverse proxy + TLS termination) -> cert-manager (Let's Encrypt certs via Cloudflare DNS-01) -> Your service pods
 

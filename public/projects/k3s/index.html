@@ -519,10 +519,6 @@ Storage Class works the same way:</li>
 <ul>
 <li>Using traefik, we can route all http/https traffic for cluster applications through a single IP address assigned by MetalLB. Then, we can set up a DNS server on another MetalLB-assigned IP. With this set up, we can access our services using local domain names instead of IP addresses and port numbers.</li>
 </ul>
-<h4 id="4-application-deployment">4. Application deployment</h4>
-<ul>
-<li>Using Helm, application installation can also be incredibly simple. adding the repo then running the repo&rsquo;s install command is enough. After that, you configure the application the same way you would if you installed it manually or any way other than Helm.</li>
-</ul>
 <h4 id="flow-diagram-of-traffic">Flow diagram of traffic</h4>
 <p>Browser -&gt; PiHole DNS (*.your.domain.com points to control node) -&gt; Traefik (reverse proxy + TLS termination) -&gt; cert-manager (Let&rsquo;s Encrypt certs via Cloudflare DNS-01) -&gt; Your service pods</p>
 
