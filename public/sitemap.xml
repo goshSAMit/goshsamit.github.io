@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://goshsamit.com/projects/external-services/</loc>
+    <lastmod>2026-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/certs/</loc>
+    <lastmod>2026-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/dns/</loc>
+    <lastmod>2026-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/</loc>
+    <lastmod>2026-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/homelab/</loc>
+    <lastmod>2026-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/projects/</loc>
+    <lastmod>2026-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/</loc>
+    <lastmod>2026-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://goshsamit.com/tags/traefik/</loc>
+    <lastmod>2026-04-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://goshsamit.com/tags/ansible/</loc>
     <lastmod>2026-04-15T00:00:00+00:00</lastmod>
   </url><url>
@@ -14,12 +38,6 @@
     <loc>https://goshsamit.com/tags/devops/</loc>
     <lastmod>2026-04-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://goshsamit.com/</loc>
-    <lastmod>2026-04-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/tags/homelab/</loc>
-    <lastmod>2026-04-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://goshsamit.com/tags/iac/</loc>
     <lastmod>2026-04-15T00:00:00+00:00</lastmod>
   </url><url>
@@ -27,12 +45,6 @@
     <lastmod>2026-04-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/projects/manual-deploy/</loc>
-    <lastmod>2026-04-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/projects/</loc>
-    <lastmod>2026-04-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://goshsamit.com/tags/</loc>
     <lastmod>2026-04-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://goshsamit.com/projects/k3s-ansible/</loc>
@@ -85,11 +97,7 @@
   </url><url>
     <loc>https://goshsamit.com/categories/</loc>
   </url><url>
-    <loc>https://goshsamit.com/tags/certs/</loc>
-  </url><url>
     <loc>https://goshsamit.com/tags/dhcp/</loc>
-  </url><url>
-    <loc>https://goshsamit.com/tags/dns/</loc>
   </url><url>
     <loc>https://goshsamit.com/tags/firewall/</loc>
   </url><url>
@@ -114,8 +122,6 @@
     <loc>https://goshsamit.com/tags/terraform/</loc>
   </url><url>
     <loc>https://goshsamit.com/projects/terraform/</loc>
-  </url><url>
-    <loc>https://goshsamit.com/tags/traefik/</loc>
   </url><url>
     <loc>https://goshsamit.com/projects/traefik-and-pihole/</loc>
   </url><url>

@@ -18,6 +18,7 @@ My projects consist of...
 - [Home Lab Hardware](/projects/home-lab-hardware/)
 - [Kubernetes Cluster with k3s](/projects/k3s/)
 - [Manual Application Deployment to k3s Cluster](/projects/manual-deploy)
+- [Route External Services through Cluster Traefik](/projects/External-Services)
 ### Self-Hosted Services
 - [Tailscale Setup](/projects/tailscale)
 - [Traefik and PiHole](/projects/traefik-and-pihole)

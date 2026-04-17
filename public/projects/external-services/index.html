@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>Adding Local DNS and TLS Certs for External Services</title>
+    <meta name="description" content="The Problem A couple of my self-hosted services cannot be apart of the kubernetes cluster, storage and DNS. These services are running on a separate VM and LXC …">
+    <meta name="keywords" content='homelab, certs, traefik, dns'>
+
+    <meta property="og:url" content="https://goshsamit.com/projects/external-services/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Adding Local DNS and TLS Certs for External Services">
+    <meta property="og:description" content="The Problem A couple of my self-hosted services cannot be apart of the kubernetes cluster, storage and DNS. These services are running on a separate VM and LXC …">
+    <meta property="og:image" content="https://goshsamit.com/">
+    <meta property="og:image:secure_url" content="https://goshsamit.com/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Adding Local DNS and TLS Certs for External Services">
+    <meta name="twitter:description" content="The Problem A couple of my self-hosted services cannot be apart of the kubernetes cluster, storage and DNS. These services are running on a separate VM and LXC …">
+    <meta property="twitter:domain" content="https://goshsamit.com/projects/external-services/">
+    <meta property="twitter:url" content="https://goshsamit.com/projects/external-services/">
+    <meta name="twitter:image" content="https://goshsamit.com/">
+
+    
+    <link rel="canonical" href="https://goshsamit.com/projects/external-services/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.7136b4abac7b277aba8bc933917f4602d39a5c44f5590be687244bc86ef4f162.js" integrity="sha256-cTa0q6x7J3q6i8kzkX9GAtOaXET1WQvmhyRLyG708WI="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://goshsamit.com/">goshSAMit</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/about-me/" aria-label="" ><span data-feather='user'></span> About Me </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/projects/" aria-label="" ><span data-feather='terminal'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/topics/" aria-label="" ><span data-feather='list'></span> Topics </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://goshsamit.com/tags/" aria-label="tags" ><span data-feather='tag'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/goshsamit" aria-label="github" ><span data-feather='github'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://www.linkedin.com/in/goshsamit/" aria-label="linkedin" ><span data-feather='linkedin'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/about-me/" ><span data-feather='user'></span> About Me </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/projects/" ><span data-feather='terminal'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/topics/" ><span data-feather='list'></span> Topics </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://goshsamit.com/tags/" ><span data-feather='tag'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/goshsamit" ><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/goshsamit/" ><span data-feather='linkedin'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    
+
+    <div class="post container">
+
+    <div class="post-header-section">
+        <h1>Adding Local DNS and TLS Certs for External Services</h1>
+    </div>
+
+    <div class="post-content">
+        <h2 id="the-problem">The Problem</h2>
+<p>A couple of my self-hosted services cannot be apart of the kubernetes cluster, storage and DNS. These services are running on a separate VM and LXC so the cluster can access them. If they were on the cluster, we would have some sort of circular reasoning where the cluster needs them, but the cluster is the one serving them.</p>
+<p>Proxmox is also running the cluster node virtual machines, so obviously cannot be apart of the cluster.</p>
+<p>My network has a router, a switch, and a couple access points. I would like to access these with a local DNS name and not having to deal with the non-valid certificate error message.</p>
+<h2 id="the-approach">The Approach</h2>
+<h3 id="namespace-creation">Namespace Creation</h3>
+<ol>
+<li>Create the following directory on your cluster node if it does not already exist:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir apps/external-services
+</span></span></code></pre></div><ol start="2">
+<li>Create the namespace yaml file on the cluster control node.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano apps/external-services/namespace.yaml
+</span></span></code></pre></div><ol start="3">
+<li>Add the following to the namespace.yaml:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">apiVersion: v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">kind: Namespace</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#ae81ff">name: external-services</span>
+</span></span></code></pre></div><ol start="4">
+<li>Apply the namespace creation.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl apply -f apps/external-services/namespace.yaml
+</span></span></code></pre></div><h3 id="shared-serverstransports-creation">Shared ServersTransports Creation</h3>
+<ul>
+<li>For these external services, most will skip TLS certificate verification if they have a self-signed HTTPS cert. Proxmox needs a separate configuration as it does not support HTTP/2. Trying to use HTTP/2 with proxmox leads to a re-direct loop.</li>
+</ul>
+<ol>
+<li>Create the TLS certificate verification yaml:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano apps/external-services/skip-verify-transport.yaml
+</span></span></code></pre></div><ol start="2">
+<li>Add the following:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">traefik.containo.us/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServersTransport</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">skip-verify</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">insecureSkipVerify</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><ol start="3">
+<li>Create the proxmox-specific yaml:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano apps/external-services/proxmox-transport.yaml
+</span></span></code></pre></div><ol start="4">
+<li>Add the following:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">traefik.containo.us/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServersTransport</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">proxmox-transport</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">insecureSkipVerify</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">disableHTTP2</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><ol start="5">
+<li>Apply the two configs:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl apply -f apps/external-services/skip-verify-transport.yaml
+</span></span><span style="display:flex;"><span>kubectl apply -f apps/external-services/proxmox-transport.yaml
+</span></span></code></pre></div><h3 id="wildcard-cert-creation">Wildcard Cert Creation</h3>
+<ul>
+<li>One certificate is going to apply to all of the external services. Because of this, a wildcard cert is needed so it can handle the various name differences with the services. Cert-manager will manage certificate renewal with Cloudflare.</li>
+</ul>
+<ol>
+<li>Create the certificate yaml:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano apps/external-services/wildcard-certificate.yaml
+</span></span></code></pre></div><ol start="2">
+<li>Add the following:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">cert-manager.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Certificate</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">wildcard-home-domain-com</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">secretName</span>: <span style="color:#ae81ff">wildcard-home-your-domain-com-tls</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">issuerRef</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">letsencrypt-prod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterIssuer</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dnsNames</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;home.domain.com&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;*.home.domain.com&#34;</span>
+</span></span></code></pre></div><ol start="3">
+<li>Apply the config:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl apply -f apps/external-services/wildcard-certificate.yaml
+</span></span></code></pre></div><ol start="4">
+<li>Run the following to watch for verification. Ready should switch to TRUE in about a minute:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get certificate -n external-services -w
+</span></span></code></pre></div><ul>
+<li>Troubleshooting: cert is stuck in FALSE - I ran into an issue where Traefik loaded before the secret for the verified certification existed, so it ran with an error.</li>
+</ul>
+<ol>
+<li>Restart the traefik deployment:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl rollout restart deployment traefik -n kube-system
+</span></span></code></pre></div><ol start="2">
+<li>If having further issues, run the following commands to get detailed logs of what is going on.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl describe certificate wildcard-home-domain-com -n external-services
+</span></span><span style="display:flex;"><span>kubectl describe certificaterequest wildcard-home-domain-com-1 -n external-services
+</span></span><span style="display:flex;"><span>kubectl describe order &lt;order-name&gt; -n external-services
+</span></span><span style="display:flex;"><span>kubectl get challenges -n external-services
+</span></span></code></pre></div><h3 id="ingress-pattern">Ingress Pattern</h3>
+<ul>
+<li>Each external service IP is accessible via HTTP or HTTPS.
+<ul>
+<li>If HTTP: Ingress
+<ul>
+<li>This includes my access points and network switch.</li>
+</ul>
+</li>
+<li>If HTTPS: IngressRoute
+<ul>
+<li>Proxmox, pfsense, pihole, and TrueNAS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>This will affect the service yaml files in the next step.</li>
+</ul>
+<h3 id="service-deployment">Service Deployment</h3>
+<ol>
+<li>Create a file for each external service you would like to add:</li>
+</ol>
+<pre tabindex="0"><code>nano /apps/external-services/SERVICE-NAME.yaml
+</code></pre><ol start="2">
+<li>Edit Files with below templates.</li>
+<li>Apply the configs:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl apply -f apps/external-services/SERVICE-NAME.yaml
+</span></span></code></pre></div><ol start="4">
+<li>Validate the cert is ready:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get certificate -n external-services
+</span></span></code></pre></div><ol start="5">
+<li>Validate all the ingresses exist:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl get ingress,ingressroute -n external-services
+</span></span></code></pre></div><ol start="6">
+<li>Validate there are no errors in Traefik</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl logs -n kube-system -l app.kubernetes.io/name<span style="color:#f92672">=</span>traefik --tail<span style="color:#f92672">=</span>50 | grep -i error
+</span></span></code></pre></div><h4 id="ingress-with-http">Ingress with HTTP</h4>
+<ul>
+<li>Replace NAME-OF-SERVICE, SERVICE-IP-ADDRESS, and SERVICE for the local domain name.</li>
+<li>Make sure the domain below is your domain.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">NAME-OF-SERVICE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">ClusterIP</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Endpoints</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">NAME-OF-SERVICE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">subsets</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">addresses</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">ip</span>: <span style="color:#ae81ff">SERVICE-IP-ADDRESS</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Ingress</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">NAME-OF-SERVICE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">traefik.ingress.kubernetes.io/router.entrypoints</span>: <span style="color:#e6db74">&#34;websecure&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">traefik.ingress.kubernetes.io/router.tls</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ingressClassName</span>: <span style="color:#ae81ff">traefik</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tls</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">hosts</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">SERVICE.home.domain.com</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">secretName</span>: <span style="color:#ae81ff">wildcard-home-domain-com-tls</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rules</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">host</span>: <span style="color:#ae81ff">switch.home.domain.com</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">http</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">paths</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">pathType</span>: <span style="color:#ae81ff">Prefix</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">backend</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">service</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">name</span>: <span style="color:#ae81ff">NAME-OF-SERVICE</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">port</span>:
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">number</span>: <span style="color:#ae81ff">80</span>
+</span></span></code></pre></div><h4 id="ingress-route-with-http-redirect-pihole">Ingress Route with HTTP redirect (PiHole)</h4>
+<ul>
+<li>Pi-Hole&rsquo;s UI is accessed via IP-ADRESS/admin, so it requires a slightly different setup.</li>
+<li>Replace PIHOLE-IP and make sure the domain is your domain.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pihole</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">ClusterIP</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Endpoints</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pihole</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">subsets</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">addresses</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">ip</span>: <span style="color:#ae81ff">PIHOLE-IP</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">traefik.containo.us/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Middleware</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pihole-redirect</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">redirectRegex</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">regex</span>: <span style="color:#e6db74">&#34;^https://pihole\\.home\\.DOMAIN\\.com/$&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">replacement</span>: <span style="color:#e6db74">&#34;https://pihole.home.DOMAIN.com/admin/&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">permanent</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">traefik.containo.us/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">IngressRoute</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pihole</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">entryPoints</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">websecure</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">routes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">match</span>: <span style="color:#ae81ff">Host(`pihole.home.DOMAIN.com`)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Rule</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">middlewares</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pihole-redirect</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pihole</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">port</span>: <span style="color:#ae81ff">80</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tls</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">secretName</span>: <span style="color:#ae81ff">wildcard-home-DOMAIN-com-tls</span>
+</span></span></code></pre></div><h4 id="ingressroute-with-https">IngressRoute with HTTPS</h4>
+<ul>
+<li>Replace NAME-OF-SERVICE, SERVICE-IP, and domain name.</li>
+<li>When this is fully set up and you try to access PFSense (if you are using it), you will be hit with a &ldquo;Potential DNS Rebind Attack.&rdquo; Log into PFSense via the IP address, navigate to</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">NAME-OF-SERVICE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">ClusterIP</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">443</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">443</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Endpoints</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">NAME-OF-SERVICE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">subsets</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">addresses</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">ip</span>: <span style="color:#ae81ff">SERVICE-IP</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">port</span>: <span style="color:#ae81ff">443</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">traefik.containo.us/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">IngressRoute</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">NAME-OF-SERVICE</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">external-services</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">entryPoints</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">websecure</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">routes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">match</span>: <span style="color:#ae81ff">Host(`SERVICE.home.DOMAIN.com`)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Rule</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pfsense</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">port</span>: <span style="color:#ae81ff">443</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">scheme</span>: <span style="color:#ae81ff">https</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">serversTransport</span>: <span style="color:#ae81ff">skip-verify</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tls</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">secretName</span>: <span style="color:#ae81ff">wildcard-home-DOMAIN-com-tls</span>
+</span></span></code></pre></div><h4 id="proxmox-ingressroute-with-https">Proxmox IngressRoute with HTTPS</h4>
+<ul>
+<li>Replace PROXMOX-IP and DOMAIN</li>
+</ul>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Service
+metadata:
+  name: proxmox
+  namespace: external-services
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8006
+      targetPort: 8006
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: proxmox
+  namespace: external-services
+subsets:
+  - addresses:
+      - ip: PROXMOX-IP
+    ports:
+      - port: 8006
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: proxmox
+  namespace: external-services
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`proxmox.home.DOMAIN.com`)
+      kind: Rule
+      services:
+        - name: proxmox
+          port: 8006
+          scheme: https
+          serversTransport: proxmox-transport
+  tls:
+    secretName: wildcard-home-DOMAIN-com-tls
+</code></pre><h2 id="the-impact">The Impact</h2>
+<ul>
+<li>Further creation and configuration of kubernetes apps and service</li>
+</ul>
+
+    </div>
+    
+    
+</div>
+
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-problem">The Problem</a></li>
+    <li><a href="#the-approach">The Approach</a>
+      <ul>
+        <li><a href="#namespace-creation">Namespace Creation</a></li>
+        <li><a href="#shared-serverstransports-creation">Shared ServersTransports Creation</a></li>
+        <li><a href="#wildcard-cert-creation">Wildcard Cert Creation</a></li>
+        <li><a href="#ingress-pattern">Ingress Pattern</a></li>
+        <li><a href="#service-deployment">Service Deployment</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-impact">The Impact</a></li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
+
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>
